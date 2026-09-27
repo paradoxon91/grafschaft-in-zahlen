@@ -1,0 +1,61 @@
+/* css styles */
+/* ---------------------------------------------
+   Startseite – Grafschaft in Zahlen
+---------------------------------------------- */
+
+.hero-giz {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 1.5rem auto 3rem auto;
+  padding: 2rem 0;
+}
+
+.hero-logo {
+  flex: 0 0 260px;
+  text-align: center;
+}
+
+.hero-logo img {
+  max-width: 230px;
+  border-radius: 50%;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+}
+
+.hero-text h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2E6B3E;
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+
+  .hero-giz {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .hero-logo {
+    flex: none;
+  }
+
+  .hero-logo img {
+    max-width: 180px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+}

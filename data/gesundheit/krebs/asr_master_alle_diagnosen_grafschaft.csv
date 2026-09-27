@@ -1,0 +1,99 @@
+gebiet;diagnose;geschlecht;zeitraum;kennzahl;asr;fallzahl;bevoelkerung
+Bad Bentheim, Stadt;Krebs gesamt;Gesamt;2013-2022;ASR;365,03;955;15495
+Emlichheim, SG;Krebs gesamt;Gesamt;2013-2022;ASR;377,45;819;14373
+Neuenhaus, SG;Krebs gesamt;Gesamt;2013-2022;ASR;389,92;844;14032
+Nordhorn, Stadt;Krebs gesamt;Gesamt;2013-2022;ASR;399,97;3436;53413
+Schüttorf, SG;Krebs gesamt;Gesamt;2013-2022;ASR;362,73;837;15652
+Uelsen, SG;Krebs gesamt;Gesamt;2013-2022;ASR;370,24;661;11287
+Wietmarschen;Krebs gesamt;Gesamt;2013-2022;ASR;340,57;537;12121
+Bad Bentheim, Stadt;Krebs gesamt;Frauen;2013-2022;ASR;336,99;441;7830
+Emlichheim, SG;Krebs gesamt;Frauen;2013-2022;ASR;339,11;373;7064
+Neuenhaus, SG;Krebs gesamt;Frauen;2013-2022;ASR;372,23;403;6942
+Nordhorn, Stadt;Krebs gesamt;Frauen;2013-2022;ASR;361,30;1580;27110
+Schüttorf, SG;Krebs gesamt;Frauen;2013-2022;ASR;338,87;398;7785
+Uelsen, SG;Krebs gesamt;Frauen;2013-2022;ASR;339,99;290;5538
+Wietmarschen;Krebs gesamt;Frauen;2013-2022;ASR;297,11;236;5998
+Bad Bentheim, Stadt;Krebs gesamt;Männer;2013-2022;ASR;401,66;514;7665
+Emlichheim, SG;Krebs gesamt;Männer;2013-2022;ASR;420,58;446;7309
+Neuenhaus, SG;Krebs gesamt;Männer;2013-2022;ASR;412,12;441;7090
+Nordhorn, Stadt;Krebs gesamt;Männer;2013-2022;ASR;452,31;1856;26303
+Schüttorf, SG;Krebs gesamt;Männer;2013-2022;ASR;395,95;439;7867
+Uelsen, SG;Krebs gesamt;Männer;2013-2022;ASR;404,03;371;5750
+Wietmarschen;Krebs gesamt;Männer;2013-2022;ASR;391,00;301;6122
+Bad Bentheim, Stadt;Darmkrebs;Gesamt;2013-2022;ASR;37,58;108;15495
+Emlichheim, SG;Darmkrebs;Gesamt;2013-2022;ASR;46,17;107;14373
+Neuenhaus, SG;Darmkrebs;Gesamt;2013-2022;ASR;50,77;126;14032
+Nordhorn, Stadt;Darmkrebs;Gesamt;2013-2022;ASR;42,71;412;53413
+Schüttorf, SG;Darmkrebs;Gesamt;2013-2022;ASR;39,23;100;15652
+Uelsen, SG;Darmkrebs;Gesamt;2013-2022;ASR;37,79;77;11287
+Wietmarschen;Darmkrebs;Gesamt;2013-2022;ASR;39,59;69;12121
+Bad Bentheim, Stadt;Darmkrebs;Frauen;2013-2022;ASR;29,87;50;7830
+Emlichheim, SG;Darmkrebs;Frauen;2013-2022;ASR;37,35;47;7064
+Neuenhaus, SG;Darmkrebs;Frauen;2013-2022;ASR;44,54;59;6942
+Nordhorn, Stadt;Darmkrebs;Frauen;2013-2022;ASR;34,93;187;27110
+Schüttorf, SG;Darmkrebs;Frauen;2013-2022;ASR;33,21;48;7785
+Uelsen, SG;Darmkrebs;Frauen;2013-2022;ASR;21,87;24;5538
+Wietmarschen;Darmkrebs;Frauen;2013-2022;ASR;37,88;36;5998
+Bad Bentheim, Stadt;Darmkrebs;Männer;2013-2022;ASR;45,03;58;7665
+Emlichheim, SG;Darmkrebs;Männer;2013-2022;ASR;54,82;60;7309
+Neuenhaus, SG;Darmkrebs;Männer;2013-2022;ASR;58,01;67;7090
+Nordhorn, Stadt;Darmkrebs;Männer;2013-2022;ASR;52,38;225;26303
+Schüttorf, SG;Darmkrebs;Männer;2013-2022;ASR;45,89;52;7867
+Uelsen, SG;Darmkrebs;Männer;2013-2022;ASR;53,61;53;5750
+Wietmarschen;Darmkrebs;Männer;2013-2022;ASR;41,25;33;6122
+Bad Bentheim, Stadt;Lungenkrebs;Gesamt;2013-2022;ASR;35,42;95;15495
+Emlichheim, SG;Lungenkrebs;Gesamt;2013-2022;ASR;39,77;83;14373
+Neuenhaus, SG;Lungenkrebs;Gesamt;2013-2022;ASR;37,61;82;14032
+Nordhorn, Stadt;Lungenkrebs;Gesamt;2013-2022;ASR;47,95;412;53413
+Schüttorf, SG;Lungenkrebs;Gesamt;2013-2022;ASR;42,66;102;15652
+Uelsen, SG;Lungenkrebs;Gesamt;2013-2022;ASR;26,52;51;11287
+Wietmarschen;Lungenkrebs;Gesamt;2013-2022;ASR;38,29;62;12121
+Bad Bentheim, Stadt;Lungenkrebs;Frauen;2013-2022;ASR;27,43;35;7830
+Emlichheim, SG;Lungenkrebs;Frauen;2013-2022;ASR;28,28;28;7064
+Neuenhaus, SG;Lungenkrebs;Frauen;2013-2022;ASR;27,93;28;6942
+Nordhorn, Stadt;Lungenkrebs;Frauen;2013-2022;ASR;34,19;150;27110
+Schüttorf, SG;Lungenkrebs;Frauen;2013-2022;ASR;31,35;36;7785
+Uelsen, SG;Lungenkrebs;Frauen;2013-2022;ASR;11,78;11;5538
+Wietmarschen;Lungenkrebs;Frauen;2013-2022;ASR;26,15;20;5998
+Bad Bentheim, Stadt;Lungenkrebs;Männer;2013-2022;ASR;45,02;60;7665
+Emlichheim, SG;Lungenkrebs;Männer;2013-2022;ASR;51,98;55;7309
+Neuenhaus, SG;Lungenkrebs;Männer;2013-2022;ASR;48,27;54;7090
+Nordhorn, Stadt;Lungenkrebs;Männer;2013-2022;ASR;64,41;262;26303
+Schüttorf, SG;Lungenkrebs;Männer;2013-2022;ASR;56,88;66;7867
+Uelsen, SG;Lungenkrebs;Männer;2013-2022;ASR;42,70;40;5750
+Wietmarschen;Lungenkrebs;Männer;2013-2022;ASR;52,80;42;6122
+Bad Bentheim, Stadt;Melanom;Gesamt;2013-2022;ASR;24,81;54;15495
+Emlichheim, SG;Melanom;Gesamt;2013-2022;ASR;19,48;38;14373
+Neuenhaus, SG;Melanom;Gesamt;2013-2022;ASR;21,08;41;14032
+Nordhorn, Stadt;Melanom;Gesamt;2013-2022;ASR;21,48;168;53413
+Schüttorf, SG;Melanom;Gesamt;2013-2022;ASR;20,86;41;15652
+Uelsen, SG;Melanom;Gesamt;2013-2022;ASR;17,22;27;11287
+Wietmarschen;Melanom;Gesamt;2013-2022;ASR;18,89;28;12121
+Bad Bentheim, Stadt;Melanom;Frauen;2013-2022;ASR;29,15;28;7830
+Emlichheim, SG;Melanom;Frauen;2013-2022;ASR;20,73;18;7064
+Neuenhaus, SG;Melanom;Frauen;2013-2022;ASR;21,52;20;6942
+Nordhorn, Stadt;Melanom;Frauen;2013-2022;ASR;21,03;78;27110
+Schüttorf, SG;Melanom;Frauen;2013-2022;ASR;21,39;21;7785
+Uelsen, SG;Melanom;Frauen;2013-2022;ASR;25,82;18;5538
+Wietmarschen;Melanom;Frauen;2013-2022;ASR;21,06;15;5998
+Bad Bentheim, Stadt;Melanom;Männer;2013-2022;ASR;21,49;26;7665
+Emlichheim, SG;Melanom;Männer;2013-2022;ASR;18,84;20;7309
+Neuenhaus, SG;Melanom;Männer;2013-2022;ASR;20,92;21;7090
+Nordhorn, Stadt;Melanom;Männer;2013-2022;ASR;22,89;90;26303
+Schüttorf, SG;Melanom;Männer;2013-2022;ASR;20,56;20;7867
+Uelsen, SG;Melanom;Männer;2013-2022;ASR;8,83;9;5750
+Wietmarschen;Melanom;Männer;2013-2022;ASR;17,78;13;6122
+Bad Bentheim, Stadt;Brustkrebs;Frauen;2013-2022;ASR;125,69;150;7830
+Emlichheim, SG;Brustkrebs;Frauen;2013-2022;ASR;129,14;133;7064
+Neuenhaus, SG;Brustkrebs;Frauen;2013-2022;ASR;128,97;131;6942
+Nordhorn, Stadt;Brustkrebs;Frauen;2013-2022;ASR;122,27;486;27110
+Schüttorf, SG;Brustkrebs;Frauen;2013-2022;ASR;124,15;130;7785
+Uelsen, SG;Brustkrebs;Frauen;2013-2022;ASR;112,83;93;5538
+Wietmarschen;Brustkrebs;Frauen;2013-2022;ASR;91,20;68;5998
+Bad Bentheim, Stadt;Prostatakrebs;Männer;2013-2022;ASR;121,63;164;7665
+Emlichheim, SG;Prostatakrebs;Männer;2013-2022;ASR;122,63;132;7309
+Neuenhaus, SG;Prostatakrebs;Männer;2013-2022;ASR;98,16;105;7090
+Nordhorn, Stadt;Prostatakrebs;Männer;2013-2022;ASR;126,97;538;26303
+Schüttorf, SG;Prostatakrebs;Männer;2013-2022;ASR;110,32;124;7867
+Uelsen, SG;Prostatakrebs;Männer;2013-2022;ASR;124,05;117;5750
+Wietmarschen;Prostatakrebs;Männer;2013-2022;ASR;104,83;82;6122

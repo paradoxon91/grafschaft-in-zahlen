@@ -1,0 +1,21 @@
+---
+title: "Bevölkerung der Grafschaft Bentheim 2025"
+date: 2026-09-25
+description: "Ein erster Blick auf die aktuellen Bevölkerungszahlen des Landkreises und seiner Gemeinden."
+categories:
+  - Bevölkerung
+---
+
+Die Grafschaft Bentheim hatte im Jahr 2025 insgesamt **144.674 Einwohnerinnen und Einwohner**.
+
+Gegenüber 2022 entspricht dies einem Bevölkerungswachstum von rund **1,5 %**.
+
+Besonders interessant sind die unterschiedlichen Entwicklungen auf Gemeindeebene. Während einige Gemeinden in den vergangenen Jahren gewachsen sind, verzeichneten andere leichte Bevölkerungsrückgänge.
+
+Eine ausführliche interaktive Darstellung gibt es im Bereich [**Bevölkerung**](../bevoelkerung.qmd).
+
+*Datenquelle: Landesamt für Statistik Niedersachsen (LSN), Tabelle Z100300G.*
+
+---
+title: "Bevölkerung 2025"
+---

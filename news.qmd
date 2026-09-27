@@ -1,0 +1,14 @@
+---
+title: "Aktuelles"
+listing:
+  contents: news
+  sort: "date desc"
+  type: default
+  fields:
+    - date
+    - title
+    - description
+  categories: true
+---
+
+## Hier erscheinen neue Analysen, kurze Beiträge und Hinweise zu aktuellen statistischen Entwicklungen in der Grafschaft Bentheim.

@@ -1,0 +1,1238 @@
+---
+title: "Bevölkerung"
+
+format:
+  html:
+    toc: true
+    toc-location: left
+---
+
+## Bevölkerungsentwicklung in der Grafschaft Bentheim
+
+Hier werden die langfristige Bevölkerungsentwicklung des Landkreises Grafschaft Bentheim sowie die Entwicklungen seiner 25 Gemeinden dargestellt.
+
+Für die langfristigen Zeitreihen werden historische Bevölkerungsstände bis 1970 mit den ab 1973 jährlich verfügbaren Bevölkerungszahlen des **LSN-Online-Portals** kombiniert. Ab 1973 wird ausschließlich die **Gesamtbevölkerung** verwendet; geschlechtsspezifische Angaben, Fläche und Bevölkerungsdichte werden nicht dargestellt.
+
+Im Mouseover wird zusätzlich das **Durchschnittsalter der Bevölkerung** angezeigt, sofern für das jeweilige Jahr ein Originalwert in der LSN-Tabelle vorliegt.
+
+```{r}
+#| label: kennzahlen
+#| include: false
+
+library(readr)
+library(dplyr)
+library(scales)
+
+# -------------------------------------------------
+# Kreiszeitreihe
+# -------------------------------------------------
+
+bevoelkerung_kreis <- read_csv2(
+  "data/bevoelkerung_grafschaft_1821_2026_mit_alter.csv",
+  col_types = cols(
+    jahr = col_integer(),
+    bevoelkerung = col_double(),
+    durchschnittsalter = col_double()
+  ),
+  show_col_types = FALSE
+) |>
+  transmute(
+    year = jahr,
+    population = bevoelkerung,
+    durchschnittsalter = durchschnittsalter
+  ) |>
+  arrange(year)
+
+
+# -------------------------------------------------
+# Gemeindereihen
+#
+# Historische Werte bis 1970 +
+# jährliche LSN-Werte 1973–2026
+# -------------------------------------------------
+
+bevoelkerung_gemeinden <- read_csv2(
+  "data/bevoelkerung_gemeinden_1821_2026_mit_alter.csv",
+  col_types = cols(
+    lsn_code = col_character(),
+    ags_8 = col_character(),
+    year = col_integer(),
+    population = col_double(),
+    durchschnittsalter = col_double(),
+    .default = col_character()
+  ),
+  show_col_types = FALSE
+) |>
+  arrange(
+    region_name,
+    year
+  )
+
+
+# -------------------------------------------------
+# Kennzahlen Landkreis
+# -------------------------------------------------
+
+kennzahlen_2022 <- bevoelkerung_kreis |>
+  filter(
+    year == 2022
+  ) |>
+  pull(
+    population
+  )
+
+kennzahlen_2025 <- bevoelkerung_kreis |>
+  filter(
+    year == 2025
+  ) |>
+  pull(
+    population
+  )
+
+
+# -------------------------------------------------
+# Prozentuale Veränderung 2022–2025
+# -------------------------------------------------
+
+veraenderung_2022_2025 <-
+  100 * (
+    kennzahlen_2025 /
+      kennzahlen_2022 - 1
+  )
+
+
+trend_text <- paste0(
+  ifelse(
+    veraenderung_2022_2025 > 0,
+    "+",
+    ""
+  ),
+  format(
+    round(
+      veraenderung_2022_2025,
+      1
+    ),
+    decimal.mark = ",",
+    nsmall = 1
+  ),
+  " %"
+)
+
+
+trend_farbe <- ifelse(
+  veraenderung_2022_2025 > 0,
+  "#2E7D32",
+  ifelse(
+    veraenderung_2022_2025 < 0,
+    "#C62828",
+    "#666666"
+  )
+)
+
+
+# -------------------------------------------------
+# Größte Gemeinde 2025
+# -------------------------------------------------
+
+bev_2025_tmp <- bevoelkerung_gemeinden |>
+  filter(
+    year == 2025
+  )
+
+groesste_gemeinde <- bev_2025_tmp[
+  which.max(
+    bev_2025_tmp$population
+  ),
+]
+```
+
+
+::: {.columns}
+
+::: {.column width="33%"}
+
+::: {.card}
+::: {.card-body}
+
+## `r scales::number(kennzahlen_2025, big.mark = ".", decimal.mark = ",")`
+
+**Einwohner 2025**
+
+Landkreis Grafschaft Bentheim
+
+:::
+:::
+
+:::
+
+
+::: {.column width="33%"}
+
+::: {.card}
+::: {.card-body}
+
+## <span style="color:`r trend_farbe`; font-weight:800;">`r trend_text`</span>
+
+**Veränderung 2022–2025**
+
+Bevölkerungsentwicklung
+
+:::
+:::
+
+:::
+
+
+::: {.column width="33%"}
+
+::: {.card}
+::: {.card-body}
+
+## `r scales::number(groesste_gemeinde$population, big.mark = ".", decimal.mark = ",")`
+
+**`r groesste_gemeinde$region_name`**
+
+größte Gemeinde 2025
+
+:::
+:::
+
+:::
+
+:::
+
+
+## Langfristige Bevölkerungsentwicklung
+
+Die Grafik zeigt die Bevölkerungsentwicklung des gesamten Landkreises von **1821 bis 2026**. Historische Einzelwerte reichen bis 1970; ab 1973 liegt eine jährliche Bevölkerungsreihe vor. Bewege den Mauszeiger über einen Punkt, um **Jahr, Einwohnerzahl und – soweit verfügbar – das Durchschnittsalter** anzuzeigen.
+
+```{r}
+#| label: bevoelkerungsentwicklung
+#| echo: false
+#| warning: false
+#| message: false
+
+library(plotly)
+library(scales)
+
+# -------------------------------------------------
+# Darstellung vorbereiten
+# -------------------------------------------------
+
+bevoelkerung_kreis_plot <- bevoelkerung_kreis |>
+  mutate(
+
+    population_label =
+      scales::number(
+        population,
+        big.mark = ".",
+        decimal.mark = ",",
+        accuracy = 1
+      ),
+
+    durchschnittsalter_label =
+      ifelse(
+        is.na(durchschnittsalter),
+        "",
+        paste0(
+          format(
+            round(
+              durchschnittsalter,
+              1
+            ),
+            decimal.mark = ",",
+            nsmall = 1
+          ),
+          " Jahre"
+        )
+      ),
+
+    hover_text =
+      ifelse(
+        is.na(durchschnittsalter),
+
+        paste0(
+          "<b>Grafschaft Bentheim</b>",
+          "<br>Jahr: ",
+          year,
+          "<br>Einwohner: ",
+          population_label
+        ),
+
+        paste0(
+          "<b>Grafschaft Bentheim</b>",
+          "<br>Jahr: ",
+          year,
+          "<br>Einwohner: ",
+          population_label,
+          "<br>Durchschnittsalter (31.12.): ",
+          durchschnittsalter_label
+        )
+      ),
+
+    marker_size =
+      ifelse(
+        year < 1973,
+        7,
+        4.5
+      )
+  )
+
+
+# -------------------------------------------------
+# Y-Achse mit deutschen Tausendertrennzeichen
+# -------------------------------------------------
+
+y_breaks_kreis <- pretty(
+  range(
+    bevoelkerung_kreis_plot$population,
+    na.rm = TRUE
+  ),
+  n = 6
+)
+
+y_breaks_kreis <- y_breaks_kreis[
+  y_breaks_kreis >= 0
+]
+
+y_labels_kreis <- scales::number(
+  y_breaks_kreis,
+  big.mark = ".",
+  decimal.mark = ",",
+  accuracy = 1
+)
+
+
+# -------------------------------------------------
+# Dezente Referenzlinien
+# -------------------------------------------------
+
+basislinien_kreis <- lapply(
+
+  c(
+    1973,
+    1987,
+    2011,
+    2022
+  ),
+
+  function(jahr) {
+
+    list(
+
+      type = "line",
+
+      x0 = jahr,
+      x1 = jahr,
+
+      y0 = 0,
+      y1 = 1,
+
+      yref = "paper",
+
+      line = list(
+        color = "rgba(90,90,90,0.28)",
+        width = 1,
+        dash = "dot"
+      )
+    )
+  }
+)
+
+
+# -------------------------------------------------
+# Interaktive Grafik
+# -------------------------------------------------
+
+p_kreis <- plot_ly(
+
+  data =
+    bevoelkerung_kreis_plot,
+
+  x =
+    ~year,
+
+  y =
+    ~population,
+
+  type =
+    "scatter",
+
+  mode =
+    "lines+markers",
+
+  line = list(
+    color = "#2E6B3E",
+    width = 3
+  ),
+
+  marker = list(
+    color = "#2E6B3E",
+    size = bevoelkerung_kreis_plot$marker_size,
+    opacity = 0.85
+  ),
+
+  text =
+    ~hover_text,
+
+  hovertemplate =
+    "%{text}<extra></extra>"
+) |>
+
+  layout(
+
+    title = list(
+      text = "<b>Grafschaft Bentheim insgesamt</b>",
+      x = 0,
+      xanchor = "left",
+      font = list(
+        size = 20
+      )
+    ),
+
+    xaxis = list(
+
+      title = "",
+
+      showgrid = FALSE,
+
+      zeroline = FALSE,
+
+      tickmode = "array",
+
+      tickvals = c(
+        1821,
+        1871,
+        1925,
+        1950,
+        1973,
+        1990,
+        2010,
+        2026
+      ),
+
+      ticktext = c(
+        "1821",
+        "1871",
+        "1925",
+        "1950",
+        "1973",
+        "1990",
+        "2010",
+        "2026"
+      ),
+
+      linecolor = "#D9D9D9",
+
+      ticks = "outside"
+    ),
+
+    yaxis = list(
+
+      title = "Einwohner",
+
+      tickmode = "array",
+
+      tickvals =
+        y_breaks_kreis,
+
+      ticktext =
+        y_labels_kreis,
+
+      gridcolor =
+        "#E9ECEF",
+
+      zeroline = FALSE,
+
+      linecolor =
+        "#D9D9D9"
+    ),
+
+    showlegend =
+      FALSE,
+
+    hovermode =
+      "closest",
+
+    hoverlabel = list(
+      align = "left"
+    ),
+
+    shapes =
+      basislinien_kreis,
+
+    annotations = list(
+
+      list(
+        x = 1973,
+        y = 1.03,
+        xref = "x",
+        yref = "paper",
+        text = "jährliche LSN-Reihe ab 1973",
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(
+          size = 11,
+          color = "#6C757D"
+        )
+      )
+    ),
+
+    plot_bgcolor =
+      "white",
+
+    paper_bgcolor =
+      "white",
+
+    margin = list(
+      t = 75,
+      r = 25,
+      b = 55,
+      l = 90
+    )
+  ) |>
+
+  config(
+    displayModeBar = FALSE,
+    responsive = TRUE
+  )
+
+p_kreis
+```
+
+<div class="small text-muted" style="margin-top:0.35rem;">
+<strong>Quelle:</strong> Bevölkerungsstände: historische Reihe bis 1970; ab 1973 Landesamt für Statistik Niedersachsen (LSN), Tabelle Z100001G, Gesamtbevölkerung, Stichtag 30.06. Durchschnittsalter: LSN, Tabelle Z100004G, Geschlecht insgesamt, Stichtag 31.12.
+</div>
+
+<div class="small text-muted" style="margin-top:0.25rem;">
+<strong>Hinweis:</strong> Die dezenten senkrechten Linien markieren den Beginn der jährlichen LSN-Reihe 1973 sowie wichtige Änderungen der statistischen Datengrundlage. Langfristige Veränderungen über diese Übergänge hinweg sollten vorsichtig interpretiert werden.
+</div>
+
+
+## Datengrundlage
+
+Die langfristigen Reihen reichen bis in das Jahr **1821** zurück. Bis einschließlich 1970 werden historische Bevölkerungsstände verwendet. Für 1971 und 1972 liegen in der hier verwendeten Reihe keine Werte vor; es werden keine Werte interpoliert.
+
+Ab **1973** werden für den Landkreis und für alle 25 Gemeinden die jährlich verfügbaren Werte der **Gesamtbevölkerung** aus der LSN-Online-Tabelle Z100001G genutzt. Die Werte beziehen sich auf den **Stichtag 30.06.** des jeweiligen Jahres.
+
+Geschlechtsspezifische Angaben, Katasterfläche und Bevölkerungsdichte aus der LSN-Bevölkerungstabelle werden auf dieser Seite nicht dargestellt.
+
+Das **Durchschnittsalter** stammt aus der LSN-Online-Tabelle Z100004G und bezieht sich auf die Gesamtbevölkerung zum **31.12.** des jeweiligen Jahres. Wichtig: In der bereitgestellten Tabelle liegen Werte für **1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005 und 2010** sowie anschließend **jährlich von 2011 bis 2025** vor. Für die dazwischenliegenden Jahre wird nichts interpoliert.
+
+
+## Entwicklung der einzelnen Gemeinden
+
+Wähle eine Gemeinde aus, um ihre langfristige Bevölkerungsentwicklung zu betrachten. Auch hier werden ab 1973 die jährlich verfügbaren LSN-Bevölkerungswerte verwendet. Im Mouseover wird zusätzlich das Durchschnittsalter angezeigt, sofern für das jeweilige Jahr ein Originalwert vorliegt.
+
+```{r}
+#| label: gemeinden-interaktiv
+#| echo: false
+#| warning: false
+#| message: false
+
+library(plotly)
+
+# -------------------------------------------------
+# Gemeinden alphabetisch sortieren
+# -------------------------------------------------
+
+gemeinden <- sort(
+  unique(
+    bevoelkerung_gemeinden$region_name
+  )
+)
+
+
+# -------------------------------------------------
+# Nordhorn als Startansicht
+# -------------------------------------------------
+
+default_index <- which(
+  gemeinden == "Nordhorn"
+)
+
+
+# -------------------------------------------------
+# Plot aufbauen
+# -------------------------------------------------
+
+p <- plot_ly()
+
+
+for (i in seq_along(gemeinden)) {
+
+  g <- gemeinden[i]
+
+
+  daten_gemeinde <- bevoelkerung_gemeinden |>
+
+    filter(
+      region_name == g
+    ) |>
+
+    arrange(year) |>
+
+    mutate(
+
+      population_label =
+        scales::number(
+          population,
+          big.mark = ".",
+          decimal.mark = ",",
+          accuracy = 1
+        ),
+
+      durchschnittsalter_label =
+        ifelse(
+          is.na(durchschnittsalter),
+          "",
+          paste0(
+            format(
+              round(
+                durchschnittsalter,
+                1
+              ),
+              decimal.mark = ",",
+              nsmall = 1
+            ),
+            " Jahre"
+          )
+        ),
+
+      hover_text =
+        ifelse(
+          is.na(durchschnittsalter),
+
+          paste0(
+            "<b>",
+            g,
+            "</b>",
+            "<br>Jahr: ",
+            year,
+            "<br>Einwohner: ",
+            population_label
+          ),
+
+          paste0(
+            "<b>",
+            g,
+            "</b>",
+            "<br>Jahr: ",
+            year,
+            "<br>Einwohner: ",
+            population_label,
+            "<br>Durchschnittsalter (31.12.): ",
+            durchschnittsalter_label
+          )
+        ),
+
+      marker_size =
+        ifelse(
+          year < 1973,
+          7,
+          4.5
+        )
+    )
+
+
+  p <- p |>
+
+    add_trace(
+
+      data =
+        daten_gemeinde,
+
+      x =
+        ~year,
+
+      y =
+        ~population,
+
+      type =
+        "scatter",
+
+      mode =
+        "lines+markers",
+
+      name =
+        g,
+
+      visible =
+        i == default_index,
+
+      line = list(
+        color = "#2E6B3E",
+        width = 3
+      ),
+
+      marker = list(
+        color = "#2E6B3E",
+        size = daten_gemeinde$marker_size,
+        opacity = 0.85
+      ),
+
+      text =
+        ~hover_text,
+
+      hovertemplate =
+        "%{text}<extra></extra>"
+    )
+}
+
+
+# -------------------------------------------------
+# Dropdown-Menü
+# -------------------------------------------------
+
+buttons <- lapply(
+
+  seq_along(gemeinden),
+
+  function(i) {
+
+    sichtbar <- rep(
+      FALSE,
+      length(gemeinden)
+    )
+
+    sichtbar[i] <- TRUE
+
+
+    list(
+
+      method =
+        "update",
+
+      args = list(
+
+        list(
+          visible =
+            sichtbar
+        ),
+
+        list(
+
+          title = list(
+            text = paste0(
+              "<b>",
+              gemeinden[i],
+              "</b>"
+            ),
+            x = 0,
+            xanchor = "left"
+          )
+        )
+      ),
+
+      label =
+        gemeinden[i]
+    )
+  }
+)
+
+
+# -------------------------------------------------
+# Dezente Linien für Änderungen der Datengrundlage
+# -------------------------------------------------
+
+basislinien <- lapply(
+
+  c(
+    1973,
+    1987,
+    2011,
+    2022
+  ),
+
+  function(jahr) {
+
+    list(
+
+      type =
+        "line",
+
+      x0 =
+        jahr,
+
+      x1 =
+        jahr,
+
+      y0 =
+        0,
+
+      y1 =
+        1,
+
+      yref =
+        "paper",
+
+      line = list(
+        color = "rgba(90,90,90,0.28)",
+        width = 1,
+        dash = "dot"
+      )
+    )
+  }
+)
+
+
+# -------------------------------------------------
+# Layout
+# -------------------------------------------------
+
+p_gemeinden <- p |>
+
+  layout(
+
+    title = list(
+
+      text =
+        "<b>Nordhorn</b>",
+
+      x =
+        0,
+
+      xanchor =
+        "left",
+
+      font = list(
+        size = 20
+      )
+    ),
+
+
+    xaxis = list(
+
+      title =
+        "",
+
+      showgrid =
+        FALSE,
+
+      zeroline =
+        FALSE,
+
+      linecolor =
+        "#D9D9D9",
+
+      ticks =
+        "outside"
+    ),
+
+
+    yaxis = list(
+
+      title =
+        "Einwohner",
+
+      gridcolor =
+        "#E9ECEF",
+
+      zeroline =
+        FALSE,
+
+      linecolor =
+        "#D9D9D9"
+    ),
+
+
+    showlegend =
+      FALSE,
+
+
+    hovermode =
+      "closest",
+
+
+    hoverlabel = list(
+      align = "left"
+    ),
+
+
+    updatemenus = list(
+
+      list(
+
+        type =
+          "dropdown",
+
+        x =
+          0,
+
+        y =
+          1.18,
+
+        xanchor =
+          "left",
+
+        yanchor =
+          "top",
+
+        active =
+          default_index - 1,
+
+        buttons =
+          buttons,
+
+        direction =
+          "down",
+
+        showactive =
+          TRUE
+      )
+    ),
+
+
+    shapes =
+      basislinien,
+
+
+    plot_bgcolor =
+      "white",
+
+    paper_bgcolor =
+      "white",
+
+
+    margin = list(
+      t = 115,
+      r = 25,
+      b = 55,
+      l = 90
+    )
+  ) |>
+
+  config(
+    displayModeBar = FALSE,
+    responsive = TRUE
+  )
+
+p_gemeinden
+```
+
+<div class="small text-muted" style="margin-top:0.35rem;">
+<strong>Quelle:</strong> Bevölkerungsstände: historische Reihe bis 1970; ab 1973 Landesamt für Statistik Niedersachsen (LSN), Tabelle Z100001G, Gesamtbevölkerung, Stichtag 30.06. Durchschnittsalter: LSN, Tabelle Z100004G, Geschlecht insgesamt, Stichtag 31.12.
+</div>
+
+
+## Bevölkerungsentwicklung auf Gemeindeebene
+
+Die Karte zeigt die prozentuale Veränderung der Bevölkerung zwischen **2022 und 2025**. Beide Jahre stammen aus der neuen jährlich verfügbaren LSN-Reihe und beziehen sich auf den Stichtag 30.06.
+
+```{r}
+#| label: gemeindekarte
+#| echo: false
+#| warning: false
+#| message: false
+
+library(sf)
+library(dplyr)
+library(leaflet)
+
+# -------------------------------------------------
+# Bevölkerungsdaten
+#
+# Dieselbe neue Gemeindereihe wie oben
+# -------------------------------------------------
+
+bev_map <- bevoelkerung_gemeinden
+
+
+# -------------------------------------------------
+# Gemeindegrenzen einlesen
+# -------------------------------------------------
+
+grafschaft_map <- st_read(
+  "data/grafschaft_gemeinden.geojson",
+  quiet = TRUE
+)
+
+
+# -------------------------------------------------
+# Bevölkerung 2022
+# -------------------------------------------------
+
+bev_2022 <- bev_map |>
+
+  filter(
+    year == 2022
+  ) |>
+
+  select(
+    ags_8,
+    population_2022 =
+      population
+  )
+
+
+# -------------------------------------------------
+# Bevölkerung 2025
+# -------------------------------------------------
+
+bev_2025 <- bev_map |>
+
+  filter(
+    year == 2025
+  ) |>
+
+  select(
+    ags_8,
+    region_name,
+    population_2025 =
+      population
+  )
+
+
+# -------------------------------------------------
+# Jahre miteinander verbinden
+# -------------------------------------------------
+
+bev_vergleich <- bev_2025 |>
+
+  left_join(
+    bev_2022,
+    by = "ags_8"
+  ) |>
+
+  mutate(
+
+    veraenderung_abs =
+      population_2025 -
+        population_2022,
+
+    veraenderung_prozent =
+      100 * (
+        population_2025 /
+          population_2022 - 1
+      )
+  )
+
+
+# -------------------------------------------------
+# Mit amtlichen Gemeindegrenzen verbinden
+# -------------------------------------------------
+
+karte <- grafschaft_map |>
+
+  left_join(
+    bev_vergleich,
+    by = c(
+      "SCH_GEM" = "ags_8"
+    )
+  ) |>
+
+  st_transform(4326)
+
+
+# -------------------------------------------------
+# Prüfen, ob alle 25 Gemeinden Daten haben
+# -------------------------------------------------
+
+stopifnot(
+  nrow(karte) == 25,
+  all(
+    !is.na(
+      karte$veraenderung_prozent
+    )
+  )
+)
+
+
+# -------------------------------------------------
+# Symmetrische Farbskala um 0
+# -------------------------------------------------
+
+max_abs <- max(
+  abs(
+    karte$veraenderung_prozent
+  ),
+  na.rm = TRUE
+)
+
+
+pal <- colorNumeric(
+
+  palette = c(
+    "#C62828",
+    "#FDD835",
+    "#2E7D32"
+  ),
+
+  domain = c(
+    -max_abs,
+    max_abs
+  )
+)
+
+
+# -------------------------------------------------
+# Popup-Texte
+# -------------------------------------------------
+
+karte <- karte |>
+
+  mutate(
+
+    popup = paste0(
+
+      "<strong>",
+      BEZ_GEM,
+      "</strong><br>",
+
+      "Einwohner 2022: ",
+      format(
+        population_2022,
+        big.mark = ".",
+        decimal.mark = ","
+      ),
+
+      "<br>",
+
+      "Einwohner 2025: ",
+      format(
+        population_2025,
+        big.mark = ".",
+        decimal.mark = ","
+      ),
+
+      "<br>",
+
+      "Veränderung: ",
+      ifelse(
+        veraenderung_abs > 0,
+        "+",
+        ""
+      ),
+
+      format(
+        veraenderung_abs,
+        big.mark = ".",
+        decimal.mark = ","
+      ),
+
+      "<br>",
+
+      "Veränderung in %: ",
+      ifelse(
+        veraenderung_prozent > 0,
+        "+",
+        ""
+      ),
+
+      format(
+        round(
+          veraenderung_prozent,
+          1
+        ),
+        decimal.mark = ",",
+        nsmall = 1
+      ),
+
+      " %"
+    )
+  )
+
+
+# -------------------------------------------------
+# Kartenausschnitt
+# -------------------------------------------------
+
+bbox <- st_bbox(
+  karte
+)
+
+
+# -------------------------------------------------
+# Karte
+# -------------------------------------------------
+
+leaflet(
+  karte
+) |>
+
+  addProviderTiles(
+    providers$OpenStreetMap.Mapnik
+  ) |>
+
+  addPolygons(
+
+    fillColor =
+      ~pal(
+        veraenderung_prozent
+      ),
+
+    fillOpacity =
+      0.8,
+
+    color =
+      "white",
+
+    weight =
+      1.5,
+
+    popup =
+      ~popup,
+
+    label =
+      ~BEZ_GEM,
+
+    highlightOptions =
+      highlightOptions(
+
+        weight =
+          3,
+
+        color =
+          "#333333",
+
+        bringToFront =
+          TRUE
+      )
+  ) |>
+
+  addLegend(
+
+    position =
+      "bottomright",
+
+    pal =
+      pal,
+
+    values =
+      ~veraenderung_prozent,
+
+    title =
+      "Veränderung<br>2022–2025 (%)",
+
+    opacity =
+      0.9
+  ) |>
+
+  fitBounds(
+
+    lng1 =
+      unname(
+        bbox["xmin"]
+      ),
+
+    lat1 =
+      unname(
+        bbox["ymin"]
+      ),
+
+    lng2 =
+      unname(
+        bbox["xmax"]
+      ),
+
+    lat2 =
+      unname(
+        bbox["ymax"]
+      )
+  )
+```
+
+<div class="small text-muted" style="margin-top:0.35rem;">
+<strong>Quelle:</strong> Landesamt für Statistik Niedersachsen (LSN), Tabelle Z100001G, Gesamtbevölkerung, Stichtag 30.06.; Gemeindegrenzen: LGLN Niedersachsen.
+</div>
+

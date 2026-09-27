@@ -1,0 +1,22 @@
+gebiet;geschlecht;diagnose;icd10;zeitraum;kennzahl;asr;fallzahl;bevoelkerung
+Bad Bentheim, Stadt;Gesamt;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;365,03;955;15495
+Wietmarschen;Gesamt;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;340,57;537;12121
+Nordhorn, Stadt;Gesamt;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;399,97;3436;53413
+Schüttorf, SG;Gesamt;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;362,73;837;15652
+Uelsen, SG;Gesamt;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;370,24;661;11287
+Emlichheim, SG;Gesamt;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;377,45;819;14373
+Neuenhaus, SG;Gesamt;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;389,92;844;14032
+Bad Bentheim, Stadt;Männer;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;401,66;514;7665
+Wietmarschen;Männer;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;391,00;301;6122
+Nordhorn, Stadt;Männer;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;452,31;1856;26303
+Schüttorf, SG;Männer;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;395,95;439;7867
+Uelsen, SG;Männer;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;404,03;371;5750
+Emlichheim, SG;Männer;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;420,58;446;7309
+Neuenhaus, SG;Männer;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;412,12;441;7090
+Bad Bentheim, Stadt;Frauen;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;336,99;441;7830
+Wietmarschen;Frauen;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;297,11;236;5998
+Nordhorn, Stadt;Frauen;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;361,30;1580;27110
+Schüttorf, SG;Frauen;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;338,87;398;7785
+Uelsen, SG;Frauen;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;339,99;290;5538
+Emlichheim, SG;Frauen;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;339,11;373;7064
+Neuenhaus, SG;Frauen;Krebs gesamt;C00-C97 ohne C44;2013-2022;ASR;372,23;403;6942

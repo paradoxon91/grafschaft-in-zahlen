@@ -1,0 +1,113 @@
+---
+title: "Grafschaft in Zahlen"
+page-layout: full
+toc: false
+
+listing:
+  id: aktuelle-news
+  contents: news
+  sort: "date desc"
+  type: grid
+  max-items: 3
+  grid-columns: 3
+  fields:
+    - date
+    - title
+    - description
+  sort-ui: false
+  filter-ui: false
+
+---
+
+::: {.hero-giz}
+
+::: {.hero-logo}
+![](images/logo.jpg){width=230px}
+:::
+
+::: {.hero-text}
+
+# Grafschaft in Zahlen
+
+## Zahlen, Daten und Fakten aus der Grafschaft Bentheim
+
+**Grafschaft in Zahlen** bereitet statistische Daten zum Landkreis Grafschaft Bentheim und seinen Gemeinden verständlich, transparent und anschaulich auf.
+
+Im Mittelpunkt stehen langfristige Entwicklungen, regionale Unterschiede und interaktive Darstellungen.
+
+:::
+
+:::
+
+
+## Daten entdecken
+
+::: {.columns}
+
+::: {.column width="33%"}
+
+::: {.card}
+::: {.card-body}
+
+### Bevölkerung
+
+Wie entwickelt sich die Einwohnerzahl der Grafschaft Bentheim und ihrer 25 Gemeinden?
+
+[**Bevölkerungsdaten entdecken →**](bevoelkerung.qmd)
+
+:::
+:::
+
+:::
+
+
+::: {.column width="33%"}
+
+::: {.card}
+::: {.card-body}
+
+### Gesundheit
+
+Zahlen und Entwicklungen rund um Gesundheit und Versorgung.
+
+*Bereich im Aufbau*
+
+:::
+:::
+
+:::
+
+
+::: {.column width="33%"}
+
+::: {.card}
+::: {.card-body}
+
+### Wirtschaft & Arbeitsmarkt
+
+Beschäftigung, Arbeitslosigkeit und wirtschaftliche Entwicklungen.
+
+*Bereich im Aufbau*
+
+:::
+:::
+
+:::
+
+:::
+
+
+## Neu bei Grafschaft in Zahlen
+
+Hier findest du die neuesten Analysen und Beiträge zu Zahlen, Daten und Entwicklungen aus der Grafschaft Bentheim.
+
+::: {#aktuelle-news}
+:::
+
+[**Alle Beiträge ansehen →**](news.qmd)
+
+## Über das Projekt
+
+**Grafschaft in Zahlen** ist ein unabhängiges Statistikprojekt. Die verwendeten Daten stammen überwiegend aus amtlichen und öffentlich zugänglichen Datenquellen.
+
+Ziel ist es, Zahlen zur Grafschaft Bentheim verständlich aufzubereiten und Entwicklungen auf Ebene des Landkreises und seiner Gemeinden sichtbar zu machen.
