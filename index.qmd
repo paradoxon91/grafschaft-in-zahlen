@@ -8,15 +8,14 @@ listing:
   contents: news
   sort: "date desc"
   type: grid
-  max-items: 3
-  grid-columns: 3
+  max-items: 1
+  grid-columns: 1
   fields:
     - date
     - title
     - description
   sort-ui: false
   filter-ui: false
-
 ---
 
 ::: {.hero-giz}
@@ -40,71 +39,65 @@ Im Mittelpunkt stehen langfristige Entwicklungen, regionale Unterschiede und int
 :::
 
 
-## Daten entdecken
+## Aktuelles
 
-::: {.columns}
-
-::: {.column width="33%"}
-
-::: {.card}
-::: {.card-body}
-
-### Bevölkerung
-
-Wie entwickelt sich die Einwohnerzahl der Grafschaft Bentheim und ihrer 25 Gemeinden?
-
-[**Bevölkerungsdaten entdecken →**](bevoelkerung.qmd)
-
-:::
-:::
-
-:::
-
-
-::: {.column width="33%"}
-
-::: {.card}
-::: {.card-body}
-
-### Gesundheit
-
-Zahlen und Entwicklungen rund um Gesundheit und Versorgung.
-
-*Bereich im Aufbau*
-
-:::
-:::
-
-:::
-
-
-::: {.column width="33%"}
-
-::: {.card}
-::: {.card-body}
-
-### Wirtschaft & Arbeitsmarkt
-
-Beschäftigung, Arbeitslosigkeit und wirtschaftliche Entwicklungen.
-
-*Bereich im Aufbau*
-
-:::
-:::
-
-:::
-
-:::
-
-
-## Neu bei Grafschaft in Zahlen
-
-Hier findest du die neuesten Analysen und Beiträge zu Zahlen, Daten und Entwicklungen aus der Grafschaft Bentheim.
+Hier findest du die neueste Analyse aus **Grafschaft in Zahlen**.
 
 ::: {#aktuelle-news}
 :::
 
 [**Alle Beiträge ansehen →**](news.qmd)
+
+
+## Daten entdecken
+
+```{=html}
+<div class="themen-grid">
+
+  <a id="thema-bevoelkerung"
+     class="themen-kachel"
+     href="bevoelkerung.html">
+
+    <div class="themen-icon">
+      <i class="bi bi-people-fill"></i>
+    </div>
+
+    <div class="themen-titel">
+      Bevölkerung
+    </div>
+
+    <div class="themen-text">
+      Bevölkerungsentwicklung, Altersstruktur und Unterschiede zwischen den 25 Gemeinden.
+    </div>
+
+  </a>
+
+
+  <a id="thema-gesundheit"
+     class="themen-kachel"
+     href="gesundheit.html">
+
+    <div class="themen-icon">
+      <i class="bi bi-heart-pulse-fill"></i>
+    </div>
+
+    <div class="themen-titel">
+      Gesundheit
+    </div>
+
+    <div class="themen-text">
+      Gesundheitsdaten, Erkrankungen und regionale Unterschiede in der Grafschaft Bentheim.
+    </div>
+
+  </a>
+
+</div>
+
+<div class="themen-hinweis">
+  Weitere Themenbereiche werden schrittweise ergänzt.
+</div>
+```
+
 
 ## Über das Projekt
 

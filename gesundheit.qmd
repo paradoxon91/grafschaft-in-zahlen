@@ -19,13 +19,15 @@ Zur regionalen Einordnung werden zwei Kennzahlen verwendet: die **altersstandard
 
 Die altersstandardisierte Inzidenzrate (ASR) gibt an, wie viele Neuerkrankungen je **100.000 Einwohner und Jahr** zu erwarten wären, wenn die betrachteten Regionen dieselbe Altersstruktur wie die verwendete Standardbevölkerung hätten. Dadurch lassen sich Regionen trotz unterschiedlicher Altersstrukturen besser miteinander vergleichen.
 
-Die im Mouseover angegebene **Fallzahl 2013–2022** ist davon zu unterscheiden: Sie bezeichnet die absolute Zahl der im gesamten Zehnjahreszeitraum registrierten Neuerkrankungen.
+Die im Mouseover bzw. beim **Antippen eines Datenpunkts auf mobilen Geräten** angegebene **Fallzahl 2013–2022** ist davon zu unterscheiden: Sie bezeichnet die absolute Zahl der im gesamten Zehnjahreszeitraum registrierten Neuerkrankungen.
 
 ::: {.callout-note title="Lesebeispiel"}
 Steht bei einem Gebiet beispielsweise **Fallzahl 2013–2022: 1.500**, wurden dort im gesamten Zeitraum 2013–2022 insgesamt 1.500 Neuerkrankungen registriert. Rein rechnerisch entspricht das durchschnittlich etwa **150 Fällen pro Jahr**.
 
 Eine **ASR von 325,4 je 100.000 Einwohner/Jahr** bedeutet dagegen nicht, dass dort tatsächlich 325,4 Fälle pro Jahr beobachtet wurden. Die ASR ist eine altersstandardisierte Rate: Sie beschreibt die durchschnittliche jährliche Erkrankungshäufigkeit je 100.000 Einwohner unter der Altersstruktur der Standardbevölkerung. Die ASR lässt sich deshalb nicht einfach aus der absoluten Fallzahl und der Einwohnerzahl berechnen.
 :::
+
+::: {.gesundheit-chart .gesundheit-chart-asr}
 
 ```{r}
 #| label: krebs-asr-interaktiv
@@ -308,7 +310,7 @@ buttons <- lapply(
 
           title = list(
             text = paste(
-              auswahl$diagnose_anzeige[i],
+              auswahl$diagnose[i],
               "–",
               auswahl$geschlecht[i]
             )
@@ -330,7 +332,11 @@ buttons <- lapply(
         )
       ),
 
-      label = auswahl$label[i]
+      label = paste(
+        auswahl$diagnose[i],
+        "–",
+        auswahl$geschlecht[i]
+      )
     )
   }
 )
@@ -340,11 +346,11 @@ buttons <- lapply(
 # Layout
 # -------------------------------------------------
 
-p |>
+p_asr <- p |>
   layout(
 
     title = list(
-      text = "Krebs gesamt (C00–C97 ohne C44) – Gesamt",
+      text = "Krebs gesamt – Gesamt",
       x = 0.5,
       xanchor = "center"
     ),
@@ -362,12 +368,10 @@ p |>
         reihenfolgen[[1]]
     ),
 
-    # Text innerhalb der Mouseover-Box linksbündig
     hoverlabel = list(
       align = "left"
     ),
 
-    # Plotly positioniert die Hoverbox automatisch
     hovermode = "closest",
 
     showlegend = FALSE,
@@ -395,8 +399,108 @@ p |>
       t = 120,
       b = 60
     )
+  ) |>
+
+  config(
+    displayModeBar = FALSE,
+    responsive = TRUE
   )
+
+
+# -------------------------------------------------
+# Responsive Verhalten für Smartphone / Tablet
+# -------------------------------------------------
+
+p_asr <- htmlwidgets::onRender(
+  p_asr,
+  "
+  function(el, x) {
+
+    var gebieteVoll = [
+      'Nordhorn, Stadt',
+      'Neuenhaus, SG',
+      'Emlichheim, SG',
+      'Uelsen, SG',
+      'Bad Bentheim, Stadt',
+      'Schüttorf, SG',
+      'Wietmarschen'
+    ];
+
+    var gebieteKurz = [
+      'Nordhorn',
+      'Neuenhaus',
+      'Emlichheim',
+      'Uelsen',
+      'Bad Bentheim',
+      'Schüttorf',
+      'Wietmarschen'
+    ];
+
+    function responsiveASR() {
+
+      var mobile = window.innerWidth <= 600;
+
+      Plotly.restyle(
+        el,
+        {
+          'textfont.size': mobile ? 11 : 13
+        }
+      );
+
+      var update = {
+
+        'autosize': true,
+
+        'margin.l': mobile ? 96 : 160,
+        'margin.r': mobile ? 8 : 30,
+        'margin.t': mobile ? 100 : 120,
+        'margin.b': mobile ? 58 : 60,
+
+        'title.font.size': mobile ? 14 : 20,
+
+        'xaxis.title.text': mobile
+          ? 'ASR je 100.000/Jahr'
+          : 'Altersstandardisierte Inzidenzrate je 100.000 Einwohner/Jahr',
+
+        'xaxis.title.font.size': mobile ? 10 : 14,
+        'xaxis.tickfont.size': mobile ? 9 : 12,
+
+        'yaxis.tickmode': 'array',
+        'yaxis.tickvals': gebieteVoll,
+        'yaxis.ticktext': mobile ? gebieteKurz : gebieteVoll,
+        'yaxis.tickfont.size': mobile ? 9 : 12,
+
+        'hoverlabel.font.size': mobile ? 10 : 13,
+
+        'updatemenus[0].x': 0,
+        'updatemenus[0].y': mobile ? 1.14 : 1.15,
+        'updatemenus[0].font.size': mobile ? 10 : 12
+      };
+
+      Plotly.relayout(el, update);
+      Plotly.Plots.resize(el);
+    }
+
+    responsiveASR();
+
+    window.addEventListener(
+      'resize',
+      responsiveASR
+    );
+
+    el.on(
+      'plotly_buttonclicked',
+      function() {
+        setTimeout(responsiveASR, 0);
+      }
+    );
+  }
+  "
+)
+
+p_asr
 ```
+:::
 
 *Quelle: Epidemiologisches Krebsregister Niedersachsen, Kleinräumiger Krebsatlas. Zeitraum 2013–2022. Gebietsgrenzen: LGLN Niedersachsen.*
 
@@ -409,6 +513,8 @@ Die Karte zeigt die räumliche Verteilung der **altersstandardisierten Inzidenzr
 Die Farbskala wird für jede Diagnose an deren Wertebereich angepasst. Innerhalb einer Diagnose wird für die verfügbaren Geschlechter dieselbe Skala verwendet. **Farbtöne verschiedener Diagnosen sind daher nicht unmittelbar miteinander vergleichbar.**
 
 Durch Anklicken eines Gebietes werden zusätzlich **Diagnose, Geschlecht, ASR, absolute Fallzahl 2013–2022 und Bevölkerung** angezeigt.
+
+::: {.gesundheit-map-wrap .gesundheit-map-asr}
 
 ```{r}
 #| label: krebs-asr-karte
@@ -531,7 +637,7 @@ auswahl_karte <- auswahl_karte |>
   ) |>
   mutate(
     gruppe = paste(
-      diagnose_anzeige,
+      diagnose,
       "–",
       geschlecht
     )
@@ -1047,6 +1153,7 @@ htmlwidgets::onRender(
   js_code
 )
 ```
+:::
 
 ## Vergleich mit Niedersachsen
 
@@ -1055,6 +1162,8 @@ Das **standardisierte Inzidenzverhältnis (SIR)** vergleicht die in einer region
 Ein SIR von **1,00** entspricht dem niedersächsischen Referenzniveau. Ein Wert von beispielsweise **0,90** bedeutet, dass etwa 10 % weniger Fälle beobachtet wurden als erwartet; ein Wert von **1,10** entspricht etwa 10 % mehr beobachteten Fällen als erwartet.
 
 Die horizontalen Linien zeigen die jeweiligen **95%-Konfidenzintervalle**. Umfasst das Konfidenzintervall den Wert **1,00**, ist die beobachtete Abweichung vom niedersächsischen Referenzniveau auf dieser Grundlage statistisch nicht eindeutig.
+
+::: {.gesundheit-chart .gesundheit-chart-sir}
 
 ```{r}
 #| label: krebs-sir-interaktiv
@@ -1549,7 +1658,7 @@ buttons_sir <- lapply(
           title = list(
 
             text = paste(
-              auswahl_sir$diagnose_anzeige[i],
+              auswahl_sir$diagnose[i],
               "–",
               auswahl_sir$geschlecht[i]
             )
@@ -1588,8 +1697,11 @@ buttons_sir <- lapply(
         )
       ),
 
-      label =
-        auswahl_sir$label[i]
+      label = paste(
+        auswahl_sir$diagnose[i],
+        "–",
+        auswahl_sir$geschlecht[i]
+      )
     )
   }
 )
@@ -1599,28 +1711,19 @@ buttons_sir <- lapply(
 # Layout
 # -------------------------------------------------
 
-p_sir |>
+p_sir_plot <- p_sir |>
 
   layout(
-
-    # -------------------------------------------------
-    # Titel
-    # -------------------------------------------------
 
     title = list(
 
       text =
-        "Krebs gesamt (C00–C97 ohne C44) – Gesamt",
+        "Krebs gesamt – Gesamt",
 
       x = 0.5,
 
       xanchor = "center"
     ),
-
-
-    # -------------------------------------------------
-    # X-Achse
-    # -------------------------------------------------
 
     xaxis = list(
 
@@ -1641,11 +1744,6 @@ p_sir |>
         xticktexte_sir[[1]]
     ),
 
-
-    # -------------------------------------------------
-    # Y-Achse
-    # -------------------------------------------------
-
     yaxis = list(
 
       title = "",
@@ -1656,28 +1754,13 @@ p_sir |>
         reihenfolgen_sir[[1]]
     ),
 
-
-    # -------------------------------------------------
-    # Mouseover
-    # -------------------------------------------------
-
     hoverlabel = list(
       align = "left"
     ),
 
     hovermode = "closest",
 
-
-    # -------------------------------------------------
-    # Keine separate Legende
-    # -------------------------------------------------
-
     showlegend = FALSE,
-
-
-    # -------------------------------------------------
-    # Referenzlinie bei SIR = 1,00
-    # -------------------------------------------------
 
     shapes = list(
 
@@ -1703,11 +1786,6 @@ p_sir |>
         )
       )
     ),
-
-
-    # -------------------------------------------------
-    # Beschriftung der Referenzlinie
-    # -------------------------------------------------
 
     annotations = list(
 
@@ -1739,11 +1817,6 @@ p_sir |>
       )
     ),
 
-
-    # -------------------------------------------------
-    # Dropdown
-    # -------------------------------------------------
-
     updatemenus = list(
 
       list(
@@ -1765,11 +1838,6 @@ p_sir |>
       )
     ),
 
-
-    # -------------------------------------------------
-    # Abstände
-    # -------------------------------------------------
-
     margin = list(
 
       l = 160,
@@ -1780,8 +1848,111 @@ p_sir |>
 
       b = 60
     )
+  ) |>
+
+  config(
+    displayModeBar = FALSE,
+    responsive = TRUE
   )
+
+
+# -------------------------------------------------
+# Responsive Verhalten für Smartphone / Tablet
+# -------------------------------------------------
+
+p_sir_plot <- htmlwidgets::onRender(
+  p_sir_plot,
+  "
+  function(el, x) {
+
+    var gebieteVoll = [
+      'Nordhorn, Stadt',
+      'Neuenhaus, SG',
+      'Emlichheim, SG',
+      'Uelsen, SG',
+      'Bad Bentheim, Stadt',
+      'Wietmarschen',
+      'Schüttorf, SG'
+    ];
+
+    var gebieteKurz = [
+      'Nordhorn',
+      'Neuenhaus',
+      'Emlichheim',
+      'Uelsen',
+      'Bad Bentheim',
+      'Wietmarschen',
+      'Schüttorf'
+    ];
+
+    function responsiveSIR() {
+
+      var mobile = window.innerWidth <= 600;
+
+      Plotly.restyle(
+        el,
+        {
+          'mode': mobile ? 'markers' : 'markers+text',
+          'textfont.size': mobile ? 10 : 12
+        }
+      );
+
+      var update = {
+
+        'autosize': true,
+
+        'margin.l': mobile ? 96 : 160,
+        'margin.r': mobile ? 10 : 60,
+        'margin.t': mobile ? 105 : 145,
+        'margin.b': mobile ? 52 : 60,
+
+        'title.font.size': mobile ? 14 : 20,
+
+        'xaxis.title.text': mobile
+          ? 'SIR'
+          : 'Standardisiertes Inzidenzverhältnis (SIR)',
+
+        'xaxis.title.font.size': mobile ? 11 : 14,
+        'xaxis.tickfont.size': mobile ? 9 : 12,
+
+        'yaxis.tickmode': 'array',
+        'yaxis.tickvals': gebieteVoll,
+        'yaxis.ticktext': mobile ? gebieteKurz : gebieteVoll,
+        'yaxis.tickfont.size': mobile ? 9 : 12,
+
+        'hoverlabel.font.size': mobile ? 10 : 13,
+
+        'annotations[0].visible': mobile ? false : true,
+
+        'updatemenus[0].x': 0,
+        'updatemenus[0].y': mobile ? 1.14 : 1.15,
+        'updatemenus[0].font.size': mobile ? 10 : 12
+      };
+
+      Plotly.relayout(el, update);
+      Plotly.Plots.resize(el);
+    }
+
+    responsiveSIR();
+
+    window.addEventListener(
+      'resize',
+      responsiveSIR
+    );
+
+    el.on(
+      'plotly_buttonclicked',
+      function() {
+        setTimeout(responsiveSIR, 0);
+      }
+    );
+  }
+  "
+)
+
+p_sir_plot
 ```
+:::
 
 *Quelle: Epidemiologisches Krebsregister Niedersachsen, Kleinräumiger Krebsatlas. Zeitraum 2013–2022.*
 
@@ -1794,6 +1965,8 @@ Die Karte zeigt die räumliche Verteilung des **standardisierten Inzidenzverhäl
 Die Farbskala wird für jede Diagnose symmetrisch um 1,00 an den jeweiligen Wertebereich angepasst. Innerhalb einer Diagnose gilt für die verfügbaren Geschlechter dieselbe Skala. **Die Farbintensität verschiedener Diagnosen ist daher nicht unmittelbar miteinander vergleichbar.**
 
 Die Farbe zeigt ausschließlich die Höhe des SIR. Ob eine Abweichung statistisch eindeutig ist, muss anhand des jeweiligen **95%-Konfidenzintervalls** beurteilt werden. Durch Anklicken eines Gebietes werden SIR, 95%-Konfidenzintervall und Bevölkerung angezeigt.
+
+::: {.gesundheit-map-wrap .gesundheit-map-sir}
 
 ```{r}
 #| label: krebs-sir-karte
@@ -1916,7 +2089,7 @@ auswahl_sir_karte <- auswahl_sir_karte |>
   ) |>
   mutate(
     gruppe = paste(
-      diagnose_anzeige,
+      diagnose,
       "–",
       geschlecht
     )
@@ -2517,6 +2690,7 @@ htmlwidgets::onRender(
   js_code_sir
 )
 ```
+:::
 
 *Quelle: Epidemiologisches Krebsregister Niedersachsen, Kleinräumiger Krebsatlas. Zeitraum 2013–2022. Gebietsgrenzen: LGLN Niedersachsen.*
 

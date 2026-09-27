@@ -13,7 +13,7 @@ Hier werden die langfristige Bevölkerungsentwicklung des Landkreises Grafschaft
 
 Für die langfristigen Zeitreihen werden historische Bevölkerungsstände bis 1970 mit den ab 1973 jährlich verfügbaren Bevölkerungszahlen des **LSN-Online-Portals** kombiniert. Ab 1973 wird ausschließlich die **Gesamtbevölkerung** verwendet.
 
-Im Mouseover wird zusätzlich das **Durchschnittsalter der Bevölkerung** angezeigt, sofern für das jeweilige Jahr ein Originalwert in der LSN-Tabelle vorliegt. Bei der Darstellung der einzelnen Gemeinden werden außerdem ausgewählte Indikatoren aus **BBSR INKAR** ergänzt, soweit für das betreffende Jahr Daten vorliegen.
+Im Mouseover bzw. beim **Antippen eines Datenpunkts auf mobilen Geräten** wird zusätzlich das **Durchschnittsalter der Bevölkerung** angezeigt, sofern für das jeweilige Jahr ein Originalwert in der LSN-Tabelle vorliegt. Bei der Darstellung der einzelnen Gemeinden werden außerdem ausgewählte Indikatoren aus **BBSR INKAR** ergänzt, soweit für das betreffende Jahr Daten vorliegen.
 
 ```{r}
 #| label: kennzahlen
@@ -236,6 +236,8 @@ groesste_gemeinde <- bev_2025_tmp[
 ```
 
 
+::: {.kennzahlen-bevoelkerung}
+
 ::: {.columns}
 
 ::: {.column width="33%"}
@@ -290,10 +292,14 @@ größte Gemeinde 2025
 
 :::
 
+:::
+
 
 ## Langfristige Bevölkerungsentwicklung
 
-Die Grafik zeigt die Bevölkerungsentwicklung des gesamten Landkreises von **1821 bis 2026**. Historische Einzelwerte reichen bis 1970; ab 1973 liegt eine jährliche Bevölkerungsreihe vor. Bewege den Mauszeiger über einen Punkt, um **Jahr, Einwohnerzahl und – soweit verfügbar – das Durchschnittsalter** anzuzeigen.
+Die Grafik zeigt die Bevölkerungsentwicklung des gesamten Landkreises von **1821 bis 2026**. Historische Einzelwerte reichen bis 1970; ab 1973 liegt eine jährliche Bevölkerungsreihe vor. Bewege den Mauszeiger über einen Punkt oder **tippe ihn auf einem Smartphone an**, um **Jahr, Einwohnerzahl und – soweit verfügbar – das Durchschnittsalter** anzuzeigen.
+
+::: {.bevoelkerung-chart .bevoelkerung-chart-kreis}
 
 ```{r}
 #| label: bevoelkerungsentwicklung
@@ -586,8 +592,67 @@ p_kreis <- plot_ly(
     responsive = TRUE
   )
 
+# -------------------------------------------------
+# Responsive Verhalten für Smartphone / Tablet
+# -------------------------------------------------
+
+p_kreis <- htmlwidgets::onRender(
+  p_kreis,
+  "
+  function(el, x) {
+
+    function responsiveKreis() {
+
+      var mobile = window.innerWidth <= 600;
+
+      var update = {
+
+        'autosize': true,
+
+        'margin.t': mobile ? 52 : 75,
+        'margin.r': mobile ? 8 : 25,
+        'margin.b': mobile ? 45 : 55,
+        'margin.l': mobile ? 58 : 90,
+
+        'title.font.size': mobile ? 16 : 20,
+
+        'xaxis.tickmode': 'array',
+
+        'xaxis.tickvals': mobile
+          ? [1821, 1950, 1973, 2000, 2026]
+          : [1821, 1871, 1925, 1950, 1973, 1990, 2010, 2026],
+
+        'xaxis.ticktext': mobile
+          ? ['1821', '1950', '1973', '2000', '2026']
+          : ['1821', '1871', '1925', '1950', '1973', '1990', '2010', '2026'],
+
+        'xaxis.tickfont.size': mobile ? 10 : 12,
+        'yaxis.tickfont.size': mobile ? 10 : 12,
+        'yaxis.title.font.size': mobile ? 11 : 14,
+
+        'hoverlabel.font.size': mobile ? 11 : 13,
+
+        'annotations[0].visible': mobile ? false : true
+      };
+
+      Plotly.relayout(el, update);
+      Plotly.Plots.resize(el);
+    }
+
+    responsiveKreis();
+
+    window.addEventListener(
+      'resize',
+      responsiveKreis
+    );
+  }
+  "
+)
+
 p_kreis
 ```
+
+:::
 
 <div class="small text-muted" style="margin-top:0.35rem;">
 <strong>Quelle:</strong> Bevölkerungsstände: historische Reihe bis 1970; ab 1973 Landesamt für Statistik Niedersachsen (LSN), Tabelle Z100001G, Gesamtbevölkerung, Stichtag 30.06. Durchschnittsalter: LSN, Tabelle Z100004G, Geschlecht insgesamt, Stichtag 31.12.
@@ -619,7 +684,9 @@ Die INKAR-Daten werden über den achtstelligen amtlichen Gemeindeschlüssel mit 
 
 ## Entwicklung der einzelnen Gemeinden
 
-Wähle eine Gemeinde aus, um ihre langfristige Bevölkerungsentwicklung zu betrachten. Auch hier werden ab 1973 die jährlich verfügbaren LSN-Bevölkerungswerte verwendet. Im Mouseover werden – soweit für das jeweilige Jahr vorhanden – zusätzlich das **Durchschnittsalter**, der **Frauenanteil**, der Anteil der **Einpersonenhaushalte** und die **Einwohnerdichte** angezeigt.
+Wähle eine Gemeinde aus, um ihre langfristige Bevölkerungsentwicklung zu betrachten. Auch hier werden ab 1973 die jährlich verfügbaren LSN-Bevölkerungswerte verwendet. Im Mouseover bzw. beim **Antippen eines Datenpunkts auf mobilen Geräten** werden – soweit für das jeweilige Jahr vorhanden – zusätzlich das **Durchschnittsalter**, der **Frauenanteil**, der Anteil der **Einpersonenhaushalte** und die **Einwohnerdichte** angezeigt.
+
+::: {.bevoelkerung-chart .bevoelkerung-chart-gemeinden}
 
 ```{r}
 #| label: gemeinden-interaktiv
@@ -1088,8 +1155,69 @@ p_gemeinden <- p |>
     responsive = TRUE
   )
 
+# -------------------------------------------------
+# Responsive Verhalten für Smartphone / Tablet
+# -------------------------------------------------
+
+p_gemeinden <- htmlwidgets::onRender(
+  p_gemeinden,
+  "
+  function(el, x) {
+
+    function responsiveGemeinden() {
+
+      var mobile = window.innerWidth <= 600;
+
+      var update = {
+
+        'autosize': true,
+
+        'margin.t': mobile ? 105 : 115,
+        'margin.r': mobile ? 8 : 25,
+        'margin.b': mobile ? 45 : 55,
+        'margin.l': mobile ? 58 : 90,
+
+        'title.font.size': mobile ? 16 : 20,
+
+        'xaxis.tickmode': mobile ? 'array' : 'auto',
+
+        'xaxis.tickvals': mobile
+          ? [1821, 1950, 1973, 2000, 2026]
+          : null,
+
+        'xaxis.ticktext': mobile
+          ? ['1821', '1950', '1973', '2000', '2026']
+          : null,
+
+        'xaxis.tickfont.size': mobile ? 10 : 12,
+        'yaxis.tickfont.size': mobile ? 10 : 12,
+        'yaxis.title.font.size': mobile ? 11 : 14,
+
+        'hoverlabel.font.size': mobile ? 11 : 13,
+
+        'updatemenus[0].x': 0,
+        'updatemenus[0].y': mobile ? 1.14 : 1.18,
+        'updatemenus[0].font.size': mobile ? 11 : 12
+      };
+
+      Plotly.relayout(el, update);
+      Plotly.Plots.resize(el);
+    }
+
+    responsiveGemeinden();
+
+    window.addEventListener(
+      'resize',
+      responsiveGemeinden
+    );
+  }
+  "
+)
+
 p_gemeinden
 ```
+
+:::
 
 <div class="small text-muted" style="margin-top:0.35rem;">
 <strong>Quelle:</strong> Bevölkerungsstände: historische Reihe bis 1970; ab 1973 Landesamt für Statistik Niedersachsen (LSN), Tabelle Z100001G, Gesamtbevölkerung, Stichtag 30.06. Durchschnittsalter: LSN, Tabelle Z100004G, Geschlecht insgesamt, Stichtag 31.12. Ergänzende Gemeindeindikatoren: Bundesinstitut für Bau-, Stadt- und Raumforschung (BBSR), INKAR.
@@ -1099,6 +1227,8 @@ p_gemeinden
 ## Bevölkerungsentwicklung auf Gemeindeebene
 
 Die Karte zeigt die prozentuale Veränderung der Bevölkerung zwischen **2022 und 2025**. Beide Jahre stammen aus der neuen jährlich verfügbaren LSN-Reihe und beziehen sich auf den Stichtag 30.06.
+
+::: {.bevoelkerung-map-wrap}
 
 ```{r}
 #| label: gemeindekarte
@@ -1247,6 +1377,29 @@ pal <- colorNumeric(
 
 
 # -------------------------------------------------
+# Separate Palette für die Legende
+#
+# Ziel:
+# positive/grüne Werte oben,
+# negative/rote Werte unten
+# -------------------------------------------------
+
+pal_legende <- colorNumeric(
+
+  palette = c(
+    "#2E7D32",
+    "#FDD835",
+    "#C62828"
+  ),
+
+  domain = c(
+    -max_abs,
+    max_abs
+  )
+)
+
+
+# -------------------------------------------------
 # Popup-Texte
 # -------------------------------------------------
 
@@ -1377,10 +1530,15 @@ leaflet(
       "bottomright",
 
     pal =
-      pal,
+      pal_legende,
 
     values =
       ~veraenderung_prozent,
+
+    labFormat =
+      labelFormat(
+        transform = function(x) -x
+      ),
 
     title =
       "Veränderung<br>2022–2025 (%)",
@@ -1413,6 +1571,8 @@ leaflet(
   )
 ```
 
+:::
+
 <div class="small text-muted" style="margin-top:0.35rem;">
 <strong>Quelle:</strong> Landesamt für Statistik Niedersachsen (LSN), Tabelle Z100001G, Gesamtbevölkerung, Stichtag 30.06.; Gemeindegrenzen: LGLN Niedersachsen.
-</div>
+</div

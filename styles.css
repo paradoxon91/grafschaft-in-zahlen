@@ -1,6 +1,13 @@
 /* css styles */
+
+
+/* =================================================
+   STARTSEITE – GRAFSCHAFT IN ZAHLEN
+   ================================================= */
+
+
 /* ---------------------------------------------
-   Startseite – Grafschaft in Zahlen
+   Hero-Bereich
 ---------------------------------------------- */
 
 .hero-giz {
@@ -39,12 +46,322 @@
   margin-top: 0;
 }
 
+
+/* ---------------------------------------------
+   Themenübersicht Startseite
+---------------------------------------------- */
+
+.themen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+
+  max-width: 950px;
+
+  margin: 2rem auto 1rem auto;
+}
+
+.themen-kachel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  min-height: 310px;
+
+  padding: 2rem;
+
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+
+  background-color: #ffffff;
+
+  color: inherit !important;
+  text-decoration: none !important;
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.themen-kachel:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.08);
+
+  border-color: #2E6B3E;
+
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.themen-kachel:focus {
+  outline: 2px solid #2E6B3E;
+  outline-offset: 3px;
+}
+
+.themen-icon {
+  width: 105px;
+  height: 105px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 105px;
+
+  margin-bottom: 1.3rem;
+
+  border: 1px solid #d8d8d8;
+  border-radius: 50%;
+
+  background-color: #fafafa;
+
+  color: #2E6B3E;
+
+  font-size: 3rem;
+}
+
+.themen-icon i {
+  line-height: 1;
+}
+
+.themen-titel {
+  margin-bottom: 0.9rem;
+
+  font-size: 1.45rem;
+  font-weight: 750;
+
+  color: #303030;
+}
+
+.themen-text {
+  max-width: 340px;
+
+  font-size: 1rem;
+  line-height: 1.55;
+
+  color: #606060;
+}
+
+.themen-hinweis {
+  margin-top: 1.2rem;
+  margin-bottom: 3rem;
+
+  text-align: center;
+
+  color: #777777;
+
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+
+/* ---------------------------------------------
+   Überschriftenanker ausblenden
+---------------------------------------------- */
+
+body .anchorjs-link {
+  opacity: 0;
+}
+
+body .anchorjs-link:hover {
+  opacity: 0;
+}
+
+
+/* =================================================
+   BEVÖLKERUNGSSEITE
+   ================================================= */
+
+
+/* ---------------------------------------------
+   Kennzahlen
+---------------------------------------------- */
+
+.kennzahlen-bevoelkerung {
+  width: 100%;
+  max-width: 100%;
+
+  margin-top: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+
+/*
+   Quarto-Spalten innerhalb der Kennzahlen bewusst
+   durch ein eigenes Grid ersetzen.
+*/
+
+.kennzahlen-bevoelkerung .columns {
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  width: 100%;
+
+  margin: 0 !important;
+}
+
+
+/*
+   Die von Quarto vergebenen 33%-Breiten
+   werden für diesen Bereich überschrieben.
+*/
+
+.kennzahlen-bevoelkerung .column {
+  width: auto !important;
+  max-width: none !important;
+  flex: none !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+/* Alle drei Karten gleich hoch */
+
+.kennzahlen-bevoelkerung .card {
+  height: 100%;
+
+  margin: 0;
+
+  border: 1px solid #dddddd;
+
+  box-shadow: none;
+}
+
+
+/* Inhalt der Karten */
+
+.kennzahlen-bevoelkerung .card-body {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  padding: 1.4rem 1.5rem;
+}
+
+
+/* Große Kennzahl */
+
+.kennzahlen-bevoelkerung .card-body h2 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+
+  font-size: 2rem;
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+
+/* Normaler Text innerhalb der Karte */
+
+.kennzahlen-bevoelkerung .card-body p {
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
+
+  line-height: 1.45;
+
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+
+/* ---------------------------------------------
+   Plotly-Grafiken allgemein
+---------------------------------------------- */
+
+.bevoelkerung-chart {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+
+  overflow: visible;
+}
+
+.bevoelkerung-chart .html-widget,
+.bevoelkerung-chart .plotly,
+.bevoelkerung-chart .plot-container,
+.bevoelkerung-chart .svg-container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+
+/* Desktop-Höhe der Bevölkerungsdiagramme */
+
+.bevoelkerung-chart .plotly.html-widget {
+  min-height: 500px;
+}
+
+
+/* ---------------------------------------------
+   Leaflet-Karte
+---------------------------------------------- */
+
+.bevoelkerung-map-wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.bevoelkerung-map-wrap .html-widget,
+.bevoelkerung-map-wrap .leaflet {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+
+/* ---------------------------------------------
+   Quellenhinweise
+---------------------------------------------- */
+
+.small.text-muted {
+  line-height: 1.45;
+}
+
+
+/* =================================================
+   TABLET / KLEINERE BILDSCHIRME
+   ================================================= */
+
 @media (max-width: 768px) {
+
+
+  /* ---------------------------------------------
+     Startseite
+  ---------------------------------------------- */
 
   .hero-giz {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
+
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+
+    padding-top: 1rem;
   }
 
   .hero-logo {
@@ -57,5 +374,579 @@
 
   .hero-text h1 {
     font-size: 2.2rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.25rem;
+  }
+
+  .themen-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .themen-kachel {
+    min-height: 270px;
+  }
+
+
+  /* ---------------------------------------------
+     Bevölkerungsseite – Kennzahlen
+  ---------------------------------------------- */
+
+  .kennzahlen-bevoelkerung .columns {
+    grid-template-columns: 1fr !important;
+    gap: 0.9rem;
+  }
+
+  .kennzahlen-bevoelkerung .column {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .kennzahlen-bevoelkerung .card {
+    width: 100%;
+    height: auto;
+
+    min-height: 0;
+  }
+
+  .kennzahlen-bevoelkerung .card-body {
+    width: 100%;
+    height: auto;
+
+    padding: 1.15rem 1.25rem;
+  }
+
+  .kennzahlen-bevoelkerung .card-body h2 {
+    margin-bottom: 0.55rem;
+
+    font-size: 1.8rem;
+    line-height: 1.15;
+  }
+
+  .kennzahlen-bevoelkerung .card-body p {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+
+  /* ---------------------------------------------
+     Bevölkerungsseite – allgemeine Breite
+  ---------------------------------------------- */
+
+  .bevoelkerung-chart,
+  .bevoelkerung-map-wrap {
+    width: 100%;
+    max-width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+
+  /* Plotly wirklich auf verfügbare Breite zwingen */
+
+  .bevoelkerung-chart .html-widget,
+  .bevoelkerung-chart .plotly,
+  .bevoelkerung-chart .plot-container,
+  .bevoelkerung-chart .svg-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+
+  /* Etwas höhere Grafiken statt flacher Handy-Darstellung */
+
+  .bevoelkerung-chart .plotly.html-widget {
+    height: 430px !important;
+    min-height: 430px !important;
+  }
+
+
+  /* Leaflet-Karte auf Mobilgeräten deutlich höher */
+
+  .bevoelkerung-map-wrap .leaflet.html-widget,
+  .bevoelkerung-map-wrap .html-widget {
+    height: 65vh !important;
+    min-height: 480px !important;
+  }
+
+
+  /* Leaflet-Legende kompakter */
+
+  .bevoelkerung-map-wrap .leaflet-control {
+    font-size: 0.85rem;
+  }
+
+  .bevoelkerung-map-wrap .legend {
+    line-height: 1.25;
+  }
+
+
+  /* Quellen etwas kleiner */
+
+  .small.text-muted {
+    font-size: 0.82rem;
+  }
+
+
+  /* Überschriften auf Mobilgerät etwas kompakter */
+
+  main.content h2 {
+    font-size: 1.55rem;
+  }
+
+}
+
+
+/* =================================================
+   SMARTPHONE
+   ================================================= */
+
+@media (max-width: 600px) {
+
+
+  /* ---------------------------------------------
+     Allgemein
+  ---------------------------------------------- */
+
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+
+  /* ---------------------------------------------
+     Kennzahlen
+  ---------------------------------------------- */
+
+  .kennzahlen-bevoelkerung {
+    margin-top: 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .kennzahlen-bevoelkerung .columns {
+    display: grid !important;
+
+    grid-template-columns: 1fr !important;
+
+    gap: 0.8rem !important;
+  }
+
+  .kennzahlen-bevoelkerung .column {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    flex: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .kennzahlen-bevoelkerung .card {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+  }
+
+  .kennzahlen-bevoelkerung .card-body {
+    display: block;
+
+    width: 100%;
+
+    padding: 1rem 1.15rem;
+  }
+
+  .kennzahlen-bevoelkerung .card-body h2 {
+    margin: 0 0 0.55rem 0;
+
+    font-size: 1.75rem;
+    line-height: 1.1;
+  }
+
+  .kennzahlen-bevoelkerung .card-body p {
+    margin-top: 0.15rem;
+    margin-bottom: 0.15rem;
+
+    font-size: 0.98rem;
+    line-height: 1.4;
+  }
+
+
+  /* ---------------------------------------------
+     Bevölkerungsdiagramme
+  ---------------------------------------------- */
+
+  .bevoelkerung-chart {
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+
+    overflow: visible;
+  }
+
+  .bevoelkerung-chart .plotly.html-widget {
+    width: 100% !important;
+
+    height: 420px !important;
+    min-height: 420px !important;
+  }
+
+  .bevoelkerung-chart .plot-container {
+    width: 100% !important;
+  }
+
+  .bevoelkerung-chart .svg-container {
+    width: 100% !important;
+  }
+
+
+  /* ---------------------------------------------
+     Leaflet-Karte
+  ---------------------------------------------- */
+
+  .bevoelkerung-map-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .bevoelkerung-map-wrap .leaflet.html-widget {
+    width: 100% !important;
+
+    height: 68vh !important;
+    min-height: 500px !important;
+  }
+
+
+  /* Zoom-Buttons etwas angenehmer für Touch */
+
+  .bevoelkerung-map-wrap .leaflet-control-zoom a {
+    width: 34px;
+    height: 34px;
+
+    line-height: 34px;
+
+    font-size: 20px;
+  }
+
+
+  /* Legende kleiner und kompakter */
+
+  .bevoelkerung-map-wrap .leaflet-control.legend {
+    font-size: 0.78rem;
+    line-height: 1.2;
+
+    padding: 6px 8px;
+  }
+
+
+  /* ---------------------------------------------
+     Text
+  ---------------------------------------------- */
+
+  main.content h2 {
+    font-size: 1.4rem;
+    line-height: 1.25;
+  }
+
+  main.content p {
+    line-height: 1.55;
+  }
+
+  .small.text-muted {
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+}
+
+
+/* =================================================
+   SEHR KLEINE SMARTPHONES
+   ================================================= */
+
+@media (max-width: 480px) {
+
+
+  /* ---------------------------------------------
+     Startseite
+  ---------------------------------------------- */
+
+  .hero-giz {
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+  }
+
+  .hero-logo img {
+    max-width: 150px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .themen-kachel {
+    padding: 1.5rem;
+  }
+
+  .themen-icon {
+    width: 90px;
+    height: 90px;
+
+    flex-basis: 90px;
+
+    font-size: 2.6rem;
+  }
+
+  .themen-titel {
+    font-size: 1.3rem;
+  }
+
+  .themen-text {
+    font-size: 0.95rem;
+  }
+
+
+  /* ---------------------------------------------
+     Kennzahlen
+  ---------------------------------------------- */
+
+  .kennzahlen-bevoelkerung .card-body {
+    padding: 0.95rem 1rem;
+  }
+
+  .kennzahlen-bevoelkerung .card-body h2 {
+    font-size: 1.65rem;
+  }
+
+
+  /* ---------------------------------------------
+     Bevölkerungsseite
+  ---------------------------------------------- */
+
+  .bevoelkerung-chart .plotly.html-widget {
+    height: 400px !important;
+    min-height: 400px !important;
+  }
+
+  .bevoelkerung-map-wrap .leaflet.html-widget {
+    height: 70vh !important;
+    min-height: 500px !important;
+  }
+
+}
+
+
+/* =================================================
+   GESUNDHEITSSEITE
+   ================================================= */
+
+
+/* ---------------------------------------------
+   Plotly-Grafiken
+---------------------------------------------- */
+
+.gesundheit-chart {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+
+  overflow: visible;
+}
+
+.gesundheit-chart .html-widget,
+.gesundheit-chart .plotly,
+.gesundheit-chart .plot-container,
+.gesundheit-chart .svg-container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.gesundheit-chart .plotly.html-widget {
+  min-height: 520px;
+}
+
+
+/* ---------------------------------------------
+   Leaflet-Karten
+---------------------------------------------- */
+
+.gesundheit-map-wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.gesundheit-map-wrap .html-widget,
+.gesundheit-map-wrap .leaflet {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+
+/* =================================================
+   GESUNDHEITSSEITE – TABLET
+   ================================================= */
+
+@media (max-width: 768px) {
+
+  .gesundheit-chart,
+  .gesundheit-map-wrap {
+    width: 100%;
+    max-width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .gesundheit-chart .html-widget,
+  .gesundheit-chart .plotly,
+  .gesundheit-chart .plot-container,
+  .gesundheit-chart .svg-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .gesundheit-chart .plotly.html-widget {
+    height: 500px !important;
+    min-height: 500px !important;
+  }
+
+  .gesundheit-map-wrap .leaflet.html-widget,
+  .gesundheit-map-wrap .html-widget {
+    height: 68vh !important;
+    min-height: 500px !important;
+  }
+
+  .gesundheit-map-wrap .leaflet-control {
+    font-size: 0.82rem;
+  }
+
+  .gesundheit-map-wrap .leaflet-control-layers-expanded {
+    max-width: 240px;
+    max-height: 60vh;
+
+    overflow-y: auto;
+
+    font-size: 0.8rem;
+  }
+
+  .gesundheit-map-wrap .asr-diagnose-legende > div,
+  .gesundheit-map-wrap .sir-diagnose-legende > div {
+    padding: 6px 7px !important;
+
+    font-size: 10px !important;
+    line-height: 1.15 !important;
+  }
+}
+
+
+/* =================================================
+   GESUNDHEITSSEITE – SMARTPHONE
+   ================================================= */
+
+@media (max-width: 600px) {
+
+  .gesundheit-chart {
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gesundheit-chart .plotly.html-widget {
+    width: 100% !important;
+
+    height: 500px !important;
+    min-height: 500px !important;
+  }
+
+  .gesundheit-chart .plot-container,
+  .gesundheit-chart .svg-container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .gesundheit-map-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .gesundheit-map-wrap .leaflet.html-widget {
+    width: 100% !important;
+
+    height: 70vh !important;
+    min-height: 500px !important;
+  }
+
+  .gesundheit-map-wrap .leaflet-control-zoom a {
+    width: 34px;
+    height: 34px;
+
+    line-height: 34px;
+
+    font-size: 20px;
+  }
+
+  .gesundheit-map-wrap .leaflet-control-layers-expanded {
+    max-width: 220px;
+    max-height: 55vh;
+
+    overflow-y: auto;
+
+    font-size: 0.76rem;
+    line-height: 1.2;
+  }
+
+  .gesundheit-map-wrap .asr-diagnose-legende > div,
+  .gesundheit-map-wrap .sir-diagnose-legende > div {
+    max-width: 145px;
+
+    padding: 5px 6px !important;
+
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+  }
+}
+
+
+/* =================================================
+   GESUNDHEITSSEITE – SEHR KLEINE SMARTPHONES
+   ================================================= */
+
+@media (max-width: 480px) {
+
+  .gesundheit-chart .plotly.html-widget {
+    height: 490px !important;
+    min-height: 490px !important;
+  }
+
+  .gesundheit-map-wrap .leaflet.html-widget {
+    height: 72vh !important;
+    min-height: 500px !important;
   }
 }
