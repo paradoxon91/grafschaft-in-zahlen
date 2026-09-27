@@ -1016,3 +1016,122 @@ body .anchorjs-link:hover {
     outline-offset: 2px;
   }
 }
+/* =================================================
+   INSTAGRAM – STARTSEITE
+   ================================================= */
+
+.instagram-box {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  max-width: 950px;
+
+  margin: 1.5rem auto 3rem auto;
+
+  padding: 1.7rem 2rem;
+
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+
+  background-color: #ffffff;
+}
+
+.instagram-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 82px;
+
+  width: 82px;
+  height: 82px;
+
+  border: 1px solid #dddddd;
+  border-radius: 50%;
+
+  background-color: #fafafa;
+
+  font-size: 2.6rem;
+
+  color: #2E6B3E;
+}
+
+.instagram-inhalt {
+  flex: 1;
+  min-width: 0;
+}
+
+.instagram-titel {
+  margin-bottom: 0.35rem;
+
+  font-size: 1.3rem;
+  font-weight: 750;
+
+  color: #303030;
+}
+
+.instagram-text {
+  margin-bottom: 1rem;
+
+  color: #606060;
+
+  line-height: 1.5;
+}
+
+.instagram-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.65rem 1rem;
+
+  border: 1px solid #2E6B3E;
+  border-radius: 6px;
+
+  background-color: #2E6B3E;
+
+  color: #ffffff !important;
+  text-decoration: none !important;
+
+  font-weight: 600;
+}
+
+.instagram-button:hover {
+  background-color: #245832;
+  border-color: #245832;
+
+  color: #ffffff !important;
+}
+
+
+/* Smartphone */
+
+@media (max-width: 600px) {
+
+  .instagram-box {
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 1.4rem 1.2rem;
+  }
+
+  .instagram-icon {
+    width: 72px;
+    height: 72px;
+
+    flex-basis: 72px;
+
+    font-size: 2.2rem;
+  }
+
+  .instagram-button {
+    width: 100%;
+
+    justify-content: center;
+
+    min-height: 46px;
+  }
+
+}

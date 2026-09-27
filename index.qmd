@@ -99,6 +99,41 @@ Hier findest du die neueste Analyse aus **Grafschaft in Zahlen**.
 ```
 
 
+## Grafschaft in Zahlen auf Instagram
+
+```{=html}
+<div class="instagram-box">
+
+  <div class="instagram-icon">
+    <i class="bi bi-instagram"></i>
+  </div>
+
+  <div class="instagram-inhalt">
+
+    <div class="instagram-titel">
+      @grafschaftinzahlen
+    </div>
+
+    <div class="instagram-text">
+      Neue Grafiken, interessante Zahlen und aktuelle Entwicklungen aus der
+      Grafschaft Bentheim gibt es auch auf Instagram.
+    </div>
+
+    <a
+      class="instagram-button"
+      href="https://www.instagram.com/grafschaftinzahlen/"
+      target="_blank"
+      rel="noopener noreferrer">
+      <i class="bi bi-instagram"></i>
+      Auf Instagram folgen
+    </a>
+
+  </div>
+
+</div>
+```
+
+
 ## Über das Projekt
 
 **Grafschaft in Zahlen** ist ein unabhängiges Statistikprojekt. Die verwendeten Daten stammen überwiegend aus amtlichen und öffentlich zugänglichen Datenquellen.

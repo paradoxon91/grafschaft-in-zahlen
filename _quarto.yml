@@ -10,18 +10,24 @@ website:
     left:
       - href: index.qmd
         text: Start
-        
+
       - href: news.qmd
         text: Aktuelles
 
       - href: bevoelkerung.qmd
         text: Bevölkerung
-        
+
       - href: gesundheit.qmd
         text: Gesundheit
 
       - href: about.qmd
         text: Über das Projekt
+
+    tools:
+      - icon: instagram
+        href: https://www.instagram.com/grafschaftinzahlen/
+        aria-label: Grafschaft in Zahlen auf Instagram
+
 format:
   html:
     theme: cosmo
