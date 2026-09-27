@@ -1,9 +1,9 @@
 ---
-title: "About"
+title: "Über das Projekt"
 ---
 
-About this site
+## Über Grafschaft in Zahlen
 
-```{r}
-1 + 1
-```
+**Grafschaft in Zahlen** ist ein unabhängiges Statistikprojekt zur Grafschaft Bentheim und ihren Gemeinden. Ziel ist es, überwiegend amtliche und öffentlich zugängliche Daten verständlich, transparent und anschaulich aufzubereiten und langfristige sowie regionale Entwicklungen sichtbar zu machen.
+
+Das Projekt ist ein privates, unabhängiges Angebot und keine offizielle Website des Landkreises Grafschaft Bentheim.
