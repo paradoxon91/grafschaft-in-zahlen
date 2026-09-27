@@ -1164,15 +1164,92 @@ p_gemeinden <- htmlwidgets::onRender(
   "
   function(el, x) {
 
+    var menu =
+      x.layout &&
+      x.layout.updatemenus &&
+      x.layout.updatemenus.length
+        ? x.layout.updatemenus[0]
+        : null;
+
+    var buttons =
+      menu && menu.buttons
+        ? menu.buttons
+        : [];
+
+    var wrapper =
+      document.createElement('div');
+
+    wrapper.className =
+      'mobile-plotly-select-wrap';
+
+    var label =
+      document.createElement('label');
+
+    label.className =
+      'mobile-plotly-select-label';
+
+    label.textContent =
+      'Gemeinde auswählen';
+
+    var select =
+      document.createElement('select');
+
+    select.className =
+      'mobile-plotly-select';
+
+    select.setAttribute(
+      'aria-label',
+      'Gemeinde auswählen'
+    );
+
+    buttons.forEach(
+      function(button, index) {
+
+        var option =
+          document.createElement('option');
+
+        option.value =
+          String(index);
+
+        option.textContent =
+          button.label;
+
+        if (
+          menu &&
+          typeof menu.active === 'number' &&
+          menu.active === index
+        ) {
+          option.selected = true;
+        }
+
+        select.appendChild(option);
+      }
+    );
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(select);
+
+    if (el.parentNode) {
+      el.parentNode.insertBefore(
+        wrapper,
+        el
+      );
+    }
+
+
     function responsiveGemeinden() {
 
-      var mobile = window.innerWidth <= 600;
+      var mobile =
+        window.innerWidth <= 600;
+
+      wrapper.style.display =
+        mobile ? 'block' : 'none';
 
       var update = {
 
         'autosize': true,
 
-        'margin.t': mobile ? 105 : 115,
+        'margin.t': mobile ? 48 : 115,
         'margin.r': mobile ? 8 : 25,
         'margin.b': mobile ? 45 : 55,
         'margin.l': mobile ? 58 : 90,
@@ -1195,14 +1272,57 @@ p_gemeinden <- htmlwidgets::onRender(
 
         'hoverlabel.font.size': mobile ? 11 : 13,
 
+        'updatemenus[0].visible': !mobile,
+
         'updatemenus[0].x': 0,
-        'updatemenus[0].y': mobile ? 1.14 : 1.18,
-        'updatemenus[0].font.size': mobile ? 11 : 12
+        'updatemenus[0].y': 1.18,
+        'updatemenus[0].font.size': 12
       };
 
-      Plotly.relayout(el, update);
+      Plotly.relayout(
+        el,
+        update
+      );
+
       Plotly.Plots.resize(el);
     }
+
+
+    select.addEventListener(
+      'change',
+      function() {
+
+        var index =
+          Number(select.value);
+
+        var button =
+          buttons[index];
+
+        if (
+          !button ||
+          !button.args
+        ) {
+          return;
+        }
+
+        var traceUpdate =
+          button.args[0] || {};
+
+        var layoutUpdate =
+          button.args[1] || {};
+
+        Plotly.update(
+          el,
+          traceUpdate,
+          layoutUpdate
+        ).then(
+          function() {
+            responsiveGemeinden();
+          }
+        );
+      }
+    );
+
 
     responsiveGemeinden();
 

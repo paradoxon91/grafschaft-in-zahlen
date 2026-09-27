@@ -436,9 +436,86 @@ p_asr <- htmlwidgets::onRender(
       'Wietmarschen'
     ];
 
+    var menu =
+      x.layout &&
+      x.layout.updatemenus &&
+      x.layout.updatemenus.length
+        ? x.layout.updatemenus[0]
+        : null;
+
+    var buttons =
+      menu && menu.buttons
+        ? menu.buttons
+        : [];
+
+    var wrapper =
+      document.createElement('div');
+
+    wrapper.className =
+      'mobile-plotly-select-wrap';
+
+    var label =
+      document.createElement('label');
+
+    label.className =
+      'mobile-plotly-select-label';
+
+    label.textContent =
+      'Diagnose und Geschlecht auswählen';
+
+    var select =
+      document.createElement('select');
+
+    select.className =
+      'mobile-plotly-select';
+
+    select.setAttribute(
+      'aria-label',
+      'Diagnose und Geschlecht auswählen'
+    );
+
+    buttons.forEach(
+      function(button, index) {
+
+        var option =
+          document.createElement('option');
+
+        option.value =
+          String(index);
+
+        option.textContent =
+          button.label;
+
+        if (
+          menu &&
+          typeof menu.active === 'number' &&
+          menu.active === index
+        ) {
+          option.selected = true;
+        }
+
+        select.appendChild(option);
+      }
+    );
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(select);
+
+    if (el.parentNode) {
+      el.parentNode.insertBefore(
+        wrapper,
+        el
+      );
+    }
+
+
     function responsiveASR() {
 
-      var mobile = window.innerWidth <= 600;
+      var mobile =
+        window.innerWidth <= 600;
+
+      wrapper.style.display =
+        mobile ? 'block' : 'none';
 
       Plotly.restyle(
         el,
@@ -453,7 +530,7 @@ p_asr <- htmlwidgets::onRender(
 
         'margin.l': mobile ? 96 : 160,
         'margin.r': mobile ? 8 : 30,
-        'margin.t': mobile ? 100 : 120,
+        'margin.t': mobile ? 42 : 120,
         'margin.b': mobile ? 58 : 60,
 
         'title.font.size': mobile ? 14 : 20,
@@ -472,27 +549,57 @@ p_asr <- htmlwidgets::onRender(
 
         'hoverlabel.font.size': mobile ? 10 : 13,
 
+        'updatemenus[0].visible': !mobile,
+
         'updatemenus[0].x': 0,
-        'updatemenus[0].y': mobile ? 1.14 : 1.15,
-        'updatemenus[0].font.size': mobile ? 10 : 12
+        'updatemenus[0].y': 1.15,
+        'updatemenus[0].font.size': 12
       };
 
-      Plotly.relayout(el, update);
+      Plotly.relayout(
+        el,
+        update
+      );
+
       Plotly.Plots.resize(el);
     }
+
+
+    select.addEventListener(
+      'change',
+      function() {
+
+        var index =
+          Number(select.value);
+
+        var button =
+          buttons[index];
+
+        if (
+          !button ||
+          !button.args
+        ) {
+          return;
+        }
+
+        Plotly.update(
+          el,
+          button.args[0] || {},
+          button.args[1] || {}
+        ).then(
+          function() {
+            responsiveASR();
+          }
+        );
+      }
+    );
+
 
     responsiveASR();
 
     window.addEventListener(
       'resize',
       responsiveASR
-    );
-
-    el.on(
-      'plotly_buttonclicked',
-      function() {
-        setTimeout(responsiveASR, 0);
-      }
     );
   }
   "
@@ -1885,9 +1992,86 @@ p_sir_plot <- htmlwidgets::onRender(
       'Schüttorf'
     ];
 
+    var menu =
+      x.layout &&
+      x.layout.updatemenus &&
+      x.layout.updatemenus.length
+        ? x.layout.updatemenus[0]
+        : null;
+
+    var buttons =
+      menu && menu.buttons
+        ? menu.buttons
+        : [];
+
+    var wrapper =
+      document.createElement('div');
+
+    wrapper.className =
+      'mobile-plotly-select-wrap';
+
+    var label =
+      document.createElement('label');
+
+    label.className =
+      'mobile-plotly-select-label';
+
+    label.textContent =
+      'Diagnose und Geschlecht auswählen';
+
+    var select =
+      document.createElement('select');
+
+    select.className =
+      'mobile-plotly-select';
+
+    select.setAttribute(
+      'aria-label',
+      'Diagnose und Geschlecht auswählen'
+    );
+
+    buttons.forEach(
+      function(button, index) {
+
+        var option =
+          document.createElement('option');
+
+        option.value =
+          String(index);
+
+        option.textContent =
+          button.label;
+
+        if (
+          menu &&
+          typeof menu.active === 'number' &&
+          menu.active === index
+        ) {
+          option.selected = true;
+        }
+
+        select.appendChild(option);
+      }
+    );
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(select);
+
+    if (el.parentNode) {
+      el.parentNode.insertBefore(
+        wrapper,
+        el
+      );
+    }
+
+
     function responsiveSIR() {
 
-      var mobile = window.innerWidth <= 600;
+      var mobile =
+        window.innerWidth <= 600;
+
+      wrapper.style.display =
+        mobile ? 'block' : 'none';
 
       Plotly.restyle(
         el,
@@ -1903,7 +2087,7 @@ p_sir_plot <- htmlwidgets::onRender(
 
         'margin.l': mobile ? 96 : 160,
         'margin.r': mobile ? 10 : 60,
-        'margin.t': mobile ? 105 : 145,
+        'margin.t': mobile ? 42 : 145,
         'margin.b': mobile ? 52 : 60,
 
         'title.font.size': mobile ? 14 : 20,
@@ -1924,27 +2108,57 @@ p_sir_plot <- htmlwidgets::onRender(
 
         'annotations[0].visible': mobile ? false : true,
 
+        'updatemenus[0].visible': !mobile,
+
         'updatemenus[0].x': 0,
-        'updatemenus[0].y': mobile ? 1.14 : 1.15,
-        'updatemenus[0].font.size': mobile ? 10 : 12
+        'updatemenus[0].y': 1.15,
+        'updatemenus[0].font.size': 12
       };
 
-      Plotly.relayout(el, update);
+      Plotly.relayout(
+        el,
+        update
+      );
+
       Plotly.Plots.resize(el);
     }
+
+
+    select.addEventListener(
+      'change',
+      function() {
+
+        var index =
+          Number(select.value);
+
+        var button =
+          buttons[index];
+
+        if (
+          !button ||
+          !button.args
+        ) {
+          return;
+        }
+
+        Plotly.update(
+          el,
+          button.args[0] || {},
+          button.args[1] || {}
+        ).then(
+          function() {
+            responsiveSIR();
+          }
+        );
+      }
+    );
+
 
     responsiveSIR();
 
     window.addEventListener(
       'resize',
       responsiveSIR
-    );
-
-    el.on(
-      'plotly_buttonclicked',
-      function() {
-        setTimeout(responsiveSIR, 0);
-      }
     );
   }
   "
