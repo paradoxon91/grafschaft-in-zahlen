@@ -1199,7 +1199,7 @@ ranking_karte <- function(
       klasse,
       '" title="',
       tooltip_html,
-      '">',
+      '" onclick="this.classList.toggle(\'is-open\')" tabindex="0">',
 
       '<div class="agrar-ranking-rang">',
       rang_text,
@@ -1225,6 +1225,32 @@ ranking_karte <- function(
 
       '<div class="agrar-ranking-value">',
       wert_text,
+      '</div>',
+
+      '<div class="agrar-ranking-mobile-detail">',
+      if (fehlt) {
+
+        paste0(
+          tiername,
+          ": Tierzahl für 2020 nicht veröffentlicht."
+        )
+
+      } else {
+
+        paste0(
+          "Einwohner: ",
+          format_ganz(einwohner),
+          " · ",
+          tiername,
+          ": ",
+          format_ganz(tierzahl),
+          " · ",
+          tiername,
+          " je Einwohner: ",
+          format_dezimal(wert)
+        )
+
+      },
       '</div>',
 
       '</div>'

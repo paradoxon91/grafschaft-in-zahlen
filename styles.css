@@ -1189,3 +1189,37 @@ body .anchorjs-link:hover {
   }
 
 }
+/* =================================================
+   LANDWIRTSCHAFT – RANKING TOUCH-INFOS
+   ================================================= */
+
+.agrar-ranking-mobile-detail {
+  display: none;
+}
+
+@media (max-width: 600px) {
+
+  .agrar-ranking-row {
+    cursor: pointer;
+  }
+
+  .agrar-ranking-row.is-open
+  .agrar-ranking-mobile-detail {
+    display: block;
+
+    grid-column: 1 / -1;
+
+    margin: 0.35rem 0 0.25rem 2.2rem;
+    padding: 0.55rem 0.7rem;
+
+    border-radius: 8px;
+
+    background: #f7f7f7;
+
+    font-size: 0.76rem;
+    line-height: 1.4;
+
+    color: #555555;
+  }
+
+}
