@@ -1,0 +1,20 @@
+---
+title: "Impressum"
+toc: false
+---
+
+## Angaben zum Anbieter
+
+**Grafschaft in Zahlen**  
+Ein unabhängiges, privates Statistikprojekt zur Grafschaft Bentheim.
+
+**Inhaltliche Verantwortung**
+
+Christian Wittke  
+E-Mail: christian.wittke@posteo.de
+
+## Hinweise zu den Inhalten
+
+Die Inhalte von **Grafschaft in Zahlen** werden mit größtmöglicher Sorgfalt erstellt. Die dargestellten Daten stammen überwiegend aus amtlichen und öffentlich zugänglichen Datenquellen.
+
+Trotz sorgfältiger Prüfung kann keine Gewähr für die Vollständigkeit, Aktualität und Richtigkeit der dargestellten Informationen übernommen werden.

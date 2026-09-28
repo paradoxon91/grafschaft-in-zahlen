@@ -1,0 +1,1564 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>LSN-Online</Author>
+  <Version>14.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Head0">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Italic="1" ss:Color="#000000"/>
+   <Interior ss:Color="#E8E8E0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num0_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num1_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.0"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num2_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.00"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num3_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num4_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.0000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num5_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.00000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num6_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.000000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Str_u">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Dt_u">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="Short Date"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Ts_u">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="yyyy-mm-dd\ hh:mm:ss"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Tm_u">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="hh:mm:ss"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num0_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num1_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.0"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num2_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.00"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num3_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num4_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.0000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num5_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.00000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num6_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.000000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Str_g">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Dt_g">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="Short Date"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Ts_g">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="yyyy-mm-dd\ hh:mm:ss"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Tm_g">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="hh:mm:ss"/>
+   <Protection/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Z6080025">
+  <Table ss:DefaultColumnWidth="80">
+   <Column ss:AutoFitWidth="0" ss:Width="260"/>
+   <Row>
+    <Cell><Data ss:Type="String">© Landesamt für Statistik Niedersachsen, 2026.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Vervielfältigung und Verbreitung, auch auszugsweise, mit Quellenangabe gestattet.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">LSN-Online: Tabelle Z6080025</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Landwirtschaftliche Betriebe mit Hühnerhaltung und Hühnerbestand am 1. März in Niedersachsen</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"> </Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Gebietsstand: 1.1.2020</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:Height="50">
+    <Cell ss:StyleID="Head0" ss:MergeDown="3"><Data ss:Type="String">Niedersachsen&#10;Statistische Region*&#10;Kreis*&#10;Einheits-/Samtgemeinde*&#10;Mitgliedsgemeinde*</Data></Cell>
+    <Cell ss:StyleID="Head0" ss:MergeAcross="5"><Data ss:Type="String">Landwirtschaftliche Betriebe mit Hühnern 1)</Data></Cell>
+   </Row>
+   <Row ss:Height="50">
+    <Cell ss:Index="2" ss:StyleID="Head0" ss:MergeAcross="1"><Data ss:Type="String">2010</Data></Cell>
+    <Cell ss:StyleID="Head0" ss:MergeAcross="1"><Data ss:Type="String">2016</Data></Cell>
+    <Cell ss:StyleID="Head0" ss:MergeAcross="1"><Data ss:Type="String">2020</Data></Cell>
+   </Row>
+   <Row ss:Height="50">
+    <Cell ss:Index="2" ss:StyleID="Head0"><Data ss:Type="String">Betriebe&#10;mit&#10;Hühnern</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">Anzahl&#10;Tiere</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">Betriebe&#10;mit&#10;Hühnern</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">Anzahl&#10;Tiere</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">Betriebe&#10;mit&#10;Hühnern</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">Anzahl&#10;Tiere</Data></Cell>
+   </Row>
+   <Row ss:Height="50">
+    <Cell ss:Index="2" ss:StyleID="Head0"><Data ss:Type="String">1</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">2</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">3</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">4</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">5</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">6</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String">456     Grafschaft Bentheim      </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">189</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5296578</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">183</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8864820</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">211</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8974981</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">183473</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">230190</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">139</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">114</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2410402</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">145</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2615977</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">53</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4419105</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">70</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6270945</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">66</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6128814</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String">456001  Bad Bentheim,Stadt       </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">21</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1257085</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1502544</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1695893</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1420351</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String">456015  Nordhorn,Stadt           </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">184813</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">502530</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">29</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">472376</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">48812</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">211630</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">280076</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">136001</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">290900</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">192300</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String">456025  Wietmarschen             </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">204251</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1322174</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1316171</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">690520</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">656100</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String">456401  Emlichheim, SG           </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">41</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1755628</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">48</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2476288</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">59</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2626202</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">29</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">388323</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">30</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">39</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1367305</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">17</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1722200</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1867979</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456002  Emlichheim              </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">900953</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">906933</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">948141</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">61661</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">886480</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456009  Hoogstede               </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">118939</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">116427</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">118939</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456012  Laar                    </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">611136</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">26</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1157989</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">32</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1305627</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">225131</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">21</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">386005</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">610600</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">732500</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456019  Ringe                   </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">292427</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">256007</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String">456402  Neuenhaus, SG            </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">28</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">175429</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">486829</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">500661</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">175000</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">381000</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">339004</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456004  Esche                   </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456005  Georgsdorf              </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">50</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">50</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456013  Lage                    </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">75</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">75</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456014  Neuenhaus,Stadt         </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">131</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">251</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">419</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456017  Osterwald               </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">185500</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">217422</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">135</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String">456403  Schüttorf, SG            </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">21</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">340028</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">621903</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">28</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">676508</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">226549</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">310000</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">395354</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">412800</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456003  Engden                  </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">211015</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">408624</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">431027</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">169824</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">238800</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456010  Isterberg               </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456016  Ohne                    </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456018  Quendorf                </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">78</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456020  Samern                  </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">127010</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456027  Schüttorf,Stadt         </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String">456404  Uelsen, SG               </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">35</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1379344</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">39</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1952552</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">40</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1687170</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">21</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">209245</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">21</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">547512</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">522650</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1170099</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1405040</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">17</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1164520</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456006  Getelo                  </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456007  Gölenkamp               </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456008  Halle                   </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">249980</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">155253</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456011  Itterbeck               </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">611282</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">631296</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">621911</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">55482</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">104296</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">117011</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">555800</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">527000</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">504900</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456023  Uelsen                  </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456024  Wielen                  </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">131790</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">300491</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">505240</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456026  Wilsum                  </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Hühner insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">451425</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">402067</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">470460</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Junghennen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Legehennen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">96340</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Masthühner und -hähne</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">374120</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">1) Die Zahlen der Agrarstrukturerhebung 2013 wurden nicht in die Datenbank übernommen, weil keine Daten für Kreise und Gemeinden erhoben wurden.</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

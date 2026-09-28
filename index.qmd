@@ -77,7 +77,7 @@ Hier findest du die neueste Analyse aus **Grafschaft in Zahlen**.
      class="themen-kachel"
      href="gesundheit.html">
 
-    <div class="themen-icon">
+    <div class="themen-icon themen-icon-gesundheit">
       <i class="bi bi-heart-pulse-fill"></i>
     </div>
 
@@ -87,6 +87,25 @@ Hier findest du die neueste Analyse aus **Grafschaft in Zahlen**.
 
     <div class="themen-text">
       Gesundheitsdaten, Erkrankungen und regionale Unterschiede in der Grafschaft Bentheim.
+    </div>
+
+  </a>
+
+
+  <a id="thema-landwirtschaft"
+     class="themen-kachel"
+     href="landwirtschaft.html">
+
+    <div class="themen-icon themen-icon-landwirtschaft">
+      <span aria-hidden="true">🌾</span>
+    </div>
+
+    <div class="themen-titel">
+      Landwirtschaft
+    </div>
+
+    <div class="themen-text">
+      Tierhaltung, Agrarstrukturen und spannende Vergleiche zwischen den Gemeinden.
     </div>
 
   </a>

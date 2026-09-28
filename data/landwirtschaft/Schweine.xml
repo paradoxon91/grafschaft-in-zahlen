@@ -1,0 +1,1564 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>LSN-Online</Author>
+  <Version>14.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Head0">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Italic="1" ss:Color="#000000"/>
+   <Interior ss:Color="#E8E8E0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num0_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num1_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.0"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num2_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.00"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num3_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num4_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.0000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num5_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.00000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num6_u">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.000000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Str_u">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Dt_u">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="Short Date"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Ts_u">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="yyyy-mm-dd\ hh:mm:ss"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Tm_u">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFF0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="hh:mm:ss"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num0_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num1_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.0"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num2_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.00"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num3_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num4_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.0000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num5_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.00000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Num6_g">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0.000000"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Str_g">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Dt_g">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="Short Date"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Ts_g">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="yyyy-mm-dd\ hh:mm:ss"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="Tm_g">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0E8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="hh:mm:ss"/>
+   <Protection/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Z6080024">
+  <Table ss:DefaultColumnWidth="80">
+   <Column ss:AutoFitWidth="0" ss:Width="260"/>
+   <Row>
+    <Cell><Data ss:Type="String">© Landesamt für Statistik Niedersachsen, 2026.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Vervielfältigung und Verbreitung, auch auszugsweise, mit Quellenangabe gestattet.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">LSN-Online: Tabelle Z6080024</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Landwirtschaftliche Betriebe mit Schweinehaltung und Schweinebestand am 1. März in Niedersachsen</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"> </Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Gebietsstand: 1.1.2020</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:Height="50">
+    <Cell ss:StyleID="Head0" ss:MergeDown="3"><Data ss:Type="String">Niedersachsen&#10;Statistische Region*&#10;Kreis*&#10;Einheits-/Samtgemeinde*&#10;Mitgliedsgemeinde*</Data></Cell>
+    <Cell ss:StyleID="Head0" ss:MergeAcross="5"><Data ss:Type="String">Landwirtschaftliche Betriebe mit Schweinen 1)</Data></Cell>
+   </Row>
+   <Row ss:Height="50">
+    <Cell ss:Index="2" ss:StyleID="Head0" ss:MergeAcross="1"><Data ss:Type="String">2010</Data></Cell>
+    <Cell ss:StyleID="Head0" ss:MergeAcross="1"><Data ss:Type="String">2016</Data></Cell>
+    <Cell ss:StyleID="Head0" ss:MergeAcross="1"><Data ss:Type="String">2020</Data></Cell>
+   </Row>
+   <Row ss:Height="50">
+    <Cell ss:Index="2" ss:StyleID="Head0"><Data ss:Type="String">Betriebe&#10;mit&#10;Schweinen</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">Anzahl&#10;Tiere</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">Betriebe&#10;mit&#10;Schweinen</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">Anzahl&#10;Tiere</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">Betriebe&#10;mit&#10;Schweinen</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">Anzahl&#10;Tiere</Data></Cell>
+   </Row>
+   <Row ss:Height="50">
+    <Cell ss:Index="2" ss:StyleID="Head0"><Data ss:Type="String">1</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">2</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">3</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">4</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">5</Data></Cell>
+    <Cell ss:StyleID="Head0"><Data ss:Type="String">6</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String">456     Grafschaft Bentheim      </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">534</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">408652</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">319</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">438827</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">277</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">450706</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">337</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">204083</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">200</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">217226</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">171</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">207649</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">336</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">51287</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">200</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">44842</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">172</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">45084</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">489</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">153282</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">276</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">176759</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">250</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">197973</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String">456001  Bad Bentheim,Stadt       </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">43</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">33892</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">26</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">37331</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">35913</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">27</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">19930</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">25765</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">20946</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">27</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4491</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4635</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4145</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">41</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9471</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6931</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10822</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String">456015  Nordhorn,Stadt           </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">84</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">67546</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">53</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">77181</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">46</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">76275</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">56</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">39538</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">32</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">40079</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">27</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">35101</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">53</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8996</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">35</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8414</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">26</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7575</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">74</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">19012</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">45</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">28688</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">43</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">33599</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String">456025  Wietmarschen             </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">67</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">64222</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">49</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">94470</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">47</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">98472</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">37</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">24675</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">24</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">44514</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">24</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">39195</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">34</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5584</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8569</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8692</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">62</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">33963</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">42</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">41387</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">42</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">50585</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String">456401  Emlichheim, SG           </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">78</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">51579</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">46</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">55431</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">39</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">59953</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">51</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">31066</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">31</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">29955</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">28</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">31904</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">54</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8317</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">29</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6226</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">28</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7592</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">72</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">12196</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">41</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">19250</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">29</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">20457</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456002  Emlichheim              </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5666</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6415</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7796</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3473</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3615</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4594</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1103</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1090</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456009  Hoogstede               </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">21</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">14250</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10448</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">12228</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7373</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3736</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9950</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2086</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">21</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4791</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456012  Laar                    </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">15824</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">17467</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">17029</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10648</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9208</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6736</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2694</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1509</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1582</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2482</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6750</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8711</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456019  Ringe                   </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">17</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">15839</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">21101</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">22900</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9572</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">13396</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">10624</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2434</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2117</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3314</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3833</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5588</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8962</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String">456402  Neuenhaus, SG            </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">79</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">50888</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">42</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">42318</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">36</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">46016</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">55</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">29440</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">29</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">24282</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">28221</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">58</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8141</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">29</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5766</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5725</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">73</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">13307</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">32</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">12270</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">33</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">12070</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456004  Esche                   </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5996</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4508</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6245</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4085</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2962</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1589</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">322</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1009</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456005  Georgsdorf              </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8769</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7270</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7712</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5907</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4778</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1579</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1283</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1395</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456013  Lage                    </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1780</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1280</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">403</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">97</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String">-</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456014  Neuenhaus,Stadt         </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">13022</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">14119</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">13282</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6614</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6483</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7076</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1751</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1606</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1616</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4657</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6030</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4590</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456017  Osterwald               </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">36</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">21321</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">16421</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">18777</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">21</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">11554</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">10059</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">11437</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2819</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2465</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2264</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">33</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6948</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">17</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3897</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5076</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String">456403  Schüttorf, SG            </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">80</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">72241</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">48</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">67369</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">40</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">65903</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">39</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">21639</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">19486</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">17325</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">38</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5159</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">24</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3889</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3986</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">78</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">45443</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">44</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">43994</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">38</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">44592</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456003  Engden                  </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">21367</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">17321</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">21744</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3817</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">692</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">16858</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">15864</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456010  Isterberg               </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9724</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">11763</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">12341</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4876</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4257</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5102</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1279</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1123</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1087</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3569</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6383</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6152</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456016  Ohne                    </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10154</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">12935</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10487</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5792</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5430</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2488</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1336</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">975</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">968</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3026</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6530</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7031</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456018  Quendorf                </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8424</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7567</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5124</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4081</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">923</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">852</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2634</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456020  Samern                  </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">21099</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">13305</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9965</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1762</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1669</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2061</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">528</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">408</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">404</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">18809</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">11228</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7500</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456027  Schüttorf,Stadt         </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1473</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3799</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String">456404  Uelsen, SG               </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">103</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">68284</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">55</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">64727</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">47</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">68174</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">72</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">37795</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">40</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">33145</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">33</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">34957</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">72</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10599</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">41</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7343</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">36</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7369</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">89</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">19890</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">52</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">24239</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">43</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">25848</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456006  Getelo                  </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8401</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5931</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4018</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5251</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2978</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1212</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">632</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">482</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1938</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2321</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456007  Gölenkamp               </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7534</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8229</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6486</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3730</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2946</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2007</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1044</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">766</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">466</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2760</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4517</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4013</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456008  Halle                   </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9587</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9162</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">10094</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5595</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4479</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4051</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1378</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1177</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1081</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2614</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3506</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4962</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456011  Itterbeck               </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">14914</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">14366</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10621</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">17</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8609</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7992</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5801</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1974</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1619</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1193</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4331</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4755</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3627</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456023  Uelsen                  </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6526</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8133</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7843</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4310</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4562</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4319</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1087</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">947</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">756</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1129</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2624</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2768</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u" ss:MergeAcross="6"><Data ss:Type="String"> 456024  Wielen                  </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">12323</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">12045</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">14127</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5598</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7852</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6340</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2744</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1489</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">1535</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">3981</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">2704</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6252</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g" ss:MergeAcross="6"><Data ss:Type="String"> 456026  Wilsum                  </Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String">Schweine insgesamt</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">8999</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6861</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">14985</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> Ferkel</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">4702</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">2336</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_u"><Data ss:Type="String"> Zuchtsauen</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1160</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">713</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_u"><Data ss:Type="Number">1856</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="Str_g"><Data ss:Type="String"> andere Schweine</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3137</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">3812</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="Num0_g"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">1) Die Zahlen der Agrarstrukturerhebung 2013 wurden nicht in die Datenbank übernommen, weil keine Daten für Kreise und Gemeinden erhoben wurden.</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

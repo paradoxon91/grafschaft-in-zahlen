@@ -1,0 +1,1427 @@
+---
+title: "Landwirtschaft"
+page-layout: full
+toc: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(dplyr)
+library(readr)
+library(plotly)
+library(htmlwidgets)
+library(scales)
+
+landwirtschaft_2020 <- read_csv2(
+  "data/landwirtschaft/landwirtschaft_tierhaltung_2020.csv",
+  show_col_types = FALSE
+)
+
+format_ganz <- function(x) {
+  format(
+    round(x, 0),
+    big.mark = ".",
+    decimal.mark = ",",
+    scientific = FALSE,
+    trim = TRUE
+  )
+}
+
+format_dezimal <- function(x) {
+  format(
+    round(x, 1),
+    big.mark = ".",
+    decimal.mark = ",",
+    nsmall = 1,
+    scientific = FALSE,
+    trim = TRUE
+  )
+}
+```
+
+
+# 🌾 Landwirtschaft
+
+## Tierhaltung je Einwohner (2020)
+
+Wie viele Rinder, Schweine und Hühner werden in den Gemeinden der Grafschaft Bentheim im Verhältnis zu ihrer Einwohnerzahl gehalten?
+
+Die folgenden Darstellungen vergleichen die **25 Gemeinden der Grafschaft Bentheim** anhand der Zahl der Tiere je Einwohner im Jahr 2020.
+
+Dabei werden ausschließlich die Gesamtbestände der drei Tierarten betrachtet:
+
+- 🐄 **Rinder**
+- 🐖 **Schweine**
+- 🐔 **Hühner**
+
+Die absoluten Tierbestände stammen aus der Agrarstrukturerhebung des Landesamtes für Statistik Niedersachsen. Für nicht veröffentlichte Gemeindeangaben wird **„k. A.“** ausgewiesen.
+
+> **Hinweis:** Die Tierbestände beziehen sich auf den 1. März 2020. Die Bevölkerungszahlen werden ebenfalls für das Jahr 2020 verwendet.
+
+
+---
+
+## 🫧 Bubble-Board
+
+Jede Blase steht für eine Gemeinde. Auf der **X-Achse** ist die Einwohnerzahl 2020 dargestellt, auf der **Y-Achse** die Zahl der Tiere je Einwohner. Die **Größe der Blase** entspricht der absoluten Tierzahl.
+
+Mit dem Umschalter kann zwischen 🐄 Rindern, 🐖 Schweinen und 🐔 Hühnern gewechselt werden.
+
+::: {.landwirtschaft-chart}
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+# ------------------------------------------------------------
+# Daten für Bubble-Board vorbereiten
+# Grafschaft insgesamt bewusst ausschließen
+# ------------------------------------------------------------
+
+bubble_rinder <- landwirtschaft_2020 |>
+  filter(
+    gemeinde != "Grafschaft insgesamt",
+    !is.na(rinder_2020)
+  ) |>
+  transmute(
+    gemeinde,
+    einwohner_2020,
+    tierzahl = rinder_2020,
+    tiere_je_einwohner = rinder_je_einwohner
+  ) |>
+  mutate(
+    bubble_size = rescale(
+      sqrt(tierzahl),
+      to = c(14, 58)
+    ),
+    hover = paste0(
+      "<b>🐄 ", gemeinde, "</b>",
+      "<br>Einwohner 2020: ", format_ganz(einwohner_2020),
+      "<br>Rinder 2020: ", format_ganz(tierzahl),
+      "<br><b>Rinder je Einwohner: ",
+      format_dezimal(tiere_je_einwohner),
+      "</b>"
+    )
+  )
+
+
+bubble_schweine <- landwirtschaft_2020 |>
+  filter(
+    gemeinde != "Grafschaft insgesamt",
+    !is.na(schweine_2020)
+  ) |>
+  transmute(
+    gemeinde,
+    einwohner_2020,
+    tierzahl = schweine_2020,
+    tiere_je_einwohner = schweine_je_einwohner
+  ) |>
+  mutate(
+    bubble_size = rescale(
+      sqrt(tierzahl),
+      to = c(14, 58)
+    ),
+    hover = paste0(
+      "<b>🐖 ", gemeinde, "</b>",
+      "<br>Einwohner 2020: ", format_ganz(einwohner_2020),
+      "<br>Schweine 2020: ", format_ganz(tierzahl),
+      "<br><b>Schweine je Einwohner: ",
+      format_dezimal(tiere_je_einwohner),
+      "</b>"
+    )
+  )
+
+
+bubble_huehner <- landwirtschaft_2020 |>
+  filter(
+    gemeinde != "Grafschaft insgesamt",
+    !is.na(huehner_2020)
+  ) |>
+  transmute(
+    gemeinde,
+    einwohner_2020,
+    tierzahl = huehner_2020,
+    tiere_je_einwohner = huehner_je_einwohner
+  ) |>
+  mutate(
+    bubble_size = rescale(
+      sqrt(tierzahl),
+      to = c(14, 58)
+    ),
+    hover = paste0(
+      "<b>🐔 ", gemeinde, "</b>",
+      "<br>Einwohner 2020: ", format_ganz(einwohner_2020),
+      "<br>Hühner 2020: ", format_ganz(tierzahl),
+      "<br><b>Hühner je Einwohner: ",
+      format_dezimal(tiere_je_einwohner),
+      "</b>"
+    )
+  )
+
+
+# ------------------------------------------------------------
+# Bubble-Grafik
+# ------------------------------------------------------------
+
+p_bubble <- plot_ly() |>
+
+  add_markers(
+    data = bubble_rinder,
+    x = ~einwohner_2020,
+    y = ~tiere_je_einwohner,
+    text = ~hover,
+    hovertemplate = "%{text}<extra></extra>",
+    marker = list(
+      size = bubble_rinder$bubble_size,
+      color = "#2E7D32",
+      opacity = 0.72,
+      line = list(
+        color = "#1B5E20",
+        width = 1
+      )
+    ),
+    name = "🐄 Rinder",
+    visible = TRUE
+  ) |>
+
+  add_markers(
+    data = bubble_schweine,
+    x = ~einwohner_2020,
+    y = ~tiere_je_einwohner,
+    text = ~hover,
+    hovertemplate = "%{text}<extra></extra>",
+    marker = list(
+      size = bubble_schweine$bubble_size,
+      color = "#E57373",
+      opacity = 0.72,
+      line = list(
+        color = "#C62828",
+        width = 1
+      )
+    ),
+    name = "🐖 Schweine",
+    visible = FALSE
+  ) |>
+
+  add_markers(
+    data = bubble_huehner,
+    x = ~einwohner_2020,
+    y = ~tiere_je_einwohner,
+    text = ~hover,
+    hovertemplate = "%{text}<extra></extra>",
+    marker = list(
+      size = bubble_huehner$bubble_size,
+      color = "#E9B949",
+      opacity = 0.78,
+      line = list(
+        color = "#B77900",
+        width = 1
+      )
+    ),
+    name = "🐔 Hühner",
+    visible = FALSE
+  ) |>
+
+  layout(
+
+    showlegend = FALSE,
+    hovermode = "closest",
+
+    margin = list(
+      l = 75,
+      r = 25,
+      t = 95,
+      b = 70
+    ),
+
+    xaxis = list(
+      title = list(
+        text = "Einwohner 2020"
+      ),
+
+      type = "log",
+
+      tickvals = c(
+        500,
+        1000,
+        2000,
+        5000,
+        10000,
+        20000,
+        50000
+      ),
+
+      ticktext = c(
+        "500",
+        "1.000",
+        "2.000",
+        "5.000",
+        "10.000",
+        "20.000",
+        "50.000"
+      ),
+
+      tickangle = 0,
+
+      gridcolor = "#E6E9EC",
+
+      zeroline = FALSE
+    ),
+
+    yaxis = list(
+      title = list(
+        text = "Rinder je Einwohner"
+      ),
+
+      rangemode = "tozero",
+
+      gridcolor = "#E6E9EC",
+
+      zeroline = TRUE,
+
+      zerolinecolor = "#BBBBBB"
+    ),
+
+    plot_bgcolor = "#FFFFFF",
+    paper_bgcolor = "#FFFFFF",
+
+    updatemenus = list(
+
+      list(
+
+        type = "buttons",
+
+        direction = "right",
+
+        x = 0,
+        y = 1.17,
+
+        xanchor = "left",
+        yanchor = "top",
+
+        bgcolor = "#FFFFFF",
+
+        bordercolor = "#D8D8D8",
+
+        borderwidth = 1,
+
+        font = list(
+          size = 13
+        ),
+
+        buttons = list(
+
+          list(
+            label = "🐄 Rinder",
+            method = "update",
+
+            args = list(
+
+              list(
+                visible = c(
+                  TRUE,
+                  FALSE,
+                  FALSE
+                )
+              ),
+
+              list(
+                yaxis = list(
+                  title = list(
+                    text = "Rinder je Einwohner"
+                  ),
+                  rangemode = "tozero",
+                  autorange = TRUE,
+                  gridcolor = "#E6E9EC",
+                  zeroline = TRUE,
+                  zerolinecolor = "#BBBBBB"
+                )
+              )
+            )
+          ),
+
+          list(
+            label = "🐖 Schweine",
+            method = "update",
+
+            args = list(
+
+              list(
+                visible = c(
+                  FALSE,
+                  TRUE,
+                  FALSE
+                )
+              ),
+
+              list(
+                yaxis = list(
+                  title = list(
+                    text = "Schweine je Einwohner"
+                  ),
+                  rangemode = "tozero",
+                  autorange = TRUE,
+                  gridcolor = "#E6E9EC",
+                  zeroline = TRUE,
+                  zerolinecolor = "#BBBBBB"
+                )
+              )
+            )
+          ),
+
+          list(
+            label = "🐔 Hühner",
+            method = "update",
+
+            args = list(
+
+              list(
+                visible = c(
+                  FALSE,
+                  FALSE,
+                  TRUE
+                )
+              ),
+
+              list(
+                yaxis = list(
+                  title = list(
+                    text = "Hühner je Einwohner"
+                  ),
+                  rangemode = "tozero",
+                  autorange = TRUE,
+                  gridcolor = "#E6E9EC",
+                  zeroline = TRUE,
+                  zerolinecolor = "#BBBBBB"
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  ) |>
+
+  config(
+    displayModeBar = FALSE,
+    responsive = TRUE
+  )
+
+
+# ------------------------------------------------------------
+# Smartphone:
+# natives Auswahlfeld + kompaktere Achse + kleinere Bubbles
+# ------------------------------------------------------------
+
+p_bubble <- htmlwidgets::onRender(
+  p_bubble,
+  "
+  function(el, x) {
+
+    var menu =
+      x.layout &&
+      x.layout.updatemenus &&
+      x.layout.updatemenus.length
+        ? x.layout.updatemenus[0]
+        : null;
+
+    var buttons =
+      menu && menu.buttons
+        ? menu.buttons
+        : [];
+
+
+    var originalSizes =
+      x.data.map(
+        function(trace) {
+
+          if (
+            trace.marker &&
+            Array.isArray(trace.marker.size)
+          ) {
+            return trace.marker.size.slice();
+          }
+
+          if (trace.marker) {
+            return trace.marker.size;
+          }
+
+          return null;
+        }
+      );
+
+
+    var originalHeight =
+      x.layout.height ||
+      el.clientHeight ||
+      500;
+
+
+    var wrapper =
+      document.createElement('div');
+
+    wrapper.className =
+      'mobile-plotly-select-wrap';
+
+
+    var label =
+      document.createElement('label');
+
+    label.className =
+      'mobile-plotly-select-label';
+
+    label.textContent =
+      'Tierart auswählen';
+
+
+    var select =
+      document.createElement('select');
+
+    select.className =
+      'mobile-plotly-select';
+
+    select.setAttribute(
+      'aria-label',
+      'Tierart auswählen'
+    );
+
+
+    buttons.forEach(
+      function(button, index) {
+
+        var option =
+          document.createElement('option');
+
+        option.value =
+          String(index);
+
+        option.textContent =
+          button.label;
+
+        if (index === 0) {
+          option.selected = true;
+        }
+
+        select.appendChild(option);
+      }
+    );
+
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(select);
+
+
+    if (el.parentNode) {
+
+      el.parentNode.insertBefore(
+        wrapper,
+        el
+      );
+    }
+
+
+    function setBubbleSizes(mobile) {
+
+      originalSizes.forEach(
+        function(sizes, index) {
+
+          if (sizes === null) {
+            return;
+          }
+
+          var newSizes;
+
+          if (Array.isArray(sizes)) {
+
+            newSizes =
+              sizes.map(
+                function(size) {
+
+                  return mobile
+                    ? size * 0.82
+                    : size;
+
+                }
+              );
+
+          } else {
+
+            newSizes =
+              mobile
+                ? sizes * 0.82
+                : sizes;
+          }
+
+
+          Plotly.restyle(
+            el,
+            {
+              'marker.size': [newSizes]
+            },
+            [index]
+          );
+        }
+      );
+    }
+
+
+    function responsiveBubble() {
+
+      var mobile =
+        window.innerWidth <= 600;
+
+
+      wrapper.style.display =
+        mobile ? 'block' : 'none';
+
+
+      setBubbleSizes(mobile);
+
+
+      var update = {
+
+        'autosize': true,
+
+        'height':
+          mobile
+            ? 520
+            : originalHeight,
+
+        'margin.l':
+          mobile ? 58 : 75,
+
+        'margin.r':
+          mobile ? 8 : 25,
+
+        'margin.t':
+          mobile ? 20 : 95,
+
+        'margin.b':
+          mobile ? 78 : 70,
+
+
+        'xaxis.title.font.size':
+          mobile ? 11 : 14,
+
+        'xaxis.tickfont.size':
+          mobile ? 9 : 12,
+
+        'xaxis.tickangle':
+          mobile ? -35 : 0,
+
+
+        'xaxis.tickvals':
+          mobile
+            ? [500, 2000, 10000, 50000]
+            : [
+                500,
+                1000,
+                2000,
+                5000,
+                10000,
+                20000,
+                50000
+              ],
+
+
+        'xaxis.ticktext':
+          mobile
+            ? [
+                '500',
+                '2.000',
+                '10.000',
+                '50.000'
+              ]
+            : [
+                '500',
+                '1.000',
+                '2.000',
+                '5.000',
+                '10.000',
+                '20.000',
+                '50.000'
+              ],
+
+
+        'yaxis.title.font.size':
+          mobile ? 11 : 14,
+
+        'yaxis.tickfont.size':
+          mobile ? 9 : 12,
+
+
+        'hoverlabel.font.size':
+          mobile ? 11 : 13,
+
+
+        'updatemenus[0].visible':
+          !mobile
+      };
+
+
+      Plotly.relayout(
+        el,
+        update
+      );
+
+
+      Plotly.Plots.resize(el);
+    }
+
+
+    select.addEventListener(
+      'change',
+      function() {
+
+        var index =
+          Number(select.value);
+
+        var button =
+          buttons[index];
+
+
+        if (
+          !button ||
+          !button.args
+        ) {
+          return;
+        }
+
+
+        Plotly.update(
+          el,
+          button.args[0] || {},
+          button.args[1] || {}
+        ).then(
+          function() {
+
+            responsiveBubble();
+
+          }
+        );
+      }
+    );
+
+
+    responsiveBubble();
+
+
+    window.addEventListener(
+      'resize',
+      responsiveBubble
+    );
+  }
+  "
+)
+
+
+p_bubble
+```
+
+:::
+
+*In der Hühnerdarstellung erscheinen nur Gemeinden, für die das LSN eine Tierzahl veröffentlicht hat. Nicht veröffentlichte Werte werden nicht als Null interpretiert.*
+
+**Quelle:** Landesamt für Statistik Niedersachsen (LSN), Agrarstrukturerhebung 2020; Bevölkerungsstand 2020.
+
+
+---
+
+## 🏆 Ranking: Tiere je Einwohner
+
+Welche Gemeinden weisen – bezogen auf ihre Einwohnerzahl – die höchsten Tierbestände auf?
+
+Die Balken zeigen die jeweilige Zahl der **Tiere je Einwohner im Jahr 2020**. Die Grafschaft Bentheim insgesamt wird unterhalb der Gemeinden zusätzlich als Vergleichswert dargestellt.
+
+
+```{=html}
+<style>
+
+.agrar-ranking-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.agrar-ranking-card {
+  overflow: hidden;
+
+  border: 1px solid #dddddd;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.agrar-ranking-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  padding: 1rem 1.1rem;
+}
+
+.agrar-ranking-header-emoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.agrar-ranking-header-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.agrar-ranking-header-subtitle {
+  margin-top: 0.15rem;
+
+  font-size: 0.82rem;
+
+  color: #666666;
+}
+
+.agrar-ranking-list {
+  padding: 0.35rem 0.8rem 0.7rem 0.8rem;
+}
+
+.agrar-ranking-row {
+  display: grid;
+
+  grid-template-columns:
+    32px
+    minmax(92px, 1.25fr)
+    minmax(70px, 1fr)
+    58px;
+
+  align-items: center;
+
+  gap: 0.45rem;
+
+  min-height: 35px;
+
+  padding: 0.28rem 0;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.agrar-ranking-row:last-child {
+  border-bottom: none;
+}
+
+.agrar-ranking-rang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.agrar-ranking-gemeinde {
+  min-width: 0;
+
+  font-size: 0.82rem;
+  line-height: 1.15;
+
+  overflow-wrap: anywhere;
+}
+
+.agrar-ranking-track {
+  position: relative;
+
+  height: 12px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #eeeeee;
+}
+
+.agrar-ranking-bar {
+  height: 100%;
+
+  min-width: 2px;
+
+  border-radius: 999px;
+}
+
+.agrar-ranking-value {
+  text-align: right;
+
+  white-space: nowrap;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.agrar-ranking-missing {
+  color: #888888;
+}
+
+.agrar-ranking-missing .agrar-ranking-track {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      #f1f1f1,
+      #f1f1f1 5px,
+      #e5e5e5 5px,
+      #e5e5e5 10px
+    );
+}
+
+.agrar-ranking-landkreis {
+  margin-top: 0.35rem;
+
+  padding: 0.8rem;
+
+  border-top: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.agrar-ranking-landkreis .agrar-ranking-row {
+  border-bottom: none;
+
+  font-weight: 700;
+}
+
+
+/* Rinder */
+
+.agrar-ranking-rinder .agrar-ranking-header {
+  background: #EDF7ED;
+}
+
+.agrar-ranking-rinder .agrar-ranking-header-title {
+  color: #1B5E20;
+}
+
+.agrar-ranking-rinder .agrar-ranking-rang {
+  background: #DDEEDD;
+  color: #1B5E20;
+}
+
+.agrar-ranking-rinder .agrar-ranking-bar {
+  background: #2E7D32;
+}
+
+
+/* Schweine */
+
+.agrar-ranking-schweine .agrar-ranking-header {
+  background: #FDEEEF;
+}
+
+.agrar-ranking-schweine .agrar-ranking-header-title {
+  color: #9F1D35;
+}
+
+.agrar-ranking-schweine .agrar-ranking-rang {
+  background: #F9D9DE;
+  color: #9F1D35;
+}
+
+.agrar-ranking-schweine .agrar-ranking-bar {
+  background: #D95D73;
+}
+
+
+/* Hühner */
+
+.agrar-ranking-huehner .agrar-ranking-header {
+  background: #FFF6DC;
+}
+
+.agrar-ranking-huehner .agrar-ranking-header-title {
+  color: #8A5B00;
+}
+
+.agrar-ranking-huehner .agrar-ranking-rang {
+  background: #F9E9B0;
+  color: #7A5100;
+}
+
+.agrar-ranking-huehner .agrar-ranking-bar {
+  background: #E9B949;
+}
+
+
+/* Tablet und Smartphone */
+
+@media (max-width: 1000px) {
+
+  .agrar-ranking-grid {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .agrar-ranking-row {
+    grid-template-columns:
+      34px
+      minmax(115px, 1.4fr)
+      minmax(90px, 1fr)
+      62px;
+  }
+
+  .agrar-ranking-gemeinde {
+    font-size: 0.9rem;
+  }
+
+  .agrar-ranking-value {
+    font-size: 0.86rem;
+  }
+
+}
+
+
+/* Sehr kleine Smartphones */
+
+@media (max-width: 480px) {
+
+  .agrar-ranking-list {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+  }
+
+  .agrar-ranking-row {
+    grid-template-columns:
+      28px
+      minmax(90px, 1.25fr)
+      minmax(60px, 0.9fr)
+      54px;
+
+    gap: 0.35rem;
+  }
+
+  .agrar-ranking-rang {
+    width: 23px;
+    height: 23px;
+
+    font-size: 0.68rem;
+  }
+
+  .agrar-ranking-gemeinde {
+    font-size: 0.8rem;
+  }
+
+  .agrar-ranking-value {
+    font-size: 0.78rem;
+  }
+
+  .agrar-ranking-track {
+    height: 10px;
+  }
+
+}
+
+</style>
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| results: asis
+
+# ------------------------------------------------------------
+# Funktion: Ranking-Karte erzeugen
+# ------------------------------------------------------------
+
+ranking_karte <- function(
+    daten,
+    wert_spalte,
+    tierzahl_spalte,
+    tiername,
+    emoji,
+    css_klasse
+) {
+
+  gemeinden <- daten |>
+
+    filter(
+      gemeinde != "Grafschaft insgesamt"
+    ) |>
+
+    mutate(
+      wert = .data[[wert_spalte]],
+      tierzahl = .data[[tierzahl_spalte]]
+    ) |>
+
+    arrange(
+      desc(wert),
+      gemeinde
+    ) |>
+
+    mutate(
+      rang =
+        ifelse(
+          is.na(wert),
+          NA_integer_,
+          cumsum(!is.na(wert))
+        )
+    )
+
+
+  landkreis <- daten |>
+
+    filter(
+      gemeinde == "Grafschaft insgesamt"
+    ) |>
+
+    mutate(
+      wert = .data[[wert_spalte]],
+      tierzahl = .data[[tierzahl_spalte]]
+    )
+
+
+  max_wert <- max(
+    gemeinden$wert,
+    na.rm = TRUE
+  )
+
+
+  ranking_zeile <- function(
+      gemeinde,
+      wert,
+      tierzahl,
+      einwohner,
+      rang = NA,
+      landkreis = FALSE
+  ) {
+
+    fehlt <- is.na(wert)
+
+
+    rang_text <-
+      if (landkreis) {
+
+        "LK"
+
+      } else if (fehlt) {
+
+        "–"
+
+      } else {
+
+        as.character(rang)
+      }
+
+
+    wert_text <-
+      if (fehlt) {
+
+        "k. A."
+
+      } else {
+
+        format_dezimal(wert)
+      }
+
+
+    breite <-
+      if (fehlt) {
+
+        0
+
+      } else {
+
+        max(
+          2,
+          min(
+            100,
+            wert / max_wert * 100
+          )
+        )
+      }
+
+
+    tooltip <-
+      if (fehlt) {
+
+        paste0(
+          gemeinde,
+          ": Tierzahl für 2020 nicht veröffentlicht"
+        )
+
+      } else {
+
+        paste0(
+          gemeinde,
+          " | Einwohner: ",
+          format_ganz(einwohner),
+          " | ",
+          tiername,
+          ": ",
+          format_ganz(tierzahl),
+          " | ",
+          tiername,
+          " je Einwohner: ",
+          format_dezimal(wert)
+        )
+      }
+
+
+    gemeinde_html <-
+      htmltools::htmlEscape(gemeinde)
+
+
+    tooltip_html <-
+      htmltools::htmlEscape(tooltip)
+
+
+    klasse <-
+      if (fehlt) {
+
+        "agrar-ranking-row agrar-ranking-missing"
+
+      } else {
+
+        "agrar-ranking-row"
+      }
+
+
+    paste0(
+
+      '<div class="',
+      klasse,
+      '" title="',
+      tooltip_html,
+      '">',
+
+      '<div class="agrar-ranking-rang">',
+      rang_text,
+      '</div>',
+
+      '<div class="agrar-ranking-gemeinde">',
+      gemeinde_html,
+      '</div>',
+
+      '<div class="agrar-ranking-track">',
+
+      if (!fehlt) {
+        paste0(
+          '<div class="agrar-ranking-bar" style="width:',
+          sprintf("%.1f", breite),
+          '%;"></div>'
+        )
+      } else {
+        ""
+      },
+
+      '</div>',
+
+      '<div class="agrar-ranking-value">',
+      wert_text,
+      '</div>',
+
+      '</div>'
+    )
+  }
+
+
+  zeilen <- vapply(
+
+    seq_len(nrow(gemeinden)),
+
+    function(i) {
+
+      ranking_zeile(
+
+        gemeinde =
+          gemeinden$gemeinde[i],
+
+        wert =
+          gemeinden$wert[i],
+
+        tierzahl =
+          gemeinden$tierzahl[i],
+
+        einwohner =
+          gemeinden$einwohner_2020[i],
+
+        rang =
+          gemeinden$rang[i],
+
+        landkreis =
+          FALSE
+      )
+    },
+
+    character(1)
+  )
+
+
+  landkreis_zeile <- ranking_zeile(
+
+    gemeinde =
+      "Grafschaft insgesamt",
+
+    wert =
+      landkreis$wert[1],
+
+    tierzahl =
+      landkreis$tierzahl[1],
+
+    einwohner =
+      landkreis$einwohner_2020[1],
+
+    rang =
+      NA,
+
+    landkreis =
+      TRUE
+  )
+
+
+  paste0(
+
+    '<div class="agrar-ranking-card ',
+    css_klasse,
+    '">',
+
+    '<div class="agrar-ranking-header">',
+
+    '<div class="agrar-ranking-header-emoji">',
+    emoji,
+    '</div>',
+
+    '<div>',
+
+    '<div class="agrar-ranking-header-title">',
+    tiername,
+    '</div>',
+
+    '<div class="agrar-ranking-header-subtitle">',
+    tiername,
+    ' je Einwohner (2020)',
+    '</div>',
+
+    '</div>',
+
+    '</div>',
+
+    '<div class="agrar-ranking-list">',
+
+    paste(
+      zeilen,
+      collapse = ""
+    ),
+
+    '</div>',
+
+    '<div class="agrar-ranking-landkreis">',
+
+    landkreis_zeile,
+
+    '</div>',
+
+    '</div>'
+  )
+}
+
+
+# ------------------------------------------------------------
+# Drei Rankings erstellen
+# ------------------------------------------------------------
+
+ranking_rinder <- ranking_karte(
+
+  daten =
+    landwirtschaft_2020,
+
+  wert_spalte =
+    "rinder_je_einwohner",
+
+  tierzahl_spalte =
+    "rinder_2020",
+
+  tiername =
+    "Rinder",
+
+  emoji =
+    "🐄",
+
+  css_klasse =
+    "agrar-ranking-rinder"
+)
+
+
+ranking_schweine <- ranking_karte(
+
+  daten =
+    landwirtschaft_2020,
+
+  wert_spalte =
+    "schweine_je_einwohner",
+
+  tierzahl_spalte =
+    "schweine_2020",
+
+  tiername =
+    "Schweine",
+
+  emoji =
+    "🐖",
+
+  css_klasse =
+    "agrar-ranking-schweine"
+)
+
+
+ranking_huehner <- ranking_karte(
+
+  daten =
+    landwirtschaft_2020,
+
+  wert_spalte =
+    "huehner_je_einwohner",
+
+  tierzahl_spalte =
+    "huehner_2020",
+
+  tiername =
+    "Hühner",
+
+  emoji =
+    "🐔",
+
+  css_klasse =
+    "agrar-ranking-huehner"
+)
+
+
+# ------------------------------------------------------------
+# HTML ausgeben
+# ------------------------------------------------------------
+
+cat(
+  '<div class="agrar-ranking-grid">',
+  ranking_rinder,
+  ranking_schweine,
+  ranking_huehner,
+  '</div>'
+)
+```
+
+::: {.agrar-ranking-hinweis}
+
+**LK = Grafschaft Bentheim insgesamt.** Der Landkreis wird als Vergleichswert separat unterhalb der 25 Gemeinden dargestellt und erhält deshalb keine Rangnummer.
+
+Bei **„k. A.“** wurde die Tierzahl vom LSN nicht veröffentlicht. Diese Gemeinden werden nicht in die Rangfolge der verfügbaren Werte einbezogen und ausdrücklich **nicht als Null** gewertet.
+
+**Quelle:** Landesamt für Statistik Niedersachsen (LSN), Agrarstrukturerhebung 2020; Bevölkerungsstand 2020.
+
+:::

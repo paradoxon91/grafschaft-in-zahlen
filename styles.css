@@ -53,10 +53,13 @@
 
 .themen-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.5rem;
 
-  max-width: 950px;
+  /* Drei Themenbereiche auf Desktop */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 1.5rem;
+
+  max-width: 1200px;
 
   margin: 2rem auto 1rem auto;
 }
@@ -130,6 +133,20 @@
 
 .themen-icon i {
   line-height: 1;
+}
+
+/* Gesundheit – rotes Herz */
+
+.themen-icon-gesundheit {
+  color: #C62828;
+}
+
+/* Landwirtschafts-Emoji in der dritten Themenkachel */
+
+.themen-icon-landwirtschaft span {
+  display: block;
+  line-height: 1;
+  font-size: 3rem;
 }
 
 .themen-titel {
@@ -339,6 +356,27 @@ body .anchorjs-link:hover {
 
 .small.text-muted {
   line-height: 1.45;
+}
+
+
+/* =================================================
+   MITTLERE BILDSCHIRME
+   ================================================= */
+
+@media (max-width: 1100px) and (min-width: 769px) {
+
+  .themen-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .themen-kachel {
+    padding: 1.5rem;
+  }
+
+  .themen-text {
+    font-size: 0.95rem;
+  }
 }
 
 
@@ -1132,6 +1170,22 @@ body .anchorjs-link:hover {
     justify-content: center;
 
     min-height: 46px;
+  }
+
+}
+/* =================================================
+   LANDWIRTSCHAFT – HINWEISE MOBIL
+   ================================================= */
+
+@media (max-width: 600px) {
+
+  .agrar-ranking-hinweis {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .agrar-ranking-hinweis p {
+    margin-bottom: 0.85rem;
   }
 
 }

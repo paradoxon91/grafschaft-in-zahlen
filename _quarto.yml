@@ -4,6 +4,16 @@ project:
 website:
   title: "Grafschaft in Zahlen"
 
+  google-analytics:
+    tracking-id: "G-GTB3NHRG4V"
+    anonymize-ip: true
+
+  cookie-consent:
+    type: express
+    style: simple
+    palette: light
+    language: de
+
   navbar:
     logo: images/logo.jpg
 
@@ -20,6 +30,9 @@ website:
       - href: gesundheit.qmd
         text: Gesundheit
 
+      - href: landwirtschaft.qmd
+        text: Landwirtschaft
+
       - href: about.qmd
         text: Über das Projekt
 
@@ -27,6 +40,11 @@ website:
       - icon: instagram
         href: https://www.instagram.com/grafschaftinzahlen/
         aria-label: Grafschaft in Zahlen auf Instagram
+
+  page-footer:
+    left:
+      - text: "Impressum"
+        href: impressum.qmd
 
 format:
   html:
