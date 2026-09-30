@@ -11,7 +11,7 @@ Ein unabhängiges, privates Statistikprojekt zur Grafschaft Bentheim.
 **Inhaltliche Verantwortung**
 
 Christian Wittke  
-E-Mail: christian.wittke@posteo.de
+E-Mail: christian.wittke(at)posteo.de
 
 ## Hinweise zu den Inhalten
 
