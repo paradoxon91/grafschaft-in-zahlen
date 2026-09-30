@@ -1223,3 +1223,66 @@ body .anchorjs-link:hover {
   }
 
 }
+/* =================================================
+   FOOTER – LINKS SAUBER IN EINER ZEILE
+   ================================================= */
+
+.nav-footer {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+}
+
+.nav-footer-left,
+.nav-footer-center,
+.nav-footer-right {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+/* Impressum + Datenschutz */
+.nav-footer-left .footer-items {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.nav-footer-left .nav-item {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Cookie-Einstellungen */
+.nav-footer-center {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.nav-footer a {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.5 !important;
+}
+
+
+/* Smartphone: Footer darf umbrechen */
+@media (max-width: 600px) {
+
+  .nav-footer {
+    flex-wrap: wrap !important;
+    gap: 0.65rem 1.25rem !important;
+  }
+
+  .nav-footer-left .footer-items {
+    gap: 1.25rem !important;
+  }
+
+}
