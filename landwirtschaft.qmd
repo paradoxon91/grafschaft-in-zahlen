@@ -816,6 +816,16 @@ Die Balken zeigen die jeweilige Zahl der **Tiere je Einwohner im Jahr 2020**. Di
   border-bottom: none;
 }
 
+/* Auf großen Bildschirmen sind alle 25 Gemeindezeilen exakt gleich hoch.
+   Dadurch beginnen die Landkreis-Zeilen in allen drei Karten auf gleicher Höhe. */
+@media (min-width: 1001px) {
+  .agrar-ranking-row {
+    height: 35px;
+    min-height: 35px;
+    box-sizing: border-box;
+  }
+}
+
 .agrar-ranking-rang {
   display: flex;
   align-items: center;
@@ -873,6 +883,14 @@ Die Balken zeigen die jeweilige Zahl der **Tiere je Einwohner im Jahr 2020**. Di
 }
 
 .agrar-ranking-missing .agrar-ranking-track {
+  background: #eeeeee;
+}
+
+/* Fehlende Werte verwenden denselben Balkenaufbau wie vorhandene Werte.
+   Nur die Füllung ist grau gestreift. */
+.agrar-ranking-card .agrar-ranking-bar.agrar-ranking-bar-missing {
+  width: 100%;
+  min-width: 0;
   background:
     repeating-linear-gradient(
       135deg,
@@ -880,7 +898,7 @@ Die Balken zeigen die jeweilige Zahl der **Tiere je Einwohner im Jahr 2020**. Di
       #f1f1f1 5px,
       #e5e5e5 5px,
       #e5e5e5 10px
-    );
+    ) !important;
 }
 
 .agrar-ranking-landkreis {
@@ -1218,7 +1236,7 @@ ranking_karte <- function(
           '%;"></div>'
         )
       } else {
-        ""
+        '<div class="agrar-ranking-bar agrar-ranking-bar-missing" style="width:100%;"></div>'
       },
 
       '</div>',
