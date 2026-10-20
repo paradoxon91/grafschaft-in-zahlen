@@ -1286,3 +1286,139 @@ body .anchorjs-link:hover {
   }
 
 }
+
+/* =================================================
+   STARTSEITE – BEVÖLKERUNGSPYRAMIDE 2025
+   ================================================= */
+
+.start-bevoelkerung-title {
+  margin-top: 1.25rem;
+  margin-bottom: 0.35rem;
+
+  font-size: 2.15rem;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.start-bevoelkerung-chart {
+  width: 100%;
+  max-width: 1320px;
+  min-width: 0;
+
+  margin: 0.2rem auto 0.25rem auto;
+
+  overflow: visible;
+}
+
+.start-bevoelkerung-chart .html-widget,
+.start-bevoelkerung-chart .plotly,
+.start-bevoelkerung-chart .plot-container,
+.start-bevoelkerung-chart .svg-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.start-bevoelkerung-chart .plotly.html-widget {
+  height: 555px !important;
+  min-height: 555px !important;
+}
+
+.start-bevoelkerung-hinweis {
+  margin-top: 0.05rem;
+  margin-bottom: 2.5rem;
+
+  color: #6b6b6b;
+
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.start-bevoelkerung-hinweis p {
+  margin-bottom: 0;
+}
+
+
+/* Tablet */
+@media (max-width: 768px) {
+
+  .start-bevoelkerung-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .start-bevoelkerung-chart {
+    width: 100%;
+    max-width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .start-bevoelkerung-chart .html-widget,
+  .start-bevoelkerung-chart .plotly,
+  .start-bevoelkerung-chart .plot-container,
+  .start-bevoelkerung-chart .svg-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+
+
+/* Smartphone */
+@media (max-width: 600px) {
+
+  .start-bevoelkerung-title {
+    margin-top: 0.9rem;
+    margin-bottom: 0.15rem;
+
+    font-size: 1.45rem;
+    line-height: 1.2;
+  }
+
+  .start-bevoelkerung-chart {
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+
+    overflow: visible;
+
+    touch-action: pan-y;
+  }
+
+  .start-bevoelkerung-chart .plotly.html-widget {
+    width: 100% !important;
+
+    height: 500px !important;
+    min-height: 500px !important;
+  }
+
+  .start-bevoelkerung-chart .plot-container,
+  .start-bevoelkerung-chart .svg-container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .start-bevoelkerung-hinweis {
+    margin-top: 0;
+    margin-bottom: 1.8rem;
+
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+}
+
+
+/* Sehr kleine Smartphones */
+@media (max-width: 480px) {
+
+  .start-bevoelkerung-title {
+    font-size: 1.35rem;
+  }
+
+  .start-bevoelkerung-chart .plotly.html-widget {
+    height: 485px !important;
+    min-height: 485px !important;
+  }
+}
+
