@@ -13,9 +13,7 @@ website:
     type: express
     style: simple
     palette: light
-    language: de
     policy-url: datenschutz.html
-    prefs-text: "Cookie-Einstellungen"
 
   navbar:
     logo: images/logo.jpg
@@ -44,6 +42,14 @@ website:
         href: https://www.instagram.com/grafschaftinzahlen/
         aria-label: Grafschaft in Zahlen auf Instagram
 
+      - icon: globe2
+        aria-label: Sprache / Language
+        menu:
+          - text: Deutsch
+            href: /index.html
+          - text: English
+            href: /en/index.html
+
   page-footer:
     left:
       - text: "Impressum"
@@ -57,3 +63,5 @@ format:
     css: styles.css
     toc: true
     lang: de
+    include-after-body:
+      - language-switch.html

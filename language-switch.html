@@ -1,0 +1,133 @@
+<style>
+  /* Aktive Sprache im Globus-Menü hervorheben */
+  .navbar .dropdown-menu .dropdown-item.language-current {
+    background-color: #073B70 !important;
+    color: #ffffff !important;
+  }
+
+  .navbar .dropdown-menu .dropdown-item.language-current:hover,
+  .navbar .dropdown-menu .dropdown-item.language-current:focus {
+    background-color: #073B70 !important;
+    color: #ffffff !important;
+  }
+</style>
+
+<script>
+(function () {
+  function normalizePath(pathname) {
+    if (!pathname || pathname === "/") {
+      return "/index.html";
+    }
+
+    if (pathname.endsWith("/")) {
+      return pathname + "index.html";
+    }
+
+    return pathname;
+  }
+
+  function pagePaths() {
+    var path = normalizePath(window.location.pathname);
+    var isEnglish = path.indexOf("/en/") === 0;
+
+    var germanPath;
+    var englishPath;
+
+    if (isEnglish) {
+      germanPath = path.replace(/^\/en\//, "/");
+      englishPath = path;
+    } else {
+      germanPath = path;
+      englishPath = "/en" + path;
+    }
+
+    return {
+      isEnglish: isEnglish,
+      german: germanPath,
+      english: englishPath
+    };
+  }
+
+  function setLanguageMenuLinks(paths) {
+    document.querySelectorAll(".navbar .dropdown-menu a.dropdown-item").forEach(function (link) {
+      var label = link.textContent.trim();
+
+      if (label === "Deutsch") {
+        link.setAttribute("href", paths.german);
+        link.classList.toggle("language-current", !paths.isEnglish);
+      }
+
+      if (label === "English") {
+        link.setAttribute("href", paths.english);
+        link.classList.toggle("language-current", paths.isEnglish);
+      }
+    });
+  }
+
+  function translateNavigation(paths) {
+    if (!paths.isEnglish) {
+      return;
+    }
+
+    var translations = {
+      "Start": "Home",
+      "Aktuelles": "News",
+      "Bevölkerung": "Population",
+      "Gesundheit": "Health",
+      "Landwirtschaft": "Agriculture",
+      "Über das Projekt": "About the project",
+      "Impressum": "Legal notice",
+      "Datenschutz": "Privacy"
+    };
+
+    document.querySelectorAll(".navbar a.nav-link, .nav-footer a").forEach(function (link) {
+      var label = link.textContent.trim();
+
+      if (translations[label]) {
+        link.textContent = translations[label];
+      }
+    });
+
+    var navTargets = {
+      "Home": "/en/index.html",
+      "News": "/en/news.html",
+      "Population": "/en/bevoelkerung.html",
+      "Health": "/en/gesundheit.html",
+      "Agriculture": "/en/landwirtschaft.html",
+      "About the project": "/en/about.html"
+    };
+
+    document.querySelectorAll(".navbar a.nav-link").forEach(function (link) {
+      var label = link.textContent.trim();
+
+      if (navTargets[label]) {
+        link.setAttribute("href", navTargets[label]);
+      }
+    });
+
+    document.querySelectorAll(".nav-footer a").forEach(function (link) {
+      var label = link.textContent.trim();
+
+      if (label === "Legal notice") {
+        link.setAttribute("href", "/en/impressum.html");
+      }
+
+      if (label === "Privacy") {
+        link.setAttribute("href", "/en/datenschutz.html");
+      }
+    });
+  }
+
+  function runLanguageSwitch() {
+    var paths = pagePaths();
+    setLanguageMenuLinks(paths);
+    translateNavigation(paths);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", runLanguageSwitch);
+  } else {
+    runLanguageSwitch();
+  }
+})();
+</script>

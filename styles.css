@@ -1529,3 +1529,247 @@ body .anchorjs-link:hover {
   }
 }
 
+
+
+/* =================================================
+   BEVÖLKERUNGSSEITE – INTERAKTIVE ALTERSSTRUKTUR
+   ================================================= */
+
+.bevoelkerung-alter-filterleiste {
+  display: flex;
+  align-items: stretch;
+  gap: 0.35rem;
+
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0.8rem 0 0.75rem 0;
+}
+
+.bevoelkerung-alter-filter-gebiet {
+  flex: 0 1 320px;
+  min-width: 260px;
+}
+
+.bevoelkerung-alter-select {
+  display: block;
+
+  width: 100%;
+  height: 46px;
+
+  padding: 0 2.4rem 0 0.85rem;
+
+  border: 1px solid #cfd5dc;
+  border-radius: 6px;
+
+  background-color: #ffffff;
+
+  color: #2f2f2f;
+
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.2;
+
+  cursor: pointer;
+}
+
+.bevoelkerung-alter-select:focus {
+  outline: 2px solid #073B70;
+  outline-offset: 1px;
+}
+
+.bevoelkerung-alter-jahre {
+  display: inline-flex;
+  align-items: stretch;
+}
+
+.bevoelkerung-alter-jahr {
+  min-width: 68px;
+  height: 46px;
+
+  margin: 0;
+  padding: 0 0.9rem;
+
+  border: 1px solid #cfd5dc;
+  border-right-width: 0;
+  border-radius: 0;
+
+  background: #ffffff;
+  color: #242424;
+
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.bevoelkerung-alter-jahr:first-child {
+  border-radius: 6px 0 0 6px;
+}
+
+.bevoelkerung-alter-jahr:last-child {
+  border-right-width: 1px;
+  border-radius: 0 6px 6px 0;
+}
+
+.bevoelkerung-alter-jahr:hover,
+.bevoelkerung-alter-jahr:focus {
+  background-color: #f3f6f9;
+}
+
+.bevoelkerung-alter-jahr:focus {
+  position: relative;
+  z-index: 2;
+  outline: 2px solid #073B70;
+  outline-offset: -2px;
+}
+
+.bevoelkerung-alter-jahr.is-active {
+  position: relative;
+  z-index: 1;
+
+  border-color: #073B70;
+
+  background-color: #073B70;
+  color: #ffffff;
+
+  font-weight: 600;
+}
+
+
+.bevoelkerung-alter-chart {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+
+  overflow: visible;
+}
+
+.bevoelkerung-alter-chart .html-widget,
+.bevoelkerung-alter-chart .plotly,
+.bevoelkerung-alter-chart .plot-container,
+.bevoelkerung-alter-chart .svg-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.bevoelkerung-alter-chart .plotly.html-widget {
+  height: 540px !important;
+  min-height: 540px !important;
+}
+
+.bevoelkerung-alter-quelle {
+  margin-top: -0.1rem;
+  margin-bottom: 2.2rem;
+
+  color: #6b6b6b;
+
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.bevoelkerung-alter-quelle p {
+  margin-bottom: 0;
+}
+
+
+/* Tablet */
+@media (max-width: 768px) {
+
+  .bevoelkerung-alter-filterleiste {
+    flex-wrap: wrap;
+  }
+
+  .bevoelkerung-alter-filter-gebiet {
+    flex: 1 1 290px;
+  }
+}
+
+
+/* Smartphone */
+@media (max-width: 600px) {
+
+  .bevoelkerung-alter-filterleiste {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+
+    margin-top: 0.7rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .bevoelkerung-alter-filter-gebiet {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .bevoelkerung-alter-select {
+    width: 100%;
+    min-height: 46px;
+
+    font-size: 16px;
+  }
+
+  .bevoelkerung-alter-jahre {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    width: 100%;
+  }
+
+  .bevoelkerung-alter-jahr {
+    min-width: 0;
+    width: 100%;
+
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+
+    font-size: 0.92rem;
+  }
+
+  .bevoelkerung-alter-chart {
+    touch-action: pan-y;
+  }
+
+  .bevoelkerung-alter-chart .plotly.html-widget {
+    width: 100% !important;
+
+    height: 500px !important;
+    min-height: 500px !important;
+  }
+
+  .bevoelkerung-alter-quelle {
+    margin-top: -0.15rem;
+    margin-bottom: 1.8rem;
+
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+}
+
+
+/* Sehr kleine Smartphones */
+@media (max-width: 480px) {
+
+  .bevoelkerung-alter-chart .plotly.html-widget {
+    height: 490px !important;
+    min-height: 490px !important;
+  }
+}
+/* Globus-Sprachwahl in der Navbar weiß */
+.navbar .quarto-navbar-tools .bi-globe2 {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+.navbar .quarto-navbar-tools .dropdown-toggle::after {
+  border-top-color: #ffffff !important;
+}
