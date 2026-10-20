@@ -1,5 +1,5 @@
 ---
-title: "Grafschaft in Zahlen"
+title: ""
 page-layout: full
 toc: false
 
@@ -31,7 +31,6 @@ listing:
 ## Zahlen, Daten und Fakten aus der Grafschaft Bentheim
 
 **Grafschaft in Zahlen** bereitet statistische Daten zum Landkreis Grafschaft Bentheim und seinen Gemeinden verständlich, transparent und anschaulich auf.
-
 Im Mittelpunkt stehen langfristige Entwicklungen, regionale Unterschiede und interaktive Darstellungen.
 
 :::
@@ -363,7 +362,7 @@ p_bev_start <- plot_ly() |>
       l = 94,
       r = 30,
       t = 54,
-      b = 64
+      b = 30
     ),
 
     plot_bgcolor = "#FFFFFF",
@@ -466,7 +465,7 @@ p_bev_start <- htmlwidgets::onRender(
             mobile ? 43 : 54,
 
           'margin.b':
-            mobile ? 50 : 64,
+            mobile ? 32 : 30,
 
           'yaxis.tickfont.size':
             mobile ? 10.5 : 14,

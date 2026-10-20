@@ -6,6 +6,83 @@
    ================================================= */
 
 
+
+
+/* ---------------------------------------------
+   Navigationsleiste – Grafik-Blau
+---------------------------------------------- */
+
+.navbar {
+  background-color: #073B70 !important;
+  border-color: #073B70 !important;
+}
+
+.navbar .navbar-brand,
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus,
+.navbar .nav-link,
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active,
+.navbar .quarto-navbar-tools .nav-link,
+.navbar .quarto-navbar-tools .nav-link:hover,
+.navbar .quarto-navbar-tools .nav-link:focus {
+  color: #ffffff !important;
+}
+
+.navbar .nav-link {
+  opacity: 0.92;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+  opacity: 1;
+}
+
+.navbar .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.navbar .navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* Suchsymbol oben rechts weiß */
+.navbar .bi-search,
+.navbar .aa-DetachedSearchButtonIcon,
+.navbar #quarto-search button,
+.navbar #quarto-search svg {
+  color: #ffffff !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* Instagram-Symbol oben rechts in Instagram-Verlaufsfarben */
+.navbar .quarto-navbar-tools .bi-instagram {
+  background: linear-gradient(
+    45deg,
+    #FEDA75 0%,
+    #FA7E1E 25%,
+    #D62976 50%,
+    #962FBF 75%,
+    #4F5BD5 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+
+  font-size: 1.25rem;
+}
+
+.navbar .quarto-navbar-tools .nav-link:hover .bi-instagram {
+  filter: brightness(1.12);
+}
+
+
 /* ---------------------------------------------
    Hero-Bereich
 ---------------------------------------------- */
@@ -15,8 +92,8 @@
   align-items: center;
   gap: 3rem;
   max-width: 1100px;
-  margin: 1.5rem auto 3rem auto;
-  padding: 2rem 0;
+  margin: 1.5rem auto 1.15rem auto;
+  padding: 2rem 0 1rem 0;
 }
 
 .hero-logo {
@@ -42,7 +119,7 @@
 .hero-text h2 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #2E6B3E;
+  color: #073B70;
   margin-top: 0;
 }
 
@@ -133,6 +210,11 @@
 
 .themen-icon i {
   line-height: 1;
+}
+
+/* Bevölkerung – Blau wie Navigationsleiste */
+#thema-bevoelkerung .themen-icon {
+  color: #073B70;
 }
 
 /* Gesundheit – rotes Herz */
@@ -397,9 +479,10 @@ body .anchorjs-link:hover {
     gap: 1rem;
 
     margin-top: 0.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.1rem;
 
     padding-top: 1rem;
+    padding-bottom: 0.5rem;
   }
 
   .hero-logo {
@@ -1065,7 +1148,7 @@ body .anchorjs-link:hover {
 
   max-width: 950px;
 
-  margin: 1.5rem auto 3rem auto;
+  margin: 1.5rem 0 3rem 0;
 
   padding: 1.7rem 2rem;
 
@@ -1092,7 +1175,24 @@ body .anchorjs-link:hover {
 
   font-size: 2.6rem;
 
-  color: #2E6B3E;
+  color: #073B70;
+}
+
+/* Originalnahe Instagram-Verlaufsfarbe im großen Symbol */
+.instagram-icon .bi-instagram {
+  display: inline-block;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #FDF497 0%,
+    #FDF497 5%,
+    #FD5949 45%,
+    #D6249F 60%,
+    #285AEB 90%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
 }
 
 .instagram-inhalt {
@@ -1124,10 +1224,10 @@ body .anchorjs-link:hover {
 
   padding: 0.65rem 1rem;
 
-  border: 1px solid #2E6B3E;
+  border: 1px solid #073B70;
   border-radius: 6px;
 
-  background-color: #2E6B3E;
+  background-color: #073B70;
 
   color: #ffffff !important;
   text-decoration: none !important;
@@ -1136,8 +1236,8 @@ body .anchorjs-link:hover {
 }
 
 .instagram-button:hover {
-  background-color: #245832;
-  border-color: #245832;
+  background-color: #052D56;
+  border-color: #052D56;
 
   color: #ffffff !important;
 }
@@ -1150,7 +1250,14 @@ body .anchorjs-link:hover {
   .instagram-box {
     flex-direction: column;
 
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
 
     padding: 1.4rem 1.2rem;
   }
@@ -1165,9 +1272,9 @@ body .anchorjs-link:hover {
   }
 
   .instagram-button {
-    width: 100%;
+    width: auto;
 
-    justify-content: center;
+    justify-content: flex-start;
 
     min-height: 46px;
   }
@@ -1292,8 +1399,8 @@ body .anchorjs-link:hover {
    ================================================= */
 
 .start-bevoelkerung-title {
-  margin-top: 1.25rem;
-  margin-bottom: 0.35rem;
+  margin-top: 0.55rem;
+  margin-bottom: 0.25rem;
 
   font-size: 2.15rem;
   line-height: 1.2;
@@ -1325,8 +1432,8 @@ body .anchorjs-link:hover {
 }
 
 .start-bevoelkerung-hinweis {
-  margin-top: 0.05rem;
-  margin-bottom: 2.5rem;
+  margin-top: -0.25rem;
+  margin-bottom: 2.25rem;
 
   color: #6b6b6b;
 
@@ -1370,8 +1477,8 @@ body .anchorjs-link:hover {
 @media (max-width: 600px) {
 
   .start-bevoelkerung-title {
-    margin-top: 0.9rem;
-    margin-bottom: 0.15rem;
+    margin-top: 0.45rem;
+    margin-bottom: 0.1rem;
 
     font-size: 1.45rem;
     line-height: 1.2;
@@ -1400,8 +1507,8 @@ body .anchorjs-link:hover {
   }
 
   .start-bevoelkerung-hinweis {
-    margin-top: 0;
-    margin-bottom: 1.8rem;
+    margin-top: -0.2rem;
+    margin-bottom: 1.6rem;
 
     font-size: 0.75rem;
     line-height: 1.35;
