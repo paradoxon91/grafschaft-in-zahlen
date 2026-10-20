@@ -105,6 +105,11 @@
       }
     });
 
+    var brandLink = document.querySelector(".navbar-brand");
+    if (brandLink) {
+      brandLink.setAttribute("href", "/en/index.html");
+    }
+
     document.querySelectorAll(".nav-footer a").forEach(function (link) {
       var label = link.textContent.trim();
 

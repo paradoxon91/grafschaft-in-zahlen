@@ -1,0 +1,2405 @@
+---
+title: "Population"
+lang: en
+
+format:
+  html:
+    toc: true
+    toc-location: left
+---
+
+## Population trends in Grafschaft Bentheim
+
+This page presents the age structure and long-term population trends of the Grafschaft Bentheim district and its 25 municipalities.
+
+For the long-term time series, historical population figures up to 1970 are combined with the annual population data available from the **LSN online portal** from 1973 onwards. From 1973 onwards, only the **total population** is used.
+
+When hovering over a data point, or **tapping a data point on a mobile device**, the **average age of the population** is also shown whenever an original value is available in the LSN table for that year. For individual municipalities, selected indicators from **BBSR INKAR** are also included where data are available for the respective year.
+
+```{r}
+#| label: kennzahlen
+#| include: false
+
+library(readr)
+library(dplyr)
+library(scales)
+library(readxl)
+library(tidyr)
+
+# -------------------------------------------------
+# Kreiszeitreihe
+# -------------------------------------------------
+
+bevoelkerung_kreis <- read_csv2(
+  "../data/bevoelkerung_grafschaft_1821_2026_mit_alter.csv",
+  col_types = cols(
+    jahr = col_integer(),
+    bevoelkerung = col_double(),
+    durchschnittsalter = col_double()
+  ),
+  show_col_types = FALSE
+) |>
+  transmute(
+    year = jahr,
+    population = bevoelkerung,
+    durchschnittsalter = durchschnittsalter
+  ) |>
+  arrange(year)
+
+
+# -------------------------------------------------
+# Gemeindereihen
+#
+# Historische Werte bis 1970 +
+# jährliche LSN-Werte 1973–2026
+# -------------------------------------------------
+
+bevoelkerung_gemeinden <- read_csv2(
+  "../data/bevoelkerung_gemeinden_1821_2026_mit_alter.csv",
+  col_types = cols(
+    lsn_code = col_character(),
+    ags_8 = col_character(),
+    year = col_integer(),
+    population = col_double(),
+    durchschnittsalter = col_double(),
+    .default = col_character()
+  ),
+  show_col_types = FALSE
+) |>
+  arrange(
+    region_name,
+    year
+  )
+
+
+# -------------------------------------------------
+# BBSR-INKAR-Daten für die Gemeinden
+#
+# Datei: data/INKAR_BBSR.xlsx
+# Tabellenblatt: Daten_lang
+#
+# Verwendete Indikatoren:
+# - Frauenanteil
+# - Einpersonenhaushalte
+# - Einwohnerdichte
+# -------------------------------------------------
+
+inkar_lang <- read_excel(
+  "../data/INKAR_BBSR.xlsx",
+  sheet = "Daten_lang",
+  col_types = c(
+    "text",
+    "text",
+    "text",
+    "numeric",
+    "numeric"
+  )
+) |>
+  transmute(
+    ags_8 = Kennziffer,
+    indikator = Indikator,
+    year = as.integer(Jahr),
+    wert = as.numeric(Wert)
+  ) |>
+  filter(
+    nchar(ags_8) == 8,
+    indikator %in% c(
+      "Frauenanteil",
+      "Einpersonenhaushalte",
+      "Einwohnerdichte"
+    )
+  )
+
+
+# Prüfen, ob jede Kombination aus Gemeinde, Jahr und Indikator eindeutig ist
+stopifnot(
+  nrow(inkar_lang) ==
+    nrow(
+      distinct(
+        inkar_lang,
+        ags_8,
+        year,
+        indikator
+      )
+    )
+)
+
+
+# Prüfen, ob alle 25 Gemeinden enthalten sind
+stopifnot(
+  n_distinct(inkar_lang$ags_8) == 25
+)
+
+
+# INKAR-Daten in breite Form bringen
+inkar_gemeinden <- inkar_lang |>
+  pivot_wider(
+    names_from = indikator,
+    values_from = wert
+  ) |>
+  rename(
+    frauenanteil_inkar = Frauenanteil,
+    einpersonenhaushalte_inkar = Einpersonenhaushalte,
+    einwohnerdichte_inkar = Einwohnerdichte
+  )
+
+
+# INKAR-Indikatoren an die bestehende Gemeindereihe anhängen
+bevoelkerung_gemeinden <- bevoelkerung_gemeinden |>
+  left_join(
+    inkar_gemeinden,
+    by = c(
+      "ags_8",
+      "year"
+    )
+  ) |>
+  arrange(
+    region_name,
+    year
+  )
+
+
+# -------------------------------------------------
+# Kennzahlen Landkreis
+# -------------------------------------------------
+
+kennzahlen_2022 <- bevoelkerung_kreis |>
+  filter(
+    year == 2022
+  ) |>
+  pull(
+    population
+  )
+
+kennzahlen_2025 <- bevoelkerung_kreis |>
+  filter(
+    year == 2025
+  ) |>
+  pull(
+    population
+  )
+
+
+# -------------------------------------------------
+# Prozentuale Veränderung 2022–2025
+# -------------------------------------------------
+
+veraenderung_2022_2025 <-
+  100 * (
+    kennzahlen_2025 /
+      kennzahlen_2022 - 1
+  )
+
+
+trend_text <- paste0(
+  ifelse(
+    veraenderung_2022_2025 > 0,
+    "+",
+    ""
+  ),
+  format(
+    round(
+      veraenderung_2022_2025,
+      1
+    ),
+    decimal.mark = ".",
+    nsmall = 1
+  ),
+  " %"
+)
+
+
+trend_farbe <- ifelse(
+  veraenderung_2022_2025 > 0,
+  "#2E7D32",
+  ifelse(
+    veraenderung_2022_2025 < 0,
+    "#C62828",
+    "#666666"
+  )
+)
+
+
+# -------------------------------------------------
+# Größte Gemeinde 2025
+# -------------------------------------------------
+
+bev_2025_tmp <- bevoelkerung_gemeinden |>
+  filter(
+    year == 2025
+  )
+
+groesste_gemeinde <- bev_2025_tmp[
+  which.max(
+    bev_2025_tmp$population
+  ),
+]
+```
+
+
+::: {.kennzahlen-bevoelkerung}
+
+::: {.columns}
+
+::: {.column width="33%"}
+
+::: {.card}
+::: {.card-body}
+
+## `r scales::number(kennzahlen_2025, big.mark = ",", decimal.mark = ".")`
+
+**Population 2025**
+
+Grafschaft Bentheim district
+
+:::
+:::
+
+:::
+
+
+::: {.column width="33%"}
+
+::: {.card}
+::: {.card-body}
+
+## <span style="color:`r trend_farbe`; font-weight:800;">`r trend_text`</span>
+
+**Change 2022–2025**
+
+Population trend
+
+:::
+:::
+
+:::
+
+
+::: {.column width="33%"}
+
+::: {.card}
+::: {.card-body}
+
+## `r scales::number(groesste_gemeinde$population, big.mark = ",", decimal.mark = ".")`
+
+**`r groesste_gemeinde$region_name`**
+
+largest municipality in 2025
+
+:::
+:::
+
+:::
+
+:::
+
+:::
+
+## Population by age in the municipalities
+
+```{=html}
+<div class="bevoelkerung-alter-filterleiste">
+  <div class="bevoelkerung-alter-filter-gebiet">
+    <select id="bev-alter-gebiet" class="bevoelkerung-alter-select" aria-label="Select municipality">
+      <option value="Grafschaft Bentheim" selected>Grafschaft Bentheim overall</option>
+      <option value="Bad Bentheim">Bad Bentheim</option>
+      <option value="Emlichheim">Emlichheim</option>
+      <option value="Engden">Engden</option>
+      <option value="Esche">Esche</option>
+      <option value="Georgsdorf">Georgsdorf</option>
+      <option value="Getelo">Getelo</option>
+      <option value="Gölenkamp">Gölenkamp</option>
+      <option value="Halle">Halle</option>
+      <option value="Hoogstede">Hoogstede</option>
+      <option value="Isterberg">Isterberg</option>
+      <option value="Itterbeck">Itterbeck</option>
+      <option value="Laar">Laar</option>
+      <option value="Lage">Lage</option>
+      <option value="Neuenhaus">Neuenhaus</option>
+      <option value="Nordhorn">Nordhorn</option>
+      <option value="Ohne">Ohne</option>
+      <option value="Osterwald">Osterwald</option>
+      <option value="Quendorf">Quendorf</option>
+      <option value="Ringe">Ringe</option>
+      <option value="Samern">Samern</option>
+      <option value="Schüttorf">Schüttorf</option>
+      <option value="Uelsen">Uelsen</option>
+      <option value="Wielen">Wielen</option>
+      <option value="Wietmarschen">Wietmarschen</option>
+      <option value="Wilsum">Wilsum</option>
+    </select>
+  </div>
+
+  <div class="bevoelkerung-alter-jahre" role="group" aria-label="Select year">
+    <button type="button" class="bevoelkerung-alter-jahr" data-year="2022">2022</button>
+    <button type="button" class="bevoelkerung-alter-jahr" data-year="2023">2023</button>
+    <button type="button" class="bevoelkerung-alter-jahr" data-year="2024">2024</button>
+    <button type="button" class="bevoelkerung-alter-jahr is-active" data-year="2025">2025</button>
+  </div>
+</div>
+```
+
+::: {.bevoelkerung-alter-chart}
+
+```{r}
+#| label: altersstruktur-interaktiv
+#| echo: false
+#| warning: false
+#| message: false
+
+library(plotly)
+library(htmlwidgets)
+
+# ------------------------------------------------------------
+# Altersdaten einlesen
+# ------------------------------------------------------------
+
+bev_alter_interaktiv <- read_csv2(
+  "../data/bev_alter_sex.csv",
+  col_types = cols(
+    gebietscode = col_character(),
+    gebiet = col_character(),
+    gebietstyp = col_character(),
+    geschlecht = col_character(),
+    altersgruppe = col_character(),
+    altersgruppen_typ = col_character(),
+    alter_von = col_double(),
+    alter_bis_unter = col_double(),
+    jahr = col_integer(),
+    anzahl = col_double()
+  ),
+  show_col_types = FALSE
+) |>
+  filter(
+    gebietstyp %in% c("Landkreis", "Gemeinde"),
+    jahr %in% 2022:2025,
+    altersgruppen_typ == "Detail",
+    !is.na(alter_von)
+  ) |>
+  mutate(
+    gebiet_display = ifelse(
+      gebietstyp == "Landkreis",
+      "Grafschaft Bentheim",
+      sub(", Stadt$", "", gebiet)
+    ),
+    titel_gebiet = ifelse(
+      gebietstyp == "Landkreis",
+      "der Grafschaft Bentheim",
+      gebiet_display
+    ),
+    altersgruppe_5j = ifelse(
+      alter_von >= 85,
+      "85+",
+      paste0(
+        floor(alter_von / 5) * 5,
+        "-",
+        floor(alter_von / 5) * 5 + 4
+      )
+    )
+  ) |>
+  group_by(
+    gebiet_display,
+    titel_gebiet,
+    jahr,
+    geschlecht,
+    altersgruppe_5j
+  ) |>
+  summarise(
+    anzahl = if (
+      any(is.na(anzahl))
+    ) {
+      NA_real_
+    } else {
+      sum(anzahl)
+    },
+    .groups = "drop"
+  )
+
+
+# ------------------------------------------------------------
+# Einheitliche Reihenfolge der Altersgruppen
+# ------------------------------------------------------------
+
+altersreihenfolge_interaktiv <- c(
+  "0-4",
+  "5-9",
+  "10-14",
+  "15-19",
+  "20-24",
+  "25-29",
+  "30-34",
+  "35-39",
+  "40-44",
+  "45-49",
+  "50-54",
+  "55-59",
+  "60-64",
+  "65-69",
+  "70-74",
+  "75-79",
+  "80-84",
+  "85+"
+)
+
+
+# ------------------------------------------------------------
+# Männer / Frauen nebeneinander stellen
+# ------------------------------------------------------------
+
+bev_alter_plot <- bev_alter_interaktiv |>
+  tidyr::pivot_wider(
+    names_from = geschlecht,
+    values_from = anzahl
+  ) |>
+  rename(
+    maenner = Männlich,
+    frauen = Weiblich
+  ) |>
+  mutate(
+    gesamt = ifelse(
+      is.na(maenner) | is.na(frauen),
+      NA_real_,
+      maenner + frauen
+    ),
+    altersgruppe_5j = factor(
+      altersgruppe_5j,
+      levels = altersreihenfolge_interaktiv
+    )
+  ) |>
+  arrange(
+    gebiet_display,
+    jahr,
+    altersgruppe_5j
+  )
+
+
+# ------------------------------------------------------------
+# Symmetrische Achsengrenze je Gebiet
+# Sie bleibt über 2022-2025 gleich, damit die Jahre vergleichbar sind.
+# ------------------------------------------------------------
+
+nice_axis_max <- function(x) {
+
+  maximum <- max(
+    x,
+    na.rm = TRUE
+  ) * 1.08
+
+  kandidaten <- c(
+    50,
+    100,
+    200,
+    400,
+    500,
+    800,
+    1000,
+    2000,
+    4000,
+    5000,
+    8000,
+    10000,
+    20000
+  )
+
+  passend <- kandidaten[
+    kandidaten >= maximum
+  ]
+
+  if (length(passend) > 0) {
+    passend[1]
+  } else {
+    ceiling(maximum / 10000) * 10000
+  }
+}
+
+achsen_grenzen <- bev_alter_plot |>
+  group_by(
+    gebiet_display
+  ) |>
+  summarise(
+    achsen_max = nice_axis_max(
+      c(
+        maenner,
+        frauen
+      )
+    ),
+    .groups = "drop"
+  )
+
+bev_alter_plot <- bev_alter_plot |>
+  left_join(
+    achsen_grenzen,
+    by = "gebiet_display"
+  )
+
+
+# ------------------------------------------------------------
+# Datenobjekt für die clientseitigen Filter
+# ------------------------------------------------------------
+
+bev_alter_split <- split(
+  bev_alter_plot,
+  paste(
+    bev_alter_plot$gebiet_display,
+    bev_alter_plot$jahr,
+    sep = "|||"
+  )
+)
+
+bev_alter_lookup <- lapply(
+  bev_alter_split,
+  function(d) {
+
+    d <- d[
+      order(
+        d$altersgruppe_5j
+      ),
+    ]
+
+    list(
+      gebiet = d$gebiet_display[1],
+      titel_gebiet = d$titel_gebiet[1],
+      jahr = d$jahr[1],
+      altersgruppe = as.character(
+        d$altersgruppe_5j
+      ),
+      maenner = unname(
+        d$maenner
+      ),
+      frauen = unname(
+        d$frauen
+      ),
+      gesamt = unname(
+        d$gesamt
+      ),
+      achsen_max = d$achsen_max[1]
+    )
+  }
+)
+
+
+# ------------------------------------------------------------
+# Startansicht: Grafschaft Bentheim, 2025
+# ------------------------------------------------------------
+
+pyramide_initial <- bev_alter_plot |>
+  filter(
+    gebiet_display == "Grafschaft Bentheim",
+    jahr == 2025
+  ) |>
+  arrange(
+    altersgruppe_5j
+  )
+
+format_anzahl_interaktiv <- function(x) {
+
+  ifelse(
+    is.na(x),
+    "n/a",
+    scales::number(
+      x,
+      accuracy = 1,
+      big.mark = ",",
+      decimal.mark = "."
+    )
+  )
+}
+
+hover_initial <- paste0(
+  "<b>",
+  as.character(
+    pyramide_initial$altersgruppe_5j
+  ),
+  "</b>",
+  "<br><br>",
+  "Population (Male): ",
+  format_anzahl_interaktiv(
+    pyramide_initial$maenner
+  ),
+  "<br>",
+  "Population (Female): ",
+  format_anzahl_interaktiv(
+    pyramide_initial$frauen
+  ),
+  "<br>",
+  "Population (Total): ",
+  format_anzahl_interaktiv(
+    pyramide_initial$gesamt
+  )
+)
+
+achsen_max_initial <- unique(
+  pyramide_initial$achsen_max
+)
+
+x_ticks_initial <- c(
+  -achsen_max_initial,
+  -achsen_max_initial / 2,
+  0,
+  achsen_max_initial / 2,
+  achsen_max_initial
+)
+
+x_ticktexte_initial <- c(
+  scales::number(
+    achsen_max_initial,
+    big.mark = ",",
+    decimal.mark = ".",
+    accuracy = 1
+  ),
+  scales::number(
+    achsen_max_initial / 2,
+    big.mark = ",",
+    decimal.mark = ".",
+    accuracy = 1
+  ),
+  "-",
+  scales::number(
+    achsen_max_initial / 2,
+    big.mark = ",",
+    decimal.mark = ".",
+    accuracy = 1
+  ),
+  scales::number(
+    achsen_max_initial,
+    big.mark = ",",
+    decimal.mark = ".",
+    accuracy = 1
+  )
+)
+
+
+# ------------------------------------------------------------
+# Bevölkerungspyramide
+# ------------------------------------------------------------
+
+p_bev_alter <- plot_ly() |>
+
+  add_bars(
+    data = pyramide_initial,
+    y = ~altersgruppe_5j,
+    x = ~-maenner,
+    orientation = "h",
+    name = "Male",
+    marker = list(
+      color = "#073B70"
+    ),
+    width = 0.82,
+    hovertext = hover_initial,
+    hovertemplate = "%{hovertext}<extra></extra>"
+  ) |>
+
+  add_bars(
+    data = pyramide_initial,
+    y = ~altersgruppe_5j,
+    x = ~frauen,
+    orientation = "h",
+    name = "Female",
+    marker = list(
+      color = "#D70A53"
+    ),
+    width = 0.82,
+    hovertext = hover_initial,
+    hovertemplate = "%{hovertext}<extra></extra>"
+  ) |>
+
+  layout(
+    barmode = "overlay",
+    bargap = 0.12,
+    height = 540,
+    showlegend = TRUE,
+    hovermode = "closest",
+    hoverdistance = 50,
+    dragmode = FALSE,
+
+    font = list(
+      family = "Arial, sans-serif",
+      color = "#222222"
+    ),
+
+    legend = list(
+      orientation = "h",
+      x = 0.5,
+      y = 1.03,
+      xanchor = "center",
+      yanchor = "bottom",
+      font = list(
+        size = 16
+      )
+    ),
+
+    xaxis = list(
+      title = "",
+      range = c(
+        -achsen_max_initial,
+        achsen_max_initial
+      ),
+      tickmode = "array",
+      tickvals = x_ticks_initial,
+      ticktext = x_ticktexte_initial,
+      tickfont = list(
+        size = 13,
+        color = "#666666"
+      ),
+      showgrid = TRUE,
+      gridcolor = "#D3D3D3",
+      gridwidth = 1,
+      zeroline = TRUE,
+      zerolinecolor = "#1F1F1F",
+      zerolinewidth = 1.4,
+      showline = TRUE,
+      linecolor = "#6F6F6F",
+      linewidth = 1.25,
+      ticks = "",
+      automargin = TRUE,
+      fixedrange = TRUE
+    ),
+
+    yaxis = list(
+      title = "",
+      categoryorder = "array",
+      categoryarray = altersreihenfolge_interaktiv,
+      tickfont = list(
+        size = 14,
+        color = "#666666"
+      ),
+      showgrid = FALSE,
+      showline = TRUE,
+      linecolor = "#6F6F6F",
+      linewidth = 1.25,
+      automargin = TRUE,
+      fixedrange = TRUE
+    ),
+
+    margin = list(
+      l = 88,
+      r = 28,
+      t = 54,
+      b = 32
+    ),
+
+    plot_bgcolor = "#FFFFFF",
+    paper_bgcolor = "#FFFFFF",
+
+    hoverlabel = list(
+      bgcolor = "#000000",
+      bordercolor = "#000000",
+      font = list(
+        color = "#FFFFFF",
+        size = 14
+      ),
+      align = "left"
+    )
+  ) |>
+
+  config(
+    displayModeBar = FALSE,
+    responsive = TRUE,
+    scrollZoom = FALSE,
+    doubleClick = FALSE
+  )
+
+
+# Datensatz für JavaScript an das Widget anhängen
+p_bev_alter$x$gizData <- bev_alter_lookup
+
+
+# ------------------------------------------------------------
+# Filterlogik und Smartphone-Anpassungen
+# ------------------------------------------------------------
+
+p_bev_alter <- htmlwidgets::onRender(
+  p_bev_alter,
+  "
+  function(el, x) {
+
+    var dataLookup = x.gizData || {};
+    var gebietSelect = document.getElementById('bev-alter-gebiet');
+    var jahrButtons = Array.prototype.slice.call(
+      document.querySelectorAll('.bevoelkerung-alter-jahr')
+    );
+    var currentYear = 2025;
+
+    if (!gebietSelect || jahrButtons.length === 0) {
+      return;
+    }
+
+
+    function formatDE(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) {
+        return 'n/a';
+      }
+
+      return new Intl.NumberFormat('en-GB', {
+        maximumFractionDigits: 0
+      }).format(value);
+    }
+
+
+    function makeHover(d) {
+      return d.altersgruppe.map(function(age, i) {
+        return '<b>' + age + '</b>' +
+          '<br><br>' +
+          'Population (Male): ' + formatDE(d.maenner[i]) +
+          '<br>' +
+          'Population (Female): ' + formatDE(d.frauen[i]) +
+          '<br>' +
+          'Population (Total): ' + formatDE(d.gesamt[i]);
+      });
+    }
+
+
+    function updatePyramid() {
+
+      var gebiet = gebietSelect.value;
+      var key = gebiet + '|||' + currentYear;
+      var d = dataLookup[key];
+
+      if (!d) {
+        return;
+      }
+
+      var hover = makeHover(d);
+
+      var maennerNegativ = d.maenner.map(function(v) {
+        return v === null ? null : -v;
+      });
+
+      Plotly.restyle(
+        el,
+        {
+          x: [maennerNegativ, d.frauen],
+          y: [d.altersgruppe, d.altersgruppe],
+          hovertext: [hover, hover]
+        },
+        [0, 1]
+      );
+
+      var max = d.achsen_max;
+      var halb = max / 2;
+
+      Plotly.relayout(
+        el,
+        {
+          'xaxis.range': [-max, max],
+          'xaxis.tickvals': [-max, -halb, 0, halb, max],
+          'xaxis.ticktext': [
+            formatDE(max),
+            formatDE(halb),
+            '-',
+            formatDE(halb),
+            formatDE(max)
+          ]
+        }
+      );
+
+    }
+
+
+    gebietSelect.addEventListener(
+      'change',
+      updatePyramid
+    );
+
+
+    jahrButtons.forEach(function(button) {
+
+      button.addEventListener(
+        'click',
+        function() {
+
+          currentYear = Number(
+            button.getAttribute('data-year')
+          );
+
+          jahrButtons.forEach(function(b) {
+            b.classList.remove('is-active');
+          });
+
+          button.classList.add('is-active');
+
+          updatePyramid();
+        }
+      );
+    });
+
+
+    function isMobile() {
+      return window.innerWidth <= 600;
+    }
+
+
+    function responsivePyramid() {
+
+      var mobile = isMobile();
+
+      Plotly.relayout(
+        el,
+        {
+          'height': mobile ? 500 : 540,
+          'margin.l': mobile ? 58 : 88,
+          'margin.r': mobile ? 8 : 28,
+          'margin.t': mobile ? 46 : 54,
+          'margin.b': mobile ? 34 : 32,
+          'yaxis.tickfont.size': mobile ? 10.5 : 14,
+          'xaxis.tickfont.size': mobile ? 9.5 : 13,
+          'legend.font.size': mobile ? 12 : 16,
+          'hoverlabel.font.size': mobile ? 11 : 14
+        }
+      );
+
+      Plotly.Plots.resize(el);
+    }
+
+
+    el.on(
+      'plotly_click',
+      function(eventData) {
+
+        if (
+          !isMobile() ||
+          !eventData.points ||
+          !eventData.points.length
+        ) {
+          return;
+        }
+
+        var point = eventData.points[0];
+
+        Plotly.Fx.hover(
+          el,
+          [
+            {
+              curveNumber: point.curveNumber,
+              pointNumber: point.pointNumber
+            }
+          ]
+        );
+      }
+    );
+
+
+    responsivePyramid();
+
+    window.addEventListener(
+      'resize',
+      responsivePyramid
+    );
+  }
+  "
+)
+
+
+p_bev_alter
+```
+
+:::
+
+::: {.bevoelkerung-alter-quelle}
+
+**Source:** Lower Saxony State Office for Statistics (LSN), population as of 31 December of each year.
+
+:::
+
+
+## Long-term population trend
+
+The chart shows the population trend of the entire district from **1821 to 2026**. Individual historical values are available up to 1970; from 1973 onwards, an annual population series is available. Hover over a point or **tap it on a smartphone** to display the **year, population and – where available – average age**.
+
+::: {.bevoelkerung-chart .bevoelkerung-chart-kreis}
+
+```{r}
+#| label: bevoelkerungsentwicklung
+#| echo: false
+#| warning: false
+#| message: false
+
+library(plotly)
+library(scales)
+
+# -------------------------------------------------
+# Darstellung vorbereiten
+# -------------------------------------------------
+
+bevoelkerung_kreis_plot <- bevoelkerung_kreis |>
+  mutate(
+
+    population_label =
+      scales::number(
+        population,
+        big.mark = ",",
+        decimal.mark = ".",
+        accuracy = 1
+      ),
+
+    durchschnittsalter_label =
+      ifelse(
+        is.na(durchschnittsalter),
+        "",
+        paste0(
+          format(
+            round(
+              durchschnittsalter,
+              1
+            ),
+            decimal.mark = ".",
+            nsmall = 1
+          ),
+          " years"
+        )
+      ),
+
+    hover_text =
+      ifelse(
+        is.na(durchschnittsalter),
+
+        paste0(
+          "<b>Grafschaft Bentheim</b>",
+          "<br>Year: ",
+          year,
+          "<br>Population: ",
+          population_label
+        ),
+
+        paste0(
+          "<b>Grafschaft Bentheim</b>",
+          "<br>Year: ",
+          year,
+          "<br>Population: ",
+          population_label,
+          "<br>Average age (31 Dec): ",
+          durchschnittsalter_label
+        )
+      ),
+
+    marker_size =
+      ifelse(
+        year < 1973,
+        7,
+        4.5
+      )
+  )
+
+
+# -------------------------------------------------
+# Y-Achse mit deutschen Tausendertrennzeichen
+# -------------------------------------------------
+
+y_breaks_kreis <- pretty(
+  range(
+    bevoelkerung_kreis_plot$population,
+    na.rm = TRUE
+  ),
+  n = 6
+)
+
+y_breaks_kreis <- y_breaks_kreis[
+  y_breaks_kreis >= 0
+]
+
+y_labels_kreis <- scales::number(
+  y_breaks_kreis,
+  big.mark = ",",
+  decimal.mark = ".",
+  accuracy = 1
+)
+
+
+# -------------------------------------------------
+# Dezente Referenzlinien
+# -------------------------------------------------
+
+basislinien_kreis <- lapply(
+
+  c(
+    1973,
+    1987,
+    2011,
+    2022
+  ),
+
+  function(jahr) {
+
+    list(
+
+      type = "line",
+
+      x0 = jahr,
+      x1 = jahr,
+
+      y0 = 0,
+      y1 = 1,
+
+      yref = "paper",
+
+      line = list(
+        color = "rgba(90,90,90,0.28)",
+        width = 1,
+        dash = "dot"
+      )
+    )
+  }
+)
+
+
+# -------------------------------------------------
+# Interaktive Grafik
+# -------------------------------------------------
+
+p_kreis <- plot_ly(
+
+  data =
+    bevoelkerung_kreis_plot,
+
+  x =
+    ~year,
+
+  y =
+    ~population,
+
+  type =
+    "scatter",
+
+  mode =
+    "lines+markers",
+
+  line = list(
+    color = "#2E6B3E",
+    width = 3
+  ),
+
+  marker = list(
+    color = "#2E6B3E",
+    size = bevoelkerung_kreis_plot$marker_size,
+    opacity = 0.85
+  ),
+
+  text =
+    ~hover_text,
+
+  hovertemplate =
+    "%{text}<extra></extra>"
+) |>
+
+  layout(
+
+    title = list(
+      text = "<b>Grafschaft Bentheim overall</b>",
+      x = 0,
+      xanchor = "left",
+      font = list(
+        size = 20
+      )
+    ),
+
+    xaxis = list(
+
+      title = "",
+
+      showgrid = FALSE,
+
+      zeroline = FALSE,
+
+      tickmode = "array",
+
+      tickvals = c(
+        1821,
+        1871,
+        1925,
+        1950,
+        1973,
+        1990,
+        2010,
+        2026
+      ),
+
+      ticktext = c(
+        "1821",
+        "1871",
+        "1925",
+        "1950",
+        "1973",
+        "1990",
+        "2010",
+        "2026"
+      ),
+
+      linecolor = "#D9D9D9",
+
+      ticks = "outside"
+    ),
+
+    yaxis = list(
+
+      title = "Population",
+
+      tickmode = "array",
+
+      tickvals =
+        y_breaks_kreis,
+
+      ticktext =
+        y_labels_kreis,
+
+      gridcolor =
+        "#E9ECEF",
+
+      zeroline = FALSE,
+
+      linecolor =
+        "#D9D9D9"
+    ),
+
+    showlegend =
+      FALSE,
+
+    hovermode =
+      "closest",
+
+    hoverlabel = list(
+      align = "left"
+    ),
+
+    shapes =
+      basislinien_kreis,
+
+    annotations = list(
+
+      list(
+        x = 1973,
+        y = 1.03,
+        xref = "x",
+        yref = "paper",
+        text = "annual LSN series from 1973",
+        showarrow = FALSE,
+        xanchor = "left",
+        font = list(
+          size = 11,
+          color = "#6C757D"
+        )
+      )
+    ),
+
+    plot_bgcolor =
+      "white",
+
+    paper_bgcolor =
+      "white",
+
+    margin = list(
+      t = 75,
+      r = 25,
+      b = 55,
+      l = 90
+    )
+  ) |>
+
+  config(
+    displayModeBar = FALSE,
+    responsive = TRUE
+  )
+
+# -------------------------------------------------
+# Responsive Verhalten für Smartphone / Tablet
+# -------------------------------------------------
+
+p_kreis <- htmlwidgets::onRender(
+  p_kreis,
+  "
+  function(el, x) {
+
+    function responsiveKreis() {
+
+      var mobile = window.innerWidth <= 600;
+
+      var update = {
+
+        'autosize': true,
+
+        'margin.t': mobile ? 52 : 75,
+        'margin.r': mobile ? 8 : 25,
+        'margin.b': mobile ? 45 : 55,
+        'margin.l': mobile ? 58 : 90,
+
+        'title.font.size': mobile ? 16 : 20,
+
+        'xaxis.tickmode': 'array',
+
+        'xaxis.tickvals': mobile
+          ? [1821, 1950, 1973, 2000, 2026]
+          : [1821, 1871, 1925, 1950, 1973, 1990, 2010, 2026],
+
+        'xaxis.ticktext': mobile
+          ? ['1821', '1950', '1973', '2000', '2026']
+          : ['1821', '1871', '1925', '1950', '1973', '1990', '2010', '2026'],
+
+        'xaxis.tickfont.size': mobile ? 10 : 12,
+        'yaxis.tickfont.size': mobile ? 10 : 12,
+        'yaxis.title.font.size': mobile ? 11 : 14,
+
+        'hoverlabel.font.size': mobile ? 11 : 13,
+
+        'annotations[0].visible': mobile ? false : true
+      };
+
+      Plotly.relayout(el, update);
+      Plotly.Plots.resize(el);
+    }
+
+    responsiveKreis();
+
+    window.addEventListener(
+      'resize',
+      responsiveKreis
+    );
+  }
+  "
+)
+
+p_kreis
+```
+
+:::
+
+<div class="small text-muted" style="margin-top:0.35rem;">
+<strong>Source:</strong> Population figures: historical series up to 1970; from 1973 onwards, Lower Saxony State Office for Statistics (LSN), table Z100001G, total population, reference date 30 June. Average age: LSN, table Z100004G, all sexes, reference date 31 December.
+</div>
+
+<div class="small text-muted" style="margin-top:0.25rem;">
+<strong>Note:</strong> The subtle vertical lines mark the start of the annual LSN series in 1973 and important changes in the underlying statistical data. Long-term changes across these transitions should be interpreted with caution.
+</div>
+
+
+## Data basis
+
+The long-term series extend back to **1821**. Historical population figures are used up to and including 1970. No values are available for 1971 and 1972 in the series used here, and no values are interpolated.
+
+From **1973** onwards, the annually available **total population** figures from LSN online table Z100001G are used for the district and all 25 municipalities. The figures refer to the **reference date of 30 June** in each year.
+
+Sex-specific figures, cadastral area and population density from the LSN population table are not used directly for the population time series. However, population density from **BBSR INKAR** is added as an additional indicator in the hover information for the interactive municipality chart.
+
+The **average age** is taken from LSN online table Z100004G and refers to the total population as of **31 December** of each year. The supplied table contains values for **1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005 and 2010**, followed by **annual values from 2011 to 2025**. No values are interpolated for the intervening years.
+
+For the **25 municipalities**, three additional indicators from **BBSR INKAR** are included. They appear only in the hover information of the municipality chart and only when a value is available for the respective year:
+
+- **Female share:** annually from 1995–2023
+- **Population density:** 1996, 2000, 2004 and annually from 2008–2023
+- **Single-person households:** annually from 2013–2023
+
+The INKAR data are linked to the population series using the eight-digit official municipality code. Missing INKAR values are not interpolated.
+
+
+## Trends in individual municipalities
+
+Select a municipality to view its long-term population trend. Here too, the annually available LSN population figures are used from 1973 onwards. When hovering over a data point, or **tapping a data point on a mobile device**, the **average age**, **female share**, share of **single-person households** and **population density** are also shown where available for the respective year.
+
+::: {.bevoelkerung-chart .bevoelkerung-chart-gemeinden}
+
+```{r}
+#| label: gemeinden-interaktiv
+#| echo: false
+#| warning: false
+#| message: false
+
+library(plotly)
+
+# -------------------------------------------------
+# Gemeinden alphabetisch sortieren
+# -------------------------------------------------
+
+gemeinden <- sort(
+  unique(
+    bevoelkerung_gemeinden$region_name
+  )
+)
+
+
+# -------------------------------------------------
+# Nordhorn als Startansicht
+# -------------------------------------------------
+
+default_index <- which(
+  gemeinden == "Nordhorn"
+)
+
+
+# -------------------------------------------------
+# Plot aufbauen
+# -------------------------------------------------
+
+p <- plot_ly()
+
+
+for (i in seq_along(gemeinden)) {
+
+  g <- gemeinden[i]
+
+
+  daten_gemeinde <- bevoelkerung_gemeinden |>
+
+    filter(
+      region_name == g
+    ) |>
+
+    arrange(year) |>
+
+    mutate(
+
+      population_label =
+        scales::number(
+          population,
+          big.mark = ",",
+          decimal.mark = ".",
+          accuracy = 1
+        ),
+
+      durchschnittsalter_label =
+        ifelse(
+          is.na(durchschnittsalter),
+          "",
+          paste0(
+            format(
+              round(
+                durchschnittsalter,
+                1
+              ),
+              decimal.mark = ".",
+              nsmall = 1,
+              trim = TRUE
+            ),
+            " years"
+          )
+        ),
+
+      frauenanteil_label =
+        ifelse(
+          is.na(frauenanteil_inkar),
+          "",
+          paste0(
+            format(
+              round(
+                frauenanteil_inkar,
+                2
+              ),
+              decimal.mark = ".",
+              nsmall = 2,
+              trim = TRUE
+            ),
+            " %"
+          )
+        ),
+
+      einpersonenhaushalte_label =
+        ifelse(
+          is.na(einpersonenhaushalte_inkar),
+          "",
+          paste0(
+            format(
+              round(
+                einpersonenhaushalte_inkar,
+                2
+              ),
+              decimal.mark = ".",
+              nsmall = 2,
+              trim = TRUE
+            ),
+            " %"
+          )
+        ),
+
+      einwohnerdichte_label =
+        ifelse(
+          is.na(einwohnerdichte_inkar),
+          "",
+          paste0(
+            format(
+              round(
+                einwohnerdichte_inkar,
+                2
+              ),
+              big.mark = ",",
+              decimal.mark = ".",
+              nsmall = 2,
+              trim = TRUE
+            ),
+            " inhabitants/km²"
+          )
+        ),
+
+      durchschnittsalter_hover =
+        ifelse(
+          is.na(durchschnittsalter),
+          "",
+          paste0(
+            "<br>Average age (31 Dec): ",
+            durchschnittsalter_label
+          )
+        ),
+
+      frauenanteil_hover =
+        ifelse(
+          is.na(frauenanteil_inkar),
+          "",
+          paste0(
+            "<br>Female share (INKAR): ",
+            frauenanteil_label
+          )
+        ),
+
+      einpersonenhaushalte_hover =
+        ifelse(
+          is.na(einpersonenhaushalte_inkar),
+          "",
+          paste0(
+            "<br>Single-person households (INKAR): ",
+            einpersonenhaushalte_label
+          )
+        ),
+
+      einwohnerdichte_hover =
+        ifelse(
+          is.na(einwohnerdichte_inkar),
+          "",
+          paste0(
+            "<br>Population density (INKAR): ",
+            einwohnerdichte_label
+          )
+        ),
+
+      hover_text =
+        paste0(
+          "<b>",
+          g,
+          "</b>",
+          "<br>Year: ",
+          year,
+          "<br>Population: ",
+          population_label,
+          durchschnittsalter_hover,
+          frauenanteil_hover,
+          einpersonenhaushalte_hover,
+          einwohnerdichte_hover
+        ),
+
+      marker_size =
+        ifelse(
+          year < 1973,
+          7,
+          4.5
+        )
+    )
+
+
+  p <- p |>
+
+    add_trace(
+
+      data =
+        daten_gemeinde,
+
+      x =
+        ~year,
+
+      y =
+        ~population,
+
+      type =
+        "scatter",
+
+      mode =
+        "lines+markers",
+
+      name =
+        g,
+
+      visible =
+        i == default_index,
+
+      line = list(
+        color = "#2E6B3E",
+        width = 3
+      ),
+
+      marker = list(
+        color = "#2E6B3E",
+        size = daten_gemeinde$marker_size,
+        opacity = 0.85
+      ),
+
+      text =
+        ~hover_text,
+
+      hovertemplate =
+        "%{text}<extra></extra>"
+    )
+}
+
+
+# -------------------------------------------------
+# Dropdown-Menü
+# -------------------------------------------------
+
+buttons <- lapply(
+
+  seq_along(gemeinden),
+
+  function(i) {
+
+    sichtbar <- rep(
+      FALSE,
+      length(gemeinden)
+    )
+
+    sichtbar[i] <- TRUE
+
+
+    list(
+
+      method =
+        "update",
+
+      args = list(
+
+        list(
+          visible =
+            sichtbar
+        ),
+
+        list(
+
+          title = list(
+            text = paste0(
+              "<b>",
+              gemeinden[i],
+              "</b>"
+            ),
+            x = 0,
+            xanchor = "left"
+          )
+        )
+      ),
+
+      label =
+        gemeinden[i]
+    )
+  }
+)
+
+
+# -------------------------------------------------
+# Dezente Linien für Änderungen der Datengrundlage
+# -------------------------------------------------
+
+basislinien <- lapply(
+
+  c(
+    1973,
+    1987,
+    2011,
+    2022
+  ),
+
+  function(jahr) {
+
+    list(
+
+      type =
+        "line",
+
+      x0 =
+        jahr,
+
+      x1 =
+        jahr,
+
+      y0 =
+        0,
+
+      y1 =
+        1,
+
+      yref =
+        "paper",
+
+      line = list(
+        color = "rgba(90,90,90,0.28)",
+        width = 1,
+        dash = "dot"
+      )
+    )
+  }
+)
+
+
+# -------------------------------------------------
+# Layout
+# -------------------------------------------------
+
+p_gemeinden <- p |>
+
+  layout(
+
+    title = list(
+
+      text =
+        "<b>Nordhorn</b>",
+
+      x =
+        0,
+
+      xanchor =
+        "left",
+
+      font = list(
+        size = 20
+      )
+    ),
+
+
+    xaxis = list(
+
+      title =
+        "",
+
+      showgrid =
+        FALSE,
+
+      zeroline =
+        FALSE,
+
+      linecolor =
+        "#D9D9D9",
+
+      ticks =
+        "outside"
+    ),
+
+
+    yaxis = list(
+
+      title =
+        "Population",
+
+      gridcolor =
+        "#E9ECEF",
+
+      zeroline =
+        FALSE,
+
+      linecolor =
+        "#D9D9D9"
+    ),
+
+
+    showlegend =
+      FALSE,
+
+
+    hovermode =
+      "closest",
+
+
+    hoverlabel = list(
+      align = "left"
+    ),
+
+
+    updatemenus = list(
+
+      list(
+
+        type =
+          "dropdown",
+
+        x =
+          0,
+
+        y =
+          1.18,
+
+        xanchor =
+          "left",
+
+        yanchor =
+          "top",
+
+        active =
+          default_index - 1,
+
+        buttons =
+          buttons,
+
+        direction =
+          "down",
+
+        showactive =
+          TRUE
+      )
+    ),
+
+
+    shapes =
+      basislinien,
+
+
+    plot_bgcolor =
+      "white",
+
+    paper_bgcolor =
+      "white",
+
+
+    margin = list(
+      t = 115,
+      r = 25,
+      b = 55,
+      l = 90
+    )
+  ) |>
+
+  config(
+    displayModeBar = FALSE,
+    responsive = TRUE
+  )
+
+# -------------------------------------------------
+# Responsive Verhalten für Smartphone / Tablet
+# -------------------------------------------------
+
+p_gemeinden <- htmlwidgets::onRender(
+  p_gemeinden,
+  "
+  function(el, x) {
+
+    var menu =
+      x.layout &&
+      x.layout.updatemenus &&
+      x.layout.updatemenus.length
+        ? x.layout.updatemenus[0]
+        : null;
+
+    var buttons =
+      menu && menu.buttons
+        ? menu.buttons
+        : [];
+
+    var wrapper =
+      document.createElement('div');
+
+    wrapper.className =
+      'mobile-plotly-select-wrap';
+
+    var label =
+      document.createElement('label');
+
+    label.className =
+      'mobile-plotly-select-label';
+
+    label.textContent =
+      'Select municipality';
+
+    var select =
+      document.createElement('select');
+
+    select.className =
+      'mobile-plotly-select';
+
+    select.setAttribute(
+      'aria-label',
+      'Select municipality'
+    );
+
+    buttons.forEach(
+      function(button, index) {
+
+        var option =
+          document.createElement('option');
+
+        option.value =
+          String(index);
+
+        option.textContent =
+          button.label;
+
+        if (
+          menu &&
+          typeof menu.active === 'number' &&
+          menu.active === index
+        ) {
+          option.selected = true;
+        }
+
+        select.appendChild(option);
+      }
+    );
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(select);
+
+    if (el.parentNode) {
+      el.parentNode.insertBefore(
+        wrapper,
+        el
+      );
+    }
+
+
+    function responsiveGemeinden() {
+
+      var mobile =
+        window.innerWidth <= 600;
+
+      wrapper.style.display =
+        mobile ? 'block' : 'none';
+
+      var update = {
+
+        'autosize': true,
+
+        'margin.t': mobile ? 48 : 115,
+        'margin.r': mobile ? 8 : 25,
+        'margin.b': mobile ? 45 : 55,
+        'margin.l': mobile ? 58 : 90,
+
+        'title.font.size': mobile ? 16 : 20,
+
+        'xaxis.tickmode': mobile ? 'array' : 'auto',
+
+        'xaxis.tickvals': mobile
+          ? [1821, 1950, 1973, 2000, 2026]
+          : null,
+
+        'xaxis.ticktext': mobile
+          ? ['1821', '1950', '1973', '2000', '2026']
+          : null,
+
+        'xaxis.tickfont.size': mobile ? 10 : 12,
+        'yaxis.tickfont.size': mobile ? 10 : 12,
+        'yaxis.title.font.size': mobile ? 11 : 14,
+
+        'hoverlabel.font.size': mobile ? 11 : 13,
+
+        'updatemenus[0].visible': !mobile,
+
+        'updatemenus[0].x': 0,
+        'updatemenus[0].y': 1.18,
+        'updatemenus[0].font.size': 12
+      };
+
+      Plotly.relayout(
+        el,
+        update
+      );
+
+      Plotly.Plots.resize(el);
+    }
+
+
+    select.addEventListener(
+      'change',
+      function() {
+
+        var index =
+          Number(select.value);
+
+        var button =
+          buttons[index];
+
+        if (
+          !button ||
+          !button.args
+        ) {
+          return;
+        }
+
+        var traceUpdate =
+          button.args[0] || {};
+
+        var layoutUpdate =
+          button.args[1] || {};
+
+        Plotly.update(
+          el,
+          traceUpdate,
+          layoutUpdate
+        ).then(
+          function() {
+            responsiveGemeinden();
+          }
+        );
+      }
+    );
+
+
+    responsiveGemeinden();
+
+    window.addEventListener(
+      'resize',
+      responsiveGemeinden
+    );
+  }
+  "
+)
+
+p_gemeinden
+```
+
+:::
+
+<div class="small text-muted" style="margin-top:0.35rem;">
+<strong>Source:</strong> Population figures: historical series up to 1970; from 1973 onwards, Lower Saxony State Office for Statistics (LSN), table Z100001G, total population, reference date 30 June. Average age: LSN, table Z100004G, all sexes, reference date 31 December. Additional municipality indicators: Federal Institute for Research on Building, Urban Affairs and Spatial Development (BBSR), INKAR.
+</div>
+
+
+## Population change at municipality level
+
+The map shows the percentage change in population between **2022 and 2025**. Both years are taken from the new annual LSN series and refer to the reference date of 30 June.
+
+::: {.bevoelkerung-map-wrap}
+
+```{r}
+#| label: gemeindekarte
+#| echo: false
+#| warning: false
+#| message: false
+
+library(sf)
+library(dplyr)
+library(leaflet)
+
+# -------------------------------------------------
+# Bevölkerungsdaten
+#
+# Dieselbe neue Gemeindereihe wie oben
+# -------------------------------------------------
+
+bev_map <- bevoelkerung_gemeinden
+
+
+# -------------------------------------------------
+# Gemeindegrenzen einlesen
+# -------------------------------------------------
+
+grafschaft_map <- st_read(
+  "../data/grafschaft_gemeinden.geojson",
+  quiet = TRUE
+)
+
+
+# -------------------------------------------------
+# Bevölkerung 2022
+# -------------------------------------------------
+
+bev_2022 <- bev_map |>
+
+  filter(
+    year == 2022
+  ) |>
+
+  select(
+    ags_8,
+    population_2022 =
+      population
+  )
+
+
+# -------------------------------------------------
+# Bevölkerung 2025
+# -------------------------------------------------
+
+bev_2025 <- bev_map |>
+
+  filter(
+    year == 2025
+  ) |>
+
+  select(
+    ags_8,
+    region_name,
+    population_2025 =
+      population
+  )
+
+
+# -------------------------------------------------
+# Jahre miteinander verbinden
+# -------------------------------------------------
+
+bev_vergleich <- bev_2025 |>
+
+  left_join(
+    bev_2022,
+    by = "ags_8"
+  ) |>
+
+  mutate(
+
+    veraenderung_abs =
+      population_2025 -
+        population_2022,
+
+    veraenderung_prozent =
+      100 * (
+        population_2025 /
+          population_2022 - 1
+      )
+  )
+
+
+# -------------------------------------------------
+# Mit amtlichen Gemeindegrenzen verbinden
+# -------------------------------------------------
+
+karte <- grafschaft_map |>
+
+  left_join(
+    bev_vergleich,
+    by = c(
+      "SCH_GEM" = "ags_8"
+    )
+  ) |>
+
+  st_transform(4326)
+
+
+# -------------------------------------------------
+# Prüfen, ob alle 25 Gemeinden Daten haben
+# -------------------------------------------------
+
+stopifnot(
+  nrow(karte) == 25,
+  all(
+    !is.na(
+      karte$veraenderung_prozent
+    )
+  )
+)
+
+
+# -------------------------------------------------
+# Symmetrische Farbskala um 0
+# -------------------------------------------------
+
+max_abs <- max(
+  abs(
+    karte$veraenderung_prozent
+  ),
+  na.rm = TRUE
+)
+
+
+pal <- colorNumeric(
+
+  palette = c(
+    "#C62828",
+    "#FDD835",
+    "#2E7D32"
+  ),
+
+  domain = c(
+    -max_abs,
+    max_abs
+  )
+)
+
+
+# -------------------------------------------------
+# Separate Palette für die Legende
+#
+# Ziel:
+# positive/grüne Werte oben,
+# negative/rote Werte unten
+# -------------------------------------------------
+
+pal_legende <- colorNumeric(
+
+  palette = c(
+    "#2E7D32",
+    "#FDD835",
+    "#C62828"
+  ),
+
+  domain = c(
+    -max_abs,
+    max_abs
+  )
+)
+
+
+# -------------------------------------------------
+# Popup-Texte
+# -------------------------------------------------
+
+karte <- karte |>
+
+  mutate(
+
+    popup = paste0(
+
+      "<strong>",
+      BEZ_GEM,
+      "</strong><br>",
+
+      "Population 2022: ",
+      format(
+        population_2022,
+        big.mark = ",",
+        decimal.mark = "."
+      ),
+
+      "<br>",
+
+      "Population 2025: ",
+      format(
+        population_2025,
+        big.mark = ",",
+        decimal.mark = "."
+      ),
+
+      "<br>",
+
+      "Change: ",
+      ifelse(
+        veraenderung_abs > 0,
+        "+",
+        ""
+      ),
+
+      format(
+        veraenderung_abs,
+        big.mark = ",",
+        decimal.mark = "."
+      ),
+
+      "<br>",
+
+      "Change in %: ",
+      ifelse(
+        veraenderung_prozent > 0,
+        "+",
+        ""
+      ),
+
+      format(
+        round(
+          veraenderung_prozent,
+          1
+        ),
+        decimal.mark = ".",
+        nsmall = 1
+      ),
+
+      " %"
+    )
+  )
+
+
+# -------------------------------------------------
+# Kartenausschnitt
+# -------------------------------------------------
+
+bbox <- st_bbox(
+  karte
+)
+
+
+# -------------------------------------------------
+# Karte
+# -------------------------------------------------
+
+leaflet(
+  karte
+) |>
+
+  addProviderTiles(
+    providers$OpenStreetMap.Mapnik
+  ) |>
+
+  addPolygons(
+
+    fillColor =
+      ~pal(
+        veraenderung_prozent
+      ),
+
+    fillOpacity =
+      0.8,
+
+    color =
+      "white",
+
+    weight =
+      1.5,
+
+    popup =
+      ~popup,
+
+    label =
+      ~BEZ_GEM,
+
+    highlightOptions =
+      highlightOptions(
+
+        weight =
+          3,
+
+        color =
+          "#333333",
+
+        bringToFront =
+          TRUE
+      )
+  ) |>
+
+  addLegend(
+
+    position =
+      "bottomright",
+
+    pal =
+      pal_legende,
+
+    values =
+      ~veraenderung_prozent,
+
+    labFormat =
+      labelFormat(
+        transform = function(x) -x
+      ),
+
+    title =
+      "Change<br>2022–2025 (%)",
+
+    opacity =
+      0.9
+  ) |>
+
+  fitBounds(
+
+    lng1 =
+      unname(
+        bbox["xmin"]
+      ),
+
+    lat1 =
+      unname(
+        bbox["ymin"]
+      ),
+
+    lng2 =
+      unname(
+        bbox["xmax"]
+      ),
+
+    lat2 =
+      unname(
+        bbox["ymax"]
+      )
+  )
+```
+
+:::
+
+<div class="small text-muted" style="margin-top:0.35rem;">
+<strong>Source:</strong> Lower Saxony State Office for Statistics (LSN), table Z100001G, total population, reference date 30 June; municipality boundaries: LGLN Lower Saxony.
+</div>
