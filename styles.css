@@ -1773,3 +1773,264 @@ body .anchorjs-link:hover {
 .navbar .quarto-navbar-tools .dropdown-toggle::after {
   border-top-color: #ffffff !important;
 }
+
+/* =================================================
+   BEVÖLKERUNGSSEITE – GEBIET + ZEITRAUM
+   ================================================= */
+
+.bevoelkerung-verlauf-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.4rem;
+
+  width: 100%;
+  max-width: 100%;
+
+  margin: 1rem 0 0.55rem 0;
+}
+
+.bevoelkerung-verlauf-gebiet {
+  flex: 0 1 340px;
+  min-width: 285px;
+}
+
+.bevoelkerung-verlauf-gebiet label,
+.bevoelkerung-verlauf-zeitraum-kopf label {
+  display: block;
+
+  margin-bottom: 0.35rem;
+
+  color: #555555;
+
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.bevoelkerung-verlauf-select {
+  display: block;
+
+  width: 100%;
+  height: 46px;
+
+  padding: 0 2.5rem 0 0.85rem;
+
+  border: 1px solid #cfd5dc;
+  border-radius: 6px;
+
+  background-color: #ffffff;
+  color: #2f2f2f;
+
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.2;
+
+  cursor: pointer;
+}
+
+.bevoelkerung-verlauf-select:focus {
+  outline: 2px solid #073B70;
+  outline-offset: 1px;
+}
+
+.bevoelkerung-verlauf-zeitraum {
+  flex: 1 1 520px;
+  min-width: 320px;
+}
+
+.bevoelkerung-verlauf-zeitraum-kopf {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin-bottom: 0.35rem;
+}
+
+.bevoelkerung-verlauf-zeitraum-kopf label {
+  margin-bottom: 0;
+}
+
+#bev-verlauf-zeitraum-label {
+  color: #073B70;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.bevoelkerung-range-shell {
+  position: relative;
+
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+}
+
+.bevoelkerung-range-bg,
+.bevoelkerung-range-active {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+
+  height: 6px;
+
+  border-radius: 999px;
+
+  transform: translateY(-50%);
+}
+
+.bevoelkerung-range-bg {
+  background: #d8dee5;
+}
+
+.bevoelkerung-range-active {
+  background: #073B70;
+}
+
+.bevoelkerung-range-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 46px;
+
+  margin: 0;
+
+  background: transparent;
+
+  pointer-events: none;
+
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.bevoelkerung-range-input::-webkit-slider-runnable-track {
+  height: 6px;
+  background: transparent;
+}
+
+.bevoelkerung-range-input::-moz-range-track {
+  height: 6px;
+  background: transparent;
+}
+
+.bevoelkerung-range-input::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+
+  margin-top: -7px;
+
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+
+  background: #073B70;
+
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+
+  cursor: grab;
+
+  pointer-events: auto;
+
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.bevoelkerung-range-input::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+
+  background: #073B70;
+
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+
+  cursor: grab;
+
+  pointer-events: auto;
+}
+
+.bevoelkerung-range-input:focus {
+  outline: none;
+}
+
+.bevoelkerung-range-input:focus::-webkit-slider-thumb {
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.24),
+    0 0 0 3px rgba(7, 59, 112, 0.18);
+}
+
+.bevoelkerung-range-input:focus::-moz-range-thumb {
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.24),
+    0 0 0 3px rgba(7, 59, 112, 0.18);
+}
+
+
+@media (max-width: 768px) {
+
+  .bevoelkerung-verlauf-controls {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .bevoelkerung-verlauf-gebiet,
+  .bevoelkerung-verlauf-zeitraum {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .bevoelkerung-verlauf-controls {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+
+    margin-top: 0.8rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .bevoelkerung-verlauf-select {
+    width: 100%;
+    min-height: 46px;
+
+    font-size: 16px;
+  }
+
+  .bevoelkerung-verlauf-zeitraum-kopf {
+    margin-bottom: 0.15rem;
+  }
+
+  #bev-verlauf-zeitraum-label {
+    font-size: 0.86rem;
+  }
+
+  .bevoelkerung-range-shell {
+    height: 48px;
+  }
+
+  .bevoelkerung-range-input {
+    height: 48px;
+  }
+
+  .bevoelkerung-range-input::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+    margin-top: -9px;
+  }
+
+  .bevoelkerung-range-input::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+  }
+}
+
