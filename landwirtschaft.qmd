@@ -1,5 +1,5 @@
 ---
-title: "Landwirtschaft"
+title: ""
 page-layout: full
 toc: false
 ---
@@ -286,32 +286,42 @@ p_bubble <- plot_ly() |>
       zerolinecolor = "#BBBBBB"
     ),
 
-    plot_bgcolor = "#FFFFFF",
-    paper_bgcolor = "#FFFFFF",
+plot_bgcolor = "#FFFFFF",
+paper_bgcolor = "#FFFFFF",
 
-    updatemenus = list(
+hoverlabel = list(
+  bgcolor = "#000000",
+  bordercolor = "#000000",
+  font = list(
+    color = "#FFFFFF",
+    size = 14
+  ),
+  align = "left"
+),
 
-      list(
+updatemenus = list(
 
-        type = "buttons",
+  list(
 
-        direction = "right",
+    type = "buttons",
 
-        x = 0,
-        y = 1.17,
+    direction = "right",
 
-        xanchor = "left",
-        yanchor = "top",
+    x = 0,
+    y = 1.17,
 
-        bgcolor = "#FFFFFF",
+    xanchor = "left",
+    yanchor = "top",
 
-        bordercolor = "#D8D8D8",
+    bgcolor = "#FFFFFF",
 
-        borderwidth = 1,
+    bordercolor = "#D8D8D8",
 
-        font = list(
-          size = 13
-        ),
+    borderwidth = 1,
+
+    font = list(
+      size = 13
+    ),
 
         buttons = list(
 
