@@ -1,0 +1,17 @@
+---
+title: "Latest"
+format:
+  html:
+    toc: false
+listing:
+  contents: news
+  sort: "date desc"
+  type: default
+  fields:
+    - date
+    - title
+    - description
+  categories: true
+---
+
+## New analyses, short articles and updates on current statistical developments in Grafschaft Bentheim.
