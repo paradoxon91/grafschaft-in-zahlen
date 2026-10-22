@@ -1,0 +1,3045 @@
+---
+title: "Health"
+
+format:
+  html:
+    toc: true
+    toc-location: left
+---
+
+## Cancer in Grafschaft Bentheim
+
+This page presents small-area cancer data for the seven regional observation units in Grafschaft Bentheim. The data are based on the **Small-area Cancer Atlas of the Epidemiological Cancer Registry of Lower Saxony** for the diagnosis years **2013–2022**.
+
+The figures cover **all cancers (C00–C97 excluding C44)** as well as **colorectal cancer (C18–C20)**, **lung cancer (C33–C34)**, **malignant melanoma of the skin (C43)**, **breast cancer (C50)** and **prostate cancer (C61)**. For all cancers, colorectal cancer, lung cancer and melanoma, results can be viewed for the **total population**, **women** and **men**; breast cancer is shown for **women** and prostate cancer for **men**.
+
+Two indicators are used for regional comparison: the **age-standardised incidence rate (ASR)** for age-adjusted comparison of cancer incidence, and the **standardised incidence ratio (SIR)** for comparison with the reference level in Lower Saxony.
+
+## Age-standardised incidence rate
+
+The age-standardised incidence rate (ASR) indicates how many new cases per **100,000 population per year** would be expected if the regions being compared had the same age structure as the standard population used. This allows regions with different age structures to be compared more appropriately.
+
+The **case count 2013–2022** shown on mouseover or when **tapping a data point on mobile devices** should be distinguished from the ASR: it is the absolute number of new cases registered over the entire ten-year period.
+
+::: {.callout-note title="How to read this"}
+If a region shows, for example, **case count 2013–2022: 1,500**, a total of 1,500 new cases were registered there over the entire period from 2013 to 2022. In purely arithmetic terms, this corresponds to an average of about **150 cases per year**.
+
+By contrast, an **ASR of 325.4 per 100,000 population per year** does not mean that 325.4 cases were actually observed there each year. The ASR is an age-standardised rate: it describes the average annual incidence per 100,000 population under the age structure of the standard population. It therefore cannot simply be calculated from the absolute case count and the population size.
+:::
+
+::: {.gesundheit-chart .gesundheit-chart-asr}
+
+```{r}
+#| label: krebs-asr-interaktiv
+#| echo: false
+#| warning: false
+#| message: false
+
+library(readr)
+library(dplyr)
+library(plotly)
+
+diagnose_en <- function(x) {
+  dplyr::recode(
+    x,
+    "Krebs gesamt" = "All cancers",
+    "Darmkrebs" = "Colorectal cancer",
+    "Lungenkrebs" = "Lung cancer",
+    "Melanom" = "Melanoma",
+    "Brustkrebs" = "Breast cancer",
+    "Prostatakrebs" = "Prostate cancer"
+  )
+}
+
+geschlecht_en <- function(x) {
+  dplyr::recode(
+    x,
+    "Gesamt" = "Total",
+    "Frauen" = "Women",
+    "Männer" = "Men"
+  )
+}
+
+
+# -------------------------------------------------
+# ASR-Masterdatei mit allen Diagnosen einlesen
+# -------------------------------------------------
+
+krebs <- read_csv2(
+  "../data/gesundheit/krebs/asr_master_alle_diagnosen_grafschaft.csv",
+  show_col_types = FALSE
+)
+
+krebs <- krebs |>
+  mutate(
+    gebiet_anzeige = gebiet
+  )
+
+
+# -------------------------------------------------
+# Farben nach Geschlecht
+# -------------------------------------------------
+
+farben <- c(
+  "Gesamt" = "#2E6B3E",
+  "Frauen" = "#D70A53",
+  "Männer" = "#073B70"
+)
+
+
+# -------------------------------------------------
+# Gültige Diagnose-Geschlechts-Kombinationen
+# -------------------------------------------------
+
+auswahl <- data.frame(
+
+  diagnose = c(
+    "Krebs gesamt",
+    "Krebs gesamt",
+    "Krebs gesamt",
+
+    "Darmkrebs",
+    "Darmkrebs",
+    "Darmkrebs",
+
+    "Lungenkrebs",
+    "Lungenkrebs",
+    "Lungenkrebs",
+
+    "Melanom",
+    "Melanom",
+    "Melanom",
+
+    "Brustkrebs",
+
+    "Prostatakrebs"
+  ),
+
+  diagnose_anzeige = c(
+    "All cancers (C00–C97 excluding C44)",
+    "All cancers (C00–C97 excluding C44)",
+    "All cancers (C00–C97 excluding C44)",
+
+    "Colorectal cancer (C18–C20)",
+    "Colorectal cancer (C18–C20)",
+    "Colorectal cancer (C18–C20)",
+
+    "Lung cancer (C33–C34)",
+    "Lung cancer (C33–C34)",
+    "Lung cancer (C33–C34)",
+
+    "Malignant melanoma of the skin (C43)",
+    "Malignant melanoma of the skin (C43)",
+    "Malignant melanoma of the skin (C43)",
+
+    "Breast cancer (C50)",
+
+    "Prostate cancer (C61)"
+  ),
+
+  geschlecht = c(
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Frauen",
+
+    "Männer"
+  ),
+
+  stringsAsFactors = FALSE
+)
+
+
+# -------------------------------------------------
+# Beschriftung für Dropdown
+# -------------------------------------------------
+
+auswahl <- auswahl |>
+  mutate(
+    label = paste(
+      diagnose_anzeige,
+      "–",
+      geschlecht_en(geschlecht)
+    )
+  )
+
+
+# -------------------------------------------------
+# Für jede Auswahl eigene Sortierung erzeugen
+#
+# Intern aufsteigend sortiert:
+# dadurch erscheint die höchste ASR oben.
+# -------------------------------------------------
+
+reihenfolgen <- lapply(
+  seq_len(nrow(auswahl)),
+  function(i) {
+
+    daten_tmp <- krebs |>
+      filter(
+        diagnose == auswahl$diagnose[i],
+        geschlecht == auswahl$geschlecht[i]
+      ) |>
+      arrange(
+        asr
+      )
+
+    daten_tmp$gebiet_anzeige
+  }
+)
+
+
+# -------------------------------------------------
+# Plot erzeugen
+# -------------------------------------------------
+
+p <- plot_ly()
+
+for (i in seq_len(nrow(auswahl))) {
+
+  diagnose_i <- auswahl$diagnose[i]
+  diagnose_anzeige_i <- auswahl$diagnose_anzeige[i]
+  geschlecht_i <- auswahl$geschlecht[i]
+
+  daten_i <- krebs |>
+    filter(
+      diagnose == diagnose_i,
+      geschlecht == geschlecht_i
+    ) |>
+    arrange(
+      asr
+    ) |>
+    mutate(
+
+      # Diagnose und Geschlecht werden fest
+      # in den jeweiligen Datensatz geschrieben.
+      diagnose_anzeige_plot =
+        diagnose_anzeige_i,
+
+      geschlecht_plot =
+        geschlecht_en(geschlecht_i),
+
+      asr_label = format(
+        round(asr, 2),
+        decimal.mark = ".",
+        nsmall = 2
+      ),
+
+      fallzahl_label = format(
+        fallzahl,
+        big.mark = ",",
+        decimal.mark = "."
+      ),
+
+      bevoelkerung_label = format(
+        bevoelkerung,
+        big.mark = ",",
+        decimal.mark = "."
+      )
+    )
+
+
+  p <- p |>
+    add_trace(
+
+      data = daten_i,
+
+      x = ~asr,
+      y = ~gebiet_anzeige,
+
+      type = "bar",
+      orientation = "h",
+
+      visible = i == 1,
+
+      name = auswahl$label[i],
+
+      marker = list(
+        color = unname(
+          farben[geschlecht_i]
+        )
+      ),
+
+      # Im Balken steht nur die ASR
+      text = ~asr_label,
+
+      textposition = "inside",
+
+      insidetextanchor = "end",
+
+      textfont = list(
+        color = "white",
+        size = 13
+      ),
+
+      # -------------------------------------------------
+      # Mouseover
+      # -------------------------------------------------
+
+      hovertext = ~paste0(
+        "<b>", gebiet_anzeige, "</b>",
+        "<br>Diagnosis: ", diagnose_anzeige_plot,
+        "<br>Sex: ", geschlecht_plot,
+        "<br>ASR: ", asr_label, " per 100,000 population/year",
+        "<br>Case count 2013–2022: ", fallzahl_label,
+        "<br>Population: ", bevoelkerung_label
+      ),
+
+      hoverinfo = "text"
+    )
+}
+
+
+# -------------------------------------------------
+# Dropdown erzeugen
+# -------------------------------------------------
+
+buttons <- lapply(
+  seq_len(nrow(auswahl)),
+  function(i) {
+
+    sichtbar <- rep(
+      FALSE,
+      nrow(auswahl)
+    )
+
+    sichtbar[i] <- TRUE
+
+    list(
+
+      method = "update",
+
+      args = list(
+
+        list(
+          visible = sichtbar
+        ),
+
+        list(
+
+          title = list(
+            text = paste(
+              diagnose_en(auswahl$diagnose[i]),
+              "–",
+              geschlecht_en(auswahl$geschlecht[i])
+            )
+          ),
+
+          yaxis = list(
+            title = "",
+            categoryorder = "array",
+            categoryarray =
+              reihenfolgen[[i]]
+          ),
+
+          xaxis = list(
+            title =
+              "Age-standardised incidence rate per 100,000 population/year",
+            rangemode = "tozero",
+            autorange = TRUE
+          )
+        )
+      ),
+
+      label = paste(
+        diagnose_en(auswahl$diagnose[i]),
+        "–",
+        geschlecht_en(auswahl$geschlecht[i])
+      )
+    )
+  }
+)
+
+
+# -------------------------------------------------
+# Layout
+# -------------------------------------------------
+
+p_asr <- p |>
+  layout(
+
+    title = list(
+      text = "All cancers – Total",
+      x = 0.5,
+      xanchor = "center"
+    ),
+
+    xaxis = list(
+      title =
+        "Age-standardised incidence rate per 100,000 population/year",
+      rangemode = "tozero"
+    ),
+
+    yaxis = list(
+      title = "",
+      categoryorder = "array",
+      categoryarray =
+        reihenfolgen[[1]]
+    ),
+
+    hoverlabel = list(
+      bgcolor = "#000000",
+      bordercolor = "#000000",
+      font = list(
+        color = "#FFFFFF",
+        size = 13
+      ),
+      align = "left"
+    ),
+
+    hovermode = "closest",
+
+    showlegend = FALSE,
+
+    updatemenus = list(
+      list(
+
+        type = "dropdown",
+
+        x = 0,
+        y = 1.15,
+
+        xanchor = "left",
+        yanchor = "top",
+
+        active = 0,
+
+        buttons = buttons
+      )
+    ),
+
+    margin = list(
+      l = 160,
+      r = 30,
+      t = 120,
+      b = 60
+    )
+  ) |>
+
+  config(
+    displayModeBar = FALSE,
+    responsive = TRUE
+  )
+
+
+# -------------------------------------------------
+# Responsive Verhalten für Smartphone / Tablet
+# -------------------------------------------------
+
+p_asr <- htmlwidgets::onRender(
+  p_asr,
+  "
+  function(el, x) {
+
+    var gebieteVoll = [
+      'Nordhorn, Stadt',
+      'Neuenhaus, SG',
+      'Emlichheim, SG',
+      'Uelsen, SG',
+      'Bad Bentheim, Stadt',
+      'Schüttorf, SG',
+      'Wietmarschen'
+    ];
+
+    var gebieteKurz = [
+      'Nordhorn',
+      'Neuenhaus',
+      'Emlichheim',
+      'Uelsen',
+      'Bad Bentheim',
+      'Schüttorf',
+      'Wietmarschen'
+    ];
+
+    var gebieteAnzeige = [
+      'Nordhorn (town)',
+      'Neuenhaus (joint municipality)',
+      'Emlichheim (joint municipality)',
+      'Uelsen (joint municipality)',
+      'Bad Bentheim (town)',
+      'Schüttorf (joint municipality)',
+      'Wietmarschen'
+    ];
+
+    var menu =
+      x.layout &&
+      x.layout.updatemenus &&
+      x.layout.updatemenus.length
+        ? x.layout.updatemenus[0]
+        : null;
+
+    var buttons =
+      menu && menu.buttons
+        ? menu.buttons
+        : [];
+
+    var wrapper =
+      document.createElement('div');
+
+    wrapper.className =
+      'mobile-plotly-select-wrap';
+
+    var label =
+      document.createElement('label');
+
+    label.className =
+      'mobile-plotly-select-label';
+
+    label.textContent =
+      'Select diagnosis and sex';
+
+    var select =
+      document.createElement('select');
+
+    select.className =
+      'mobile-plotly-select';
+
+    select.setAttribute(
+      'aria-label',
+      'Select diagnosis and sex'
+    );
+
+    buttons.forEach(
+      function(button, index) {
+
+        var option =
+          document.createElement('option');
+
+        option.value =
+          String(index);
+
+        option.textContent =
+          button.label;
+
+        if (
+          menu &&
+          typeof menu.active === 'number' &&
+          menu.active === index
+        ) {
+          option.selected = true;
+        }
+
+        select.appendChild(option);
+      }
+    );
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(select);
+
+    if (el.parentNode) {
+      el.parentNode.insertBefore(
+        wrapper,
+        el
+      );
+    }
+
+
+    function responsiveASR() {
+
+      var mobile =
+        window.innerWidth <= 600;
+
+      wrapper.style.display =
+        mobile ? 'block' : 'none';
+
+      Plotly.restyle(
+        el,
+        {
+          'textfont.size': mobile ? 11 : 13
+        }
+      );
+
+      var update = {
+
+        'autosize': true,
+
+        'margin.l': mobile ? 96 : 160,
+        'margin.r': mobile ? 8 : 30,
+        'margin.t': mobile ? 42 : 120,
+        'margin.b': mobile ? 58 : 60,
+
+        'title.font.size': mobile ? 14 : 20,
+
+        'xaxis.title.text': mobile
+          ? 'ASR per 100,000/year'
+          : 'Age-standardised incidence rate per 100,000 population/year',
+
+        'xaxis.title.font.size': mobile ? 10 : 14,
+        'xaxis.tickfont.size': mobile ? 9 : 12,
+
+        'yaxis.tickmode': 'array',
+        'yaxis.tickvals': gebieteVoll,
+        'yaxis.ticktext': mobile ? gebieteKurz : gebieteAnzeige,
+        'yaxis.tickfont.size': mobile ? 9 : 12,
+
+        'hoverlabel.font.size': mobile ? 10 : 13,
+
+        'updatemenus[0].visible': !mobile,
+
+        'updatemenus[0].x': 0,
+        'updatemenus[0].y': 1.15,
+        'updatemenus[0].font.size': 12
+      };
+
+      Plotly.relayout(
+        el,
+        update
+      );
+
+      Plotly.Plots.resize(el);
+    }
+
+
+    select.addEventListener(
+      'change',
+      function() {
+
+        var index =
+          Number(select.value);
+
+        var button =
+          buttons[index];
+
+        if (
+          !button ||
+          !button.args
+        ) {
+          return;
+        }
+
+        Plotly.update(
+          el,
+          button.args[0] || {},
+          button.args[1] || {}
+        ).then(
+          function() {
+            responsiveASR();
+          }
+        );
+      }
+    );
+
+
+    responsiveASR();
+
+    window.addEventListener(
+      'resize',
+      responsiveASR
+    );
+  }
+  "
+)
+
+p_asr
+```
+:::
+
+*Source: Epidemiological Cancer Registry of Lower Saxony, Small-area Cancer Atlas. Period 2013–2022. Administrative boundaries: LGLN Lower Saxony.*
+
+### Regional distribution of the age-standardised incidence rate
+
+The map shows the spatial distribution of the **age-standardised incidence rate (ASR) per 100,000 population per year** across the seven regional observation units in Grafschaft Bentheim.
+
+Use the selection menu in the upper right to switch **diagnosis and sex**. **Darker shades of green** indicate higher age-standardised incidence rates, while **lighter shades of green** indicate lower rates.
+
+The colour scale is adjusted to the range of values for each diagnosis. Within a diagnosis, the same scale is used for all available sexes. **Colour shades across different diagnoses are therefore not directly comparable.**
+
+Clicking on an area additionally shows the **diagnosis, sex, ASR, absolute case count for 2013–2022 and population**.
+
+::: {.gesundheit-map-wrap .gesundheit-map-asr}
+
+```{r}
+#| label: krebs-asr-karte
+#| echo: false
+#| warning: false
+#| message: false
+
+library(sf)
+library(readr)
+library(dplyr)
+library(leaflet)
+
+diagnose_en <- function(x) {
+  dplyr::recode(
+    x,
+    "Krebs gesamt" = "All cancers",
+    "Darmkrebs" = "Colorectal cancer",
+    "Lungenkrebs" = "Lung cancer",
+    "Melanom" = "Melanoma",
+    "Brustkrebs" = "Breast cancer",
+    "Prostatakrebs" = "Prostate cancer"
+  )
+}
+
+geschlecht_en <- function(x) {
+  dplyr::recode(
+    x,
+    "Gesamt" = "Total",
+    "Frauen" = "Women",
+    "Männer" = "Men"
+  )
+}
+
+
+# -------------------------------------------------
+# Geometrien der 7 Krebsatlas-Gebiete einlesen
+# -------------------------------------------------
+
+krebsgebiete_karte <- st_read(
+  "../data/grafschaft_krebsatlas_gebiete.geojson",
+  quiet = TRUE
+) |>
+  st_transform(4326)
+
+
+# -------------------------------------------------
+# ASR-Masterdatei mit allen Diagnosen einlesen
+# -------------------------------------------------
+
+krebs_karte_daten <- read_csv2(
+  "../data/gesundheit/krebs/asr_master_alle_diagnosen_grafschaft.csv",
+  show_col_types = FALSE
+)
+
+
+# -------------------------------------------------
+# Diagnosebezeichnungen inklusive ICD-10
+# -------------------------------------------------
+
+diagnosen_meta <- data.frame(
+
+  diagnose = c(
+    "Krebs gesamt",
+    "Darmkrebs",
+    "Lungenkrebs",
+    "Melanom",
+    "Brustkrebs",
+    "Prostatakrebs"
+  ),
+
+  diagnose_anzeige = c(
+    "All cancers (C00–C97 excluding C44)",
+    "Colorectal cancer (C18–C20)",
+    "Lung cancer (C33–C34)",
+    "Malignant melanoma of the skin (C43)",
+    "Breast cancer (C50)",
+    "Prostate cancer (C61)"
+  ),
+
+  stringsAsFactors = FALSE
+)
+
+
+# -------------------------------------------------
+# Gültige Diagnose-Geschlechts-Kombinationen
+# -------------------------------------------------
+
+auswahl_karte <- data.frame(
+
+  diagnose = c(
+    "Krebs gesamt",
+    "Krebs gesamt",
+    "Krebs gesamt",
+
+    "Darmkrebs",
+    "Darmkrebs",
+    "Darmkrebs",
+
+    "Lungenkrebs",
+    "Lungenkrebs",
+    "Lungenkrebs",
+
+    "Melanom",
+    "Melanom",
+    "Melanom",
+
+    "Brustkrebs",
+
+    "Prostatakrebs"
+  ),
+
+  geschlecht = c(
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Frauen",
+
+    "Männer"
+  ),
+
+  stringsAsFactors = FALSE
+)
+
+
+auswahl_karte <- auswahl_karte |>
+  left_join(
+    diagnosen_meta,
+    by = "diagnose"
+  ) |>
+  mutate(
+    gruppe = paste(
+      diagnose_en(diagnose),
+      "–",
+      geschlecht_en(geschlecht)
+    )
+  )
+
+
+# -------------------------------------------------
+# Für jede Diagnose eigene Farbskala erzeugen
+#
+# Innerhalb einer Diagnose gilt dieselbe Skala
+# für alle verfügbaren Geschlechter.
+# -------------------------------------------------
+
+paletten_asr <- list()
+
+for (diag in unique(krebs_karte_daten$diagnose)) {
+
+  werte_diag <- krebs_karte_daten |>
+    filter(
+      diagnose == diag
+    ) |>
+    pull(
+      asr
+    )
+
+  bereich_diag <- range(
+    werte_diag,
+    na.rm = TRUE
+  )
+
+  paletten_asr[[diag]] <- colorNumeric(
+
+    palette = c(
+      "#EDF5EF",
+      "#B7D2BE",
+      "#75A982",
+      "#2E6B3E"
+    ),
+
+    domain = bereich_diag,
+
+    na.color = "#CCCCCC"
+  )
+}
+
+
+# -------------------------------------------------
+# Kartendaten für jede gültige Kombination erzeugen
+# -------------------------------------------------
+
+karten_daten <- lapply(
+  seq_len(nrow(auswahl_karte)),
+
+  function(i) {
+
+    diagnose_i <-
+      auswahl_karte$diagnose[i]
+
+    diagnose_anzeige_i <-
+      auswahl_karte$diagnose_anzeige[i]
+
+    geschlecht_i <-
+      auswahl_karte$geschlecht[i]
+
+
+    daten_i <- krebs_karte_daten |>
+      filter(
+        diagnose == diagnose_i,
+        geschlecht == geschlecht_i
+      ) |>
+      mutate(
+
+        diagnose_anzeige_plot =
+          diagnose_anzeige_i,
+
+        geschlecht_plot =
+          geschlecht_en(geschlecht_i),
+
+        asr_label = format(
+          round(asr, 2),
+          decimal.mark = ".",
+          nsmall = 2
+        ),
+
+        fallzahl_label = format(
+          fallzahl,
+          big.mark = ",",
+          decimal.mark = "."
+        ),
+
+        bevoelkerung_label = format(
+          bevoelkerung,
+          big.mark = ",",
+          decimal.mark = "."
+        )
+      )
+
+
+    krebsgebiete_karte |>
+      left_join(
+        daten_i,
+        by = c(
+          "krebsgebiet" = "gebiet"
+        )
+      )
+  }
+)
+
+
+# -------------------------------------------------
+# Popups vorbereiten
+# -------------------------------------------------
+
+popup_liste <- lapply(
+  karten_daten,
+
+  function(dat) {
+
+    paste0(
+
+      "<b>",
+      dat$krebsgebiet,
+      "</b>",
+
+      "<br><br>",
+
+      "Diagnosis: ",
+      dat$diagnose_anzeige_plot,
+
+      "<br>Sex: ",
+      dat$geschlecht_plot,
+
+      "<br>ASR: ",
+      dat$asr_label,
+      " per 100,000 population/year",
+
+      "<br>Case count 2013–2022: ",
+      dat$fallzahl_label,
+
+      "<br>Population: ",
+      dat$bevoelkerung_label
+    )
+  }
+)
+
+
+# -------------------------------------------------
+# Dynamische Legenden für jede Diagnose vorbereiten
+# -------------------------------------------------
+
+legenden_html_diag <- list()
+
+
+for (diag in unique(krebs_karte_daten$diagnose)) {
+
+  werte_diag <- krebs_karte_daten |>
+    filter(
+      diagnose == diag
+    ) |>
+    pull(
+      asr
+    )
+
+  min_diag <- min(
+    werte_diag,
+    na.rm = TRUE
+  )
+
+  max_diag <- max(
+    werte_diag,
+    na.rm = TRUE
+  )
+
+
+  # Schöne Zwischenwerte erzeugen
+  breaks_diag <- pretty(
+    c(
+      min_diag,
+      max_diag
+    ),
+    n = 5
+  )
+
+
+  # Nur Werte innerhalb des tatsächlichen Bereichs
+  breaks_diag <- breaks_diag[
+    breaks_diag >= min_diag &
+      breaks_diag <= max_diag
+  ]
+
+
+  # Minimum und Maximum sicher ergänzen
+  breaks_diag <- sort(
+    unique(
+      c(
+        min_diag,
+        breaks_diag,
+        max_diag
+      )
+    ),
+    decreasing = TRUE
+  )
+
+
+  pal_diag <-
+    paletten_asr[[diag]]
+
+
+  farben_diag <- pal_diag(
+    breaks_diag
+  )
+
+
+  labels_diag <- format(
+    round(
+      breaks_diag,
+      1
+    ),
+    decimal.mark = ".",
+    nsmall = 1,
+    trim = TRUE
+  )
+
+
+  eintraege <- paste0(
+
+    "<div style='",
+    "display:flex;",
+    "align-items:center;",
+    "gap:6px;",
+    "margin:2px 0;",
+    "'>",
+
+    "<span style='",
+    "display:inline-block;",
+    "width:18px;",
+    "height:12px;",
+    "background:",
+    farben_diag,
+    ";",
+    "border:1px solid rgba(0,0,0,0.15);",
+    "'></span>",
+
+    "<span>",
+    labels_diag,
+    "</span>",
+
+    "</div>"
+  )
+
+
+  legenden_html_diag[[diag]] <- paste0(
+
+    "<div style='",
+    "background:white;",
+    "padding:7px 9px;",
+    "border-radius:4px;",
+    "box-shadow:0 1px 5px rgba(0,0,0,0.25);",
+    "font-size:12px;",
+    "line-height:1.2;",
+    "'>",
+
+    "<div style='",
+    "font-weight:600;",
+    "margin-bottom:5px;",
+    "'>",
+    "ASR per 100,000/year",
+    "</div>",
+
+    paste(
+      eintraege,
+      collapse = ""
+    ),
+
+    "</div>"
+  )
+}
+
+
+# -------------------------------------------------
+# Für jede Karten-Auswahl die passende Legende
+# hinterlegen
+# -------------------------------------------------
+
+legenden_gruppen <- list()
+
+for (i in seq_len(nrow(auswahl_karte))) {
+
+  gruppe_i <-
+    auswahl_karte$gruppe[i]
+
+  diagnose_i <-
+    auswahl_karte$diagnose[i]
+
+  legenden_gruppen[[gruppe_i]] <-
+    legenden_html_diag[[diagnose_i]]
+}
+
+
+# -------------------------------------------------
+# Kartenausschnitt
+# -------------------------------------------------
+
+bb <- st_bbox(
+  krebsgebiete_karte
+)
+
+
+# -------------------------------------------------
+# Grundkarte erzeugen
+# -------------------------------------------------
+
+m <- leaflet() |>
+
+  addProviderTiles(
+    providers$OpenStreetMap.Mapnik
+  )
+
+
+# -------------------------------------------------
+# Alle gültigen Kombinationen als Kartenlayer
+# hinzufügen
+# -------------------------------------------------
+
+for (i in seq_len(nrow(auswahl_karte))) {
+
+  diagnose_i <-
+    auswahl_karte$diagnose[i]
+
+  gruppe_i <-
+    auswahl_karte$gruppe[i]
+
+  daten_i <-
+    karten_daten[[i]]
+
+  popup_i <-
+    popup_liste[[i]]
+
+  pal_i <-
+    paletten_asr[[diagnose_i]]
+
+
+  m <- m |>
+
+    addPolygons(
+
+      data = daten_i,
+
+      group = gruppe_i,
+
+      fillColor =
+        ~pal_i(asr),
+
+      fillOpacity = 0.80,
+
+      color = "white",
+
+      weight = 2,
+
+      opacity = 1,
+
+      popup = popup_i,
+
+      label = ~paste0(
+        krebsgebiet,
+        ": ASR ",
+        asr_label,
+        " per 100,000/year"
+      ),
+
+      highlightOptions =
+        highlightOptions(
+
+          weight = 3,
+
+          color = "#333333",
+
+          fillOpacity = 0.95,
+
+          bringToFront = TRUE
+        )
+    )
+}
+
+
+# -------------------------------------------------
+# Initiale Legende
+#
+# Start:
+# Krebs gesamt – Gesamt
+# -------------------------------------------------
+
+erste_gruppe <-
+  auswahl_karte$gruppe[1]
+
+
+m <- m |>
+
+  addControl(
+
+    html =
+      legenden_gruppen[[erste_gruppe]],
+
+    position =
+      "bottomright",
+
+    className =
+      "asr-diagnose-legende"
+  )
+
+
+# -------------------------------------------------
+# Layer-Auswahl
+#
+# 14 gültige Diagnose-Geschlechts-Kombinationen
+# -------------------------------------------------
+
+m <- m |>
+
+  addLayersControl(
+
+    baseGroups =
+      auswahl_karte$gruppe,
+
+    options =
+      layersControlOptions(
+        collapsed = TRUE
+      )
+  )
+
+
+# -------------------------------------------------
+# Beim Start nur die erste Auswahl anzeigen
+# -------------------------------------------------
+
+m <- m |>
+
+  hideGroup(
+    auswahl_karte$gruppe[-1]
+  )
+
+
+# -------------------------------------------------
+# Karte auf die Grafschaft zentrieren
+# -------------------------------------------------
+
+m <- m |>
+
+  fitBounds(
+
+    lng1 =
+      unname(
+        bb["xmin"]
+      ),
+
+    lat1 =
+      unname(
+        bb["ymin"]
+      ),
+
+    lng2 =
+      unname(
+        bb["xmax"]
+      ),
+
+    lat2 =
+      unname(
+        bb["ymax"]
+      )
+  )
+
+
+# -------------------------------------------------
+# Dynamische Legende
+#
+# Beim Wechsel der Diagnose wird automatisch
+# die zur Diagnose passende ASR-Skala angezeigt.
+# -------------------------------------------------
+
+legenden_json <-
+  jsonlite::toJSON(
+    legenden_gruppen,
+    auto_unbox = TRUE
+  )
+
+
+js_code <- paste0(
+
+  "function(el, x) {",
+
+  "var map = this;",
+
+  "var legends = ",
+  legenden_json,
+  ";",
+
+  "map.on('baselayerchange', function(e) {",
+
+  "var box = el.querySelector('.asr-diagnose-legende');",
+
+  "if (box && legends[e.name]) {",
+  "box.innerHTML = legends[e.name];",
+  "}",
+
+  "});",
+
+  "}"
+)
+
+
+htmlwidgets::onRender(
+  m,
+  js_code
+)
+```
+:::
+
+## Comparison with Lower Saxony
+
+The **standardised incidence ratio (SIR)** compares the number of new cancer cases observed in a regional observation unit with the number that would be expected for its age structure based on the **age-specific incidence rates in Lower Saxony**.
+
+An SIR of **1.00** corresponds to the Lower Saxony reference level. A value of **0.90**, for example, means that about 10% fewer cases were observed than expected; a value of **1.10** corresponds to about 10% more observed cases than expected.
+
+The horizontal lines show the respective **95% confidence intervals**. If the confidence interval includes **1.00**, the observed deviation from the Lower Saxony reference level is not statistically clear on this basis.
+
+::: {.gesundheit-chart .gesundheit-chart-sir}
+
+```{r}
+#| label: krebs-sir-interaktiv
+#| echo: false
+#| warning: false
+#| message: false
+
+library(readr)
+library(dplyr)
+library(plotly)
+
+diagnose_en <- function(x) {
+  dplyr::recode(
+    x,
+    "Krebs gesamt" = "All cancers",
+    "Darmkrebs" = "Colorectal cancer",
+    "Lungenkrebs" = "Lung cancer",
+    "Melanom" = "Melanoma",
+    "Brustkrebs" = "Breast cancer",
+    "Prostatakrebs" = "Prostate cancer"
+  )
+}
+
+geschlecht_en <- function(x) {
+  dplyr::recode(
+    x,
+    "Gesamt" = "Total",
+    "Frauen" = "Women",
+    "Männer" = "Men"
+  )
+}
+
+
+# -------------------------------------------------
+# SIR-Masterdatei mit allen Diagnosen einlesen
+# -------------------------------------------------
+
+sir_daten <- read_csv2(
+  "../data/gesundheit/krebs/sir_master_alle_diagnosen_grafschaft.csv",
+  show_col_types = FALSE
+)
+
+sir_daten <- sir_daten |>
+  mutate(
+    gebiet_anzeige = gebiet
+  )
+
+
+# -------------------------------------------------
+# Farben nach Geschlecht
+# -------------------------------------------------
+
+farben_sir <- c(
+  "Gesamt" = "#2E6B3E",
+  "Frauen" = "#D70A53",
+  "Männer" = "#073B70"
+)
+
+
+# -------------------------------------------------
+# Gültige Diagnose-Geschlechts-Kombinationen
+# -------------------------------------------------
+
+auswahl_sir <- data.frame(
+
+  diagnose = c(
+    "Krebs gesamt",
+    "Krebs gesamt",
+    "Krebs gesamt",
+
+    "Darmkrebs",
+    "Darmkrebs",
+    "Darmkrebs",
+
+    "Lungenkrebs",
+    "Lungenkrebs",
+    "Lungenkrebs",
+
+    "Melanom",
+    "Melanom",
+    "Melanom",
+
+    "Brustkrebs",
+
+    "Prostatakrebs"
+  ),
+
+  diagnose_anzeige = c(
+    "All cancers (C00–C97 excluding C44)",
+    "All cancers (C00–C97 excluding C44)",
+    "All cancers (C00–C97 excluding C44)",
+
+    "Colorectal cancer (C18–C20)",
+    "Colorectal cancer (C18–C20)",
+    "Colorectal cancer (C18–C20)",
+
+    "Lung cancer (C33–C34)",
+    "Lung cancer (C33–C34)",
+    "Lung cancer (C33–C34)",
+
+    "Malignant melanoma of the skin (C43)",
+    "Malignant melanoma of the skin (C43)",
+    "Malignant melanoma of the skin (C43)",
+
+    "Breast cancer (C50)",
+
+    "Prostate cancer (C61)"
+  ),
+
+  geschlecht = c(
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Frauen",
+
+    "Männer"
+  ),
+
+  stringsAsFactors = FALSE
+)
+
+
+# -------------------------------------------------
+# Beschriftung für Dropdown
+# -------------------------------------------------
+
+auswahl_sir <- auswahl_sir |>
+  mutate(
+    label = paste(
+      diagnose_anzeige,
+      "–",
+      geschlecht_en(geschlecht)
+    )
+  )
+
+
+# -------------------------------------------------
+# Hilfsfunktion:
+# passende X-Achse je Auswahl berechnen
+#
+# Dabei werden immer sämtliche 95%-KI sowie
+# der Referenzwert 1,00 berücksichtigt.
+# -------------------------------------------------
+
+berechne_xbereich <- function(dat) {
+
+  xmin <- min(
+    c(
+      dat$sir_ci_unten,
+      1
+    ),
+    na.rm = TRUE
+  )
+
+  xmax <- max(
+    c(
+      dat$sir_ci_oben,
+      1
+    ),
+    na.rm = TRUE
+  )
+
+  spannweite <- xmax - xmin
+
+  if (
+    !is.finite(spannweite) ||
+    spannweite == 0
+  ) {
+    spannweite <- 0.10
+  }
+
+  rand <- max(
+    0.03,
+    spannweite * 0.12
+  )
+
+  c(
+    max(
+      0,
+      xmin - rand
+    ),
+    xmax + rand
+  )
+}
+
+
+# -------------------------------------------------
+# Sortierung, X-Achsen und Achsenbeschriftungen
+# für jede Auswahl vorbereiten
+# -------------------------------------------------
+
+reihenfolgen_sir <- list()
+xbereiche_sir <- list()
+xticks_sir <- list()
+xticktexte_sir <- list()
+
+
+for (i in seq_len(nrow(auswahl_sir))) {
+
+  daten_tmp <- sir_daten |>
+    filter(
+      diagnose == auswahl_sir$diagnose[i],
+      geschlecht == auswahl_sir$geschlecht[i]
+    ) |>
+    arrange(
+      sir
+    )
+
+
+  # Reihenfolge der Gebiete
+  reihenfolgen_sir[[i]] <-
+    daten_tmp$gebiet_anzeige
+
+
+  # X-Achsenbereich
+  xbereich_i <-
+    berechne_xbereich(
+      daten_tmp
+    )
+
+  xbereiche_sir[[i]] <-
+    xbereich_i
+
+
+  # Schöne Achsenticks erzeugen
+  ticks_i <- pretty(
+    xbereich_i,
+    n = 5
+  )
+
+
+  # Referenzwert 1,00 sicher mit aufnehmen
+  ticks_i <- sort(
+    unique(
+      c(
+        ticks_i,
+        1
+      )
+    )
+  )
+
+
+  # Nur Ticks innerhalb des sichtbaren Bereichs
+  ticks_i <- ticks_i[
+    ticks_i >= xbereich_i[1] &
+      ticks_i <= xbereich_i[2]
+  ]
+
+
+  xticks_sir[[i]] <-
+    ticks_i
+
+
+  xticktexte_sir[[i]] <-
+    format(
+      ticks_i,
+      decimal.mark = ".",
+      nsmall = 2,
+      trim = TRUE
+    )
+}
+
+
+# -------------------------------------------------
+# Plot erzeugen
+# -------------------------------------------------
+
+p_sir <- plot_ly()
+
+
+for (i in seq_len(nrow(auswahl_sir))) {
+
+  diagnose_i <-
+    auswahl_sir$diagnose[i]
+
+  diagnose_anzeige_i <-
+    auswahl_sir$diagnose_anzeige[i]
+
+  geschlecht_i <-
+    auswahl_sir$geschlecht[i]
+
+
+  daten_i <- sir_daten |>
+    filter(
+      diagnose == diagnose_i,
+      geschlecht == geschlecht_i
+    ) |>
+    arrange(
+      sir
+    ) |>
+    mutate(
+
+      # Diagnose und Geschlecht fest in den
+      # jeweiligen Trace-Datensatz schreiben.
+      diagnose_anzeige_plot =
+        diagnose_anzeige_i,
+
+      geschlecht_plot =
+        geschlecht_en(geschlecht_i),
+
+
+      # SIR
+      sir_label = format(
+        round(
+          sir,
+          3
+        ),
+        decimal.mark = ".",
+        nsmall = 3
+      ),
+
+
+      # Untere KI-Grenze
+      ci_unten_label = format(
+        round(
+          sir_ci_unten,
+          3
+        ),
+        decimal.mark = ".",
+        nsmall = 3
+      ),
+
+
+      # Obere KI-Grenze
+      ci_oben_label = format(
+        round(
+          sir_ci_oben,
+          3
+        ),
+        decimal.mark = ".",
+        nsmall = 3
+      ),
+
+
+      # Bevölkerung
+      bevoelkerung_label = format(
+        bevoelkerung,
+        big.mark = ",",
+        decimal.mark = "."
+      )
+    )
+
+
+  p_sir <- p_sir |>
+
+    add_trace(
+
+      data = daten_i,
+
+      x = ~sir,
+      y = ~gebiet_anzeige,
+
+      type = "scatter",
+
+      mode = "markers+text",
+
+      visible = i == 1,
+
+      name =
+        auswahl_sir$label[i],
+
+
+      # -------------------------------------------------
+      # Punkt
+      # -------------------------------------------------
+
+      marker = list(
+
+        color = unname(
+          farben_sir[
+            geschlecht_i
+          ]
+        ),
+
+        size = 11
+      ),
+
+
+      # -------------------------------------------------
+      # SIR-Wert neben dem Punkt
+      # -------------------------------------------------
+
+      text = ~sir_label,
+
+      textposition = "top right",
+
+      textfont = list(
+
+        color = unname(
+          farben_sir[
+            geschlecht_i
+          ]
+        ),
+
+        size = 12
+      ),
+
+
+      # -------------------------------------------------
+      # 95%-Konfidenzintervall
+      # -------------------------------------------------
+
+      error_x = list(
+
+        type = "data",
+
+        symmetric = FALSE,
+
+        array =
+          daten_i$sir_ci_oben -
+          daten_i$sir,
+
+        arrayminus =
+          daten_i$sir -
+          daten_i$sir_ci_unten,
+
+        color = unname(
+          farben_sir[
+            geschlecht_i
+          ]
+        ),
+
+        thickness = 1.5,
+
+        width = 5
+      ),
+
+
+      # -------------------------------------------------
+      # Mouseover
+      # -------------------------------------------------
+
+      hovertext = ~paste0(
+
+        "<b>",
+        gebiet_anzeige,
+        "</b>",
+
+        "<br>Diagnosis: ",
+        diagnose_anzeige_plot,
+
+        "<br>Sex: ",
+        geschlecht_plot,
+
+        "<br>SIR: ",
+        sir_label,
+
+        "<br>95% CI: ",
+        ci_unten_label,
+        " – ",
+        ci_oben_label,
+
+        "<br>Population: ",
+        bevoelkerung_label
+      ),
+
+      hoverinfo = "text"
+    )
+}
+
+
+# -------------------------------------------------
+# Dropdown-Menü
+# -------------------------------------------------
+
+buttons_sir <- lapply(
+
+  seq_len(nrow(auswahl_sir)),
+
+  function(i) {
+
+    sichtbar <- rep(
+      FALSE,
+      nrow(auswahl_sir)
+    )
+
+    sichtbar[i] <- TRUE
+
+
+    list(
+
+      method = "update",
+
+      args = list(
+
+        # -------------------------------------------
+        # Sichtbarer Trace
+        # -------------------------------------------
+
+        list(
+          visible = sichtbar
+        ),
+
+
+        # -------------------------------------------
+        # Layout der jeweiligen Auswahl
+        # -------------------------------------------
+
+        list(
+
+          title = list(
+
+            text = paste(
+              diagnose_en(auswahl_sir$diagnose[i]),
+              "–",
+              geschlecht_en(auswahl_sir$geschlecht[i])
+            )
+          ),
+
+
+          yaxis = list(
+
+            title = "",
+
+            categoryorder = "array",
+
+            categoryarray =
+              reihenfolgen_sir[[i]]
+          ),
+
+
+          xaxis = list(
+
+            title =
+              "Standardised incidence ratio (SIR)",
+
+            range =
+              xbereiche_sir[[i]],
+
+            autorange = FALSE,
+
+            tickmode = "array",
+
+            tickvals =
+              xticks_sir[[i]],
+
+            ticktext =
+              xticktexte_sir[[i]]
+          )
+        )
+      ),
+
+      label = paste(
+        diagnose_en(auswahl_sir$diagnose[i]),
+        "–",
+        geschlecht_en(auswahl_sir$geschlecht[i])
+      )
+    )
+  }
+)
+
+
+# -------------------------------------------------
+# Layout
+# -------------------------------------------------
+
+p_sir_plot <- p_sir |>
+
+  layout(
+
+    title = list(
+
+      text =
+        "All cancers – Total",
+
+      x = 0.5,
+
+      xanchor = "center"
+    ),
+
+    xaxis = list(
+
+      title =
+        "Standardised incidence ratio (SIR)",
+
+      range =
+        xbereiche_sir[[1]],
+
+      autorange = FALSE,
+
+      tickmode = "array",
+
+      tickvals =
+        xticks_sir[[1]],
+
+      ticktext =
+        xticktexte_sir[[1]]
+    ),
+
+    yaxis = list(
+
+      title = "",
+
+      categoryorder = "array",
+
+      categoryarray =
+        reihenfolgen_sir[[1]]
+    ),
+
+    hoverlabel = list(
+      bgcolor = "#000000",
+      bordercolor = "#000000",
+      font = list(
+        color = "#FFFFFF",
+        size = 13
+      ),
+      align = "left"
+    ),
+
+    hovermode = "closest",
+
+    showlegend = FALSE,
+
+    shapes = list(
+
+      list(
+
+        type = "line",
+
+        x0 = 1,
+        x1 = 1,
+
+        y0 = 0,
+        y1 = 1,
+
+        yref = "paper",
+
+        line = list(
+
+          color = "#666666",
+
+          width = 2,
+
+          dash = "dash"
+        )
+      )
+    ),
+
+    annotations = list(
+
+      list(
+
+        x = 1,
+
+        y = 1.08,
+
+        xref = "x",
+
+        yref = "paper",
+
+        text =
+          "Lower Saxony = 1.00",
+
+        showarrow = FALSE,
+
+        xanchor = "center",
+
+        yanchor = "bottom",
+
+        font = list(
+
+          color = "#666666",
+
+          size = 11
+        )
+      )
+    ),
+
+    updatemenus = list(
+
+      list(
+
+        type = "dropdown",
+
+        x = 0,
+
+        y = 1.15,
+
+        xanchor = "left",
+
+        yanchor = "top",
+
+        active = 0,
+
+        buttons =
+          buttons_sir
+      )
+    ),
+
+    margin = list(
+
+      l = 160,
+
+      r = 60,
+
+      t = 145,
+
+      b = 60
+    )
+  ) |>
+
+  config(
+    displayModeBar = FALSE,
+    responsive = TRUE
+  )
+
+
+# -------------------------------------------------
+# Responsive Verhalten für Smartphone / Tablet
+# -------------------------------------------------
+
+p_sir_plot <- htmlwidgets::onRender(
+  p_sir_plot,
+  "
+  function(el, x) {
+
+    var gebieteVoll = [
+      'Nordhorn, Stadt',
+      'Neuenhaus, SG',
+      'Emlichheim, SG',
+      'Uelsen, SG',
+      'Bad Bentheim, Stadt',
+      'Wietmarschen',
+      'Schüttorf, SG'
+    ];
+
+    var gebieteKurz = [
+      'Nordhorn',
+      'Neuenhaus',
+      'Emlichheim',
+      'Uelsen',
+      'Bad Bentheim',
+      'Wietmarschen',
+      'Schüttorf'
+    ];
+
+    var gebieteAnzeige = [
+      'Nordhorn (town)',
+      'Neuenhaus (joint municipality)',
+      'Emlichheim (joint municipality)',
+      'Uelsen (joint municipality)',
+      'Bad Bentheim (town)',
+      'Wietmarschen',
+      'Schüttorf (joint municipality)'
+    ];
+
+    var menu =
+      x.layout &&
+      x.layout.updatemenus &&
+      x.layout.updatemenus.length
+        ? x.layout.updatemenus[0]
+        : null;
+
+    var buttons =
+      menu && menu.buttons
+        ? menu.buttons
+        : [];
+
+    var wrapper =
+      document.createElement('div');
+
+    wrapper.className =
+      'mobile-plotly-select-wrap';
+
+    var label =
+      document.createElement('label');
+
+    label.className =
+      'mobile-plotly-select-label';
+
+    label.textContent =
+      'Select diagnosis and sex';
+
+    var select =
+      document.createElement('select');
+
+    select.className =
+      'mobile-plotly-select';
+
+    select.setAttribute(
+      'aria-label',
+      'Select diagnosis and sex'
+    );
+
+    buttons.forEach(
+      function(button, index) {
+
+        var option =
+          document.createElement('option');
+
+        option.value =
+          String(index);
+
+        option.textContent =
+          button.label;
+
+        if (
+          menu &&
+          typeof menu.active === 'number' &&
+          menu.active === index
+        ) {
+          option.selected = true;
+        }
+
+        select.appendChild(option);
+      }
+    );
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(select);
+
+    if (el.parentNode) {
+      el.parentNode.insertBefore(
+        wrapper,
+        el
+      );
+    }
+
+
+    function responsiveSIR() {
+
+      var mobile =
+        window.innerWidth <= 600;
+
+      wrapper.style.display =
+        mobile ? 'block' : 'none';
+
+      Plotly.restyle(
+        el,
+        {
+          'mode': mobile ? 'markers' : 'markers+text',
+          'textfont.size': mobile ? 10 : 12
+        }
+      );
+
+      var update = {
+
+        'autosize': true,
+
+        'margin.l': mobile ? 96 : 160,
+        'margin.r': mobile ? 10 : 60,
+        'margin.t': mobile ? 42 : 145,
+        'margin.b': mobile ? 52 : 60,
+
+        'title.font.size': mobile ? 14 : 20,
+
+        'xaxis.title.text': mobile
+          ? 'SIR'
+          : 'Standardised incidence ratio (SIR)',
+
+        'xaxis.title.font.size': mobile ? 11 : 14,
+        'xaxis.tickfont.size': mobile ? 9 : 12,
+
+        'yaxis.tickmode': 'array',
+        'yaxis.tickvals': gebieteVoll,
+        'yaxis.ticktext': mobile ? gebieteKurz : gebieteAnzeige,
+        'yaxis.tickfont.size': mobile ? 9 : 12,
+
+        'hoverlabel.font.size': mobile ? 10 : 13,
+
+        'annotations[0].visible': mobile ? false : true,
+
+        'updatemenus[0].visible': !mobile,
+
+        'updatemenus[0].x': 0,
+        'updatemenus[0].y': 1.15,
+        'updatemenus[0].font.size': 12
+      };
+
+      Plotly.relayout(
+        el,
+        update
+      );
+
+      Plotly.Plots.resize(el);
+    }
+
+
+    select.addEventListener(
+      'change',
+      function() {
+
+        var index =
+          Number(select.value);
+
+        var button =
+          buttons[index];
+
+        if (
+          !button ||
+          !button.args
+        ) {
+          return;
+        }
+
+        Plotly.update(
+          el,
+          button.args[0] || {},
+          button.args[1] || {}
+        ).then(
+          function() {
+            responsiveSIR();
+          }
+        );
+      }
+    );
+
+
+    responsiveSIR();
+
+    window.addEventListener(
+      'resize',
+      responsiveSIR
+    );
+  }
+  "
+)
+
+p_sir_plot
+```
+:::
+
+*Source: Epidemiological Cancer Registry of Lower Saxony, Small-area Cancer Atlas. Period 2013–2022.*
+
+### Regional distribution of the SIR
+
+The map shows the spatial distribution of the **standardised incidence ratio (SIR)** for the selected diagnosis and sex.
+
+**Blue shades** indicate SIR values below the Lower Saxony reference value of 1.00, while **red shades** indicate values above it. The light centre of the colour scale corresponds to the reference value **1.00**.
+
+For each diagnosis, the colour scale is adjusted symmetrically around 1.00 to the respective range of values. Within a diagnosis, the same scale is used for all available sexes. **The colour intensity across different diagnoses is therefore not directly comparable.**
+
+The colour indicates only the magnitude of the SIR. Whether a deviation is statistically clear must be assessed using the respective **95% confidence interval**. Clicking on an area displays the SIR, 95% confidence interval and population.
+
+::: {.gesundheit-map-wrap .gesundheit-map-sir}
+
+```{r}
+#| label: krebs-sir-karte
+#| echo: false
+#| warning: false
+#| message: false
+
+library(sf)
+library(readr)
+library(dplyr)
+library(leaflet)
+
+diagnose_en <- function(x) {
+  dplyr::recode(
+    x,
+    "Krebs gesamt" = "All cancers",
+    "Darmkrebs" = "Colorectal cancer",
+    "Lungenkrebs" = "Lung cancer",
+    "Melanom" = "Melanoma",
+    "Brustkrebs" = "Breast cancer",
+    "Prostatakrebs" = "Prostate cancer"
+  )
+}
+
+geschlecht_en <- function(x) {
+  dplyr::recode(
+    x,
+    "Gesamt" = "Total",
+    "Frauen" = "Women",
+    "Männer" = "Men"
+  )
+}
+
+
+# -------------------------------------------------
+# Geometrien der 7 Krebsatlas-Gebiete einlesen
+# -------------------------------------------------
+
+sir_gebiete_karte <- st_read(
+  "../data/grafschaft_krebsatlas_gebiete.geojson",
+  quiet = TRUE
+) |>
+  st_transform(4326)
+
+
+# -------------------------------------------------
+# SIR-Masterdatei mit allen Diagnosen einlesen
+# -------------------------------------------------
+
+sir_karte_daten <- read_csv2(
+  "../data/gesundheit/krebs/sir_master_alle_diagnosen_grafschaft.csv",
+  show_col_types = FALSE
+)
+
+
+# -------------------------------------------------
+# Diagnosebezeichnungen inklusive ICD-10
+# -------------------------------------------------
+
+diagnosen_meta_sir <- data.frame(
+
+  diagnose = c(
+    "Krebs gesamt",
+    "Darmkrebs",
+    "Lungenkrebs",
+    "Melanom",
+    "Brustkrebs",
+    "Prostatakrebs"
+  ),
+
+  diagnose_anzeige = c(
+    "All cancers (C00–C97 excluding C44)",
+    "Colorectal cancer (C18–C20)",
+    "Lung cancer (C33–C34)",
+    "Malignant melanoma of the skin (C43)",
+    "Breast cancer (C50)",
+    "Prostate cancer (C61)"
+  ),
+
+  stringsAsFactors = FALSE
+)
+
+
+# -------------------------------------------------
+# Gültige Diagnose-Geschlechts-Kombinationen
+# -------------------------------------------------
+
+auswahl_sir_karte <- data.frame(
+
+  diagnose = c(
+    "Krebs gesamt",
+    "Krebs gesamt",
+    "Krebs gesamt",
+
+    "Darmkrebs",
+    "Darmkrebs",
+    "Darmkrebs",
+
+    "Lungenkrebs",
+    "Lungenkrebs",
+    "Lungenkrebs",
+
+    "Melanom",
+    "Melanom",
+    "Melanom",
+
+    "Brustkrebs",
+
+    "Prostatakrebs"
+  ),
+
+  geschlecht = c(
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Gesamt",
+    "Frauen",
+    "Männer",
+
+    "Frauen",
+
+    "Männer"
+  ),
+
+  stringsAsFactors = FALSE
+)
+
+
+auswahl_sir_karte <- auswahl_sir_karte |>
+  left_join(
+    diagnosen_meta_sir,
+    by = "diagnose"
+  ) |>
+  mutate(
+    gruppe = paste(
+      diagnose_en(diagnose),
+      "–",
+      geschlecht_en(geschlecht)
+    )
+  )
+
+
+# -------------------------------------------------
+# Für jede Diagnose eine eigene,
+# symmetrische Farbskala um SIR = 1,00 erzeugen
+#
+# Innerhalb einer Diagnose gilt dieselbe Skala
+# für alle verfügbaren Geschlechter.
+# -------------------------------------------------
+
+paletten_sir <- list()
+bereiche_sir <- list()
+
+
+for (diag in unique(sir_karte_daten$diagnose)) {
+
+  werte_diag <- sir_karte_daten |>
+    filter(
+      diagnose == diag
+    ) |>
+    pull(
+      sir
+    )
+
+
+  max_abstand <- max(
+    abs(
+      werte_diag - 1
+    ),
+    na.rm = TRUE
+  )
+
+
+  # Mindestens +/- 0,15 um den Referenzwert,
+  # damit die Skala nicht unnötig eng wird.
+  max_abstand <- max(
+    max_abstand,
+    0.15
+  )
+
+
+  bereich_diag <- c(
+    1 - max_abstand,
+    1 + max_abstand
+  )
+
+
+  bereiche_sir[[diag]] <-
+    bereich_diag
+
+
+  paletten_sir[[diag]] <- colorNumeric(
+
+    palette = c(
+      "#3F6F9F",
+      "#F7F7F7",
+      "#B85C5C"
+    ),
+
+    domain =
+      bereich_diag,
+
+    na.color =
+      "#CCCCCC"
+  )
+}
+
+
+# -------------------------------------------------
+# Kartendaten für jede gültige Kombination erzeugen
+# -------------------------------------------------
+
+sir_karten_daten <- lapply(
+
+  seq_len(
+    nrow(auswahl_sir_karte)
+  ),
+
+  function(i) {
+
+    diagnose_i <-
+      auswahl_sir_karte$diagnose[i]
+
+    diagnose_anzeige_i <-
+      auswahl_sir_karte$diagnose_anzeige[i]
+
+    geschlecht_i <-
+      auswahl_sir_karte$geschlecht[i]
+
+
+    daten_i <- sir_karte_daten |>
+
+      filter(
+        diagnose == diagnose_i,
+        geschlecht == geschlecht_i
+      ) |>
+
+      mutate(
+
+        diagnose_anzeige_plot =
+          diagnose_anzeige_i,
+
+        geschlecht_plot =
+          geschlecht_en(geschlecht_i),
+
+
+        # -------------------------------------------
+        # SIR formatieren
+        # -------------------------------------------
+
+        sir_label = format(
+          round(
+            sir,
+            3
+          ),
+          decimal.mark = ".",
+          nsmall = 3
+        ),
+
+
+        # -------------------------------------------
+        # Untere 95%-KI-Grenze
+        # -------------------------------------------
+
+        ci_unten_label = format(
+          round(
+            sir_ci_unten,
+            3
+          ),
+          decimal.mark = ".",
+          nsmall = 3
+        ),
+
+
+        # -------------------------------------------
+        # Obere 95%-KI-Grenze
+        # -------------------------------------------
+
+        ci_oben_label = format(
+          round(
+            sir_ci_oben,
+            3
+          ),
+          decimal.mark = ".",
+          nsmall = 3
+        ),
+
+
+        # -------------------------------------------
+        # Bevölkerung
+        # -------------------------------------------
+
+        bevoelkerung_label = format(
+          bevoelkerung,
+          big.mark = ",",
+          decimal.mark = "."
+        ),
+
+
+        # -------------------------------------------
+        # Interpretation des 95%-KI
+        # -------------------------------------------
+
+        ki_hinweis = case_when(
+
+          sir_ci_oben < 1 ~
+            "95% CI entirely below 1.00",
+
+          sir_ci_unten > 1 ~
+            "95% CI entirely above 1.00",
+
+          TRUE ~
+            "95% CI includes 1.00"
+        )
+      )
+
+
+    sir_gebiete_karte |>
+
+      left_join(
+        daten_i,
+        by = c(
+          "krebsgebiet" = "gebiet"
+        )
+      )
+  }
+)
+
+
+# -------------------------------------------------
+# Popups vorbereiten
+# -------------------------------------------------
+
+popup_sir_liste <- lapply(
+
+  sir_karten_daten,
+
+  function(dat) {
+
+    paste0(
+
+      "<b>",
+      dat$krebsgebiet,
+      "</b>",
+
+      "<br><br>",
+
+      "Diagnosis: ",
+      dat$diagnose_anzeige_plot,
+
+      "<br>Sex: ",
+      dat$geschlecht_plot,
+
+      "<br>SIR: ",
+      dat$sir_label,
+
+      "<br>95% CI: ",
+      dat$ci_unten_label,
+      " – ",
+      dat$ci_oben_label,
+
+      "<br>Population: ",
+      dat$bevoelkerung_label,
+
+      "<br><br><i>",
+      dat$ki_hinweis,
+      "</i>"
+    )
+  }
+)
+
+
+# -------------------------------------------------
+# Dynamische Legenden für jede Diagnose erzeugen
+# -------------------------------------------------
+
+legenden_html_sir <- list()
+
+
+for (diag in unique(sir_karte_daten$diagnose)) {
+
+  bereich_diag <-
+    bereiche_sir[[diag]]
+
+
+  # 7 gleichmäßig verteilte Werte.
+  # Da es eine ungerade Zahl ist,
+  # liegt 1,00 exakt in der Mitte.
+  legenden_werte <- seq(
+
+    from =
+      bereich_diag[1],
+
+    to =
+      bereich_diag[2],
+
+    length.out = 7
+  )
+
+
+  # Hohe Werte oben anzeigen
+  legenden_werte <- sort(
+    legenden_werte,
+    decreasing = TRUE
+  )
+
+
+  pal_diag <-
+    paletten_sir[[diag]]
+
+
+  legenden_farben <-
+    pal_diag(
+      legenden_werte
+    )
+
+
+  legenden_labels <- format(
+
+    round(
+      legenden_werte,
+      2
+    ),
+
+    decimal.mark = ".",
+
+    nsmall = 2,
+
+    trim = TRUE
+  )
+
+
+  eintraege <- paste0(
+
+    "<div style='",
+    "display:flex;",
+    "align-items:center;",
+    "gap:6px;",
+    "margin:2px 0;",
+    "'>",
+
+    "<span style='",
+    "display:inline-block;",
+    "width:18px;",
+    "height:12px;",
+    "background:",
+    legenden_farben,
+    ";",
+    "border:1px solid rgba(0,0,0,0.15);",
+    "'></span>",
+
+    "<span>",
+    legenden_labels,
+    "</span>",
+
+    "</div>"
+  )
+
+
+  legenden_html_sir[[diag]] <- paste0(
+
+    "<div style='",
+    "background:white;",
+    "padding:7px 9px;",
+    "border-radius:4px;",
+    "box-shadow:0 1px 5px rgba(0,0,0,0.25);",
+    "font-size:12px;",
+    "line-height:1.2;",
+    "'>",
+
+    "<div style='",
+    "font-weight:600;",
+    "margin-bottom:5px;",
+    "'>",
+    "SIR",
+    "</div>",
+
+    paste(
+      eintraege,
+      collapse = ""
+    ),
+
+    "</div>"
+  )
+}
+
+
+# -------------------------------------------------
+# Jeder Auswahl die passende Legende zuweisen
+# -------------------------------------------------
+
+legenden_gruppen_sir <- list()
+
+
+for (i in seq_len(
+  nrow(auswahl_sir_karte)
+)) {
+
+  gruppe_i <-
+    auswahl_sir_karte$gruppe[i]
+
+  diagnose_i <-
+    auswahl_sir_karte$diagnose[i]
+
+
+  legenden_gruppen_sir[[gruppe_i]] <-
+    legenden_html_sir[[diagnose_i]]
+}
+
+
+# -------------------------------------------------
+# Kartenausschnitt
+# -------------------------------------------------
+
+bb_sir <- st_bbox(
+  sir_gebiete_karte
+)
+
+
+# -------------------------------------------------
+# Grundkarte erzeugen
+# -------------------------------------------------
+
+m_sir <- leaflet() |>
+
+  addProviderTiles(
+    providers$OpenStreetMap.Mapnik
+  )
+
+
+# -------------------------------------------------
+# Alle gültigen Diagnose-/Geschlechtskombinationen
+# als Kartenlayer hinzufügen
+# -------------------------------------------------
+
+for (i in seq_len(
+  nrow(auswahl_sir_karte)
+)) {
+
+  diagnose_i <-
+    auswahl_sir_karte$diagnose[i]
+
+  gruppe_i <-
+    auswahl_sir_karte$gruppe[i]
+
+  daten_i <-
+    sir_karten_daten[[i]]
+
+  popup_i <-
+    popup_sir_liste[[i]]
+
+  pal_i <-
+    paletten_sir[[diagnose_i]]
+
+
+  m_sir <- m_sir |>
+
+    addPolygons(
+
+      data =
+        daten_i,
+
+      group =
+        gruppe_i,
+
+      fillColor =
+        ~pal_i(sir),
+
+      fillOpacity =
+        0.82,
+
+      color =
+        "white",
+
+      weight =
+        2,
+
+      opacity =
+        1,
+
+      popup =
+        popup_i,
+
+      label = ~paste0(
+        krebsgebiet,
+        ": SIR ",
+        sir_label
+      ),
+
+      highlightOptions =
+        highlightOptions(
+
+          weight = 3,
+
+          color = "#333333",
+
+          fillOpacity = 0.95,
+
+          bringToFront = TRUE
+        )
+    )
+}
+
+
+# -------------------------------------------------
+# Initiale Legende
+#
+# Start:
+# Krebs gesamt – Gesamt
+# -------------------------------------------------
+
+erste_gruppe_sir <-
+  auswahl_sir_karte$gruppe[1]
+
+
+m_sir <- m_sir |>
+
+  addControl(
+
+    html =
+      legenden_gruppen_sir[[erste_gruppe_sir]],
+
+    position =
+      "bottomright",
+
+    className =
+      "sir-diagnose-legende"
+  )
+
+
+# -------------------------------------------------
+# Layer-Auswahl
+#
+# 14 gültige Kombinationen
+# -------------------------------------------------
+
+m_sir <- m_sir |>
+
+  addLayersControl(
+
+    baseGroups =
+      auswahl_sir_karte$gruppe,
+
+    options =
+      layersControlOptions(
+        collapsed = TRUE
+      )
+  )
+
+
+# -------------------------------------------------
+# Beim Start nur die erste Auswahl anzeigen
+# -------------------------------------------------
+
+m_sir <- m_sir |>
+
+  hideGroup(
+    auswahl_sir_karte$gruppe[-1]
+  )
+
+
+# -------------------------------------------------
+# Karte auf die Grafschaft zentrieren
+# -------------------------------------------------
+
+m_sir <- m_sir |>
+
+  fitBounds(
+
+    lng1 =
+      unname(
+        bb_sir["xmin"]
+      ),
+
+    lat1 =
+      unname(
+        bb_sir["ymin"]
+      ),
+
+    lng2 =
+      unname(
+        bb_sir["xmax"]
+      ),
+
+    lat2 =
+      unname(
+        bb_sir["ymax"]
+      )
+  )
+
+
+# -------------------------------------------------
+# Dynamische Legende
+#
+# Beim Wechsel der Diagnose wird automatisch
+# die passende SIR-Skala angezeigt.
+# -------------------------------------------------
+
+legenden_json_sir <-
+  jsonlite::toJSON(
+    legenden_gruppen_sir,
+    auto_unbox = TRUE
+  )
+
+
+js_code_sir <- paste0(
+
+  "function(el, x) {",
+
+  "var map = this;",
+
+  "var legends = ",
+  legenden_json_sir,
+  ";",
+
+  "map.on('baselayerchange', function(e) {",
+
+  "var box = el.querySelector('.sir-diagnose-legende');",
+
+  "if (box && legends[e.name]) {",
+
+  "box.innerHTML = legends[e.name];",
+
+  "}",
+
+  "});",
+
+  "}"
+)
+
+
+htmlwidgets::onRender(
+  m_sir,
+  js_code_sir
+)
+```
+:::
+
+*Source: Epidemiological Cancer Registry of Lower Saxony, Small-area Cancer Atlas. Period 2013–2022. Administrative boundaries: LGLN Lower Saxony.*
+
+## Methodology and interpretation
+
+The small-area regions correspond to the regional observation units used in the **Small-area Cancer Atlas**. Seven observation units are reported for Grafschaft Bentheim: the towns of **Nordhorn** and **Bad Bentheim**, the municipality of **Wietmarschen**, and the joint municipalities of **Emlichheim**, **Neuenhaus**, **Schüttorf** and **Uelsen**. The data shown refer to the diagnosis years **2013–2022**.
+
+The **case count 2013–2022** shown in the ASR charts and maps is the absolute number of new cases registered over the entire ten-year period. It is not equivalent to the ASR. An arithmetic annual average can be obtained by dividing the case count by ten, but this remains an absolute count rather than an age-standardised rate.
+
+The **age-standardised incidence rate (ASR)** is calculated in the Cancer Atlas using direct age standardisation. Age-specific incidence rates are weighted according to the age distribution of a standard population; the **old European standard population (Doll & Cook, 1967)** is used. The measure reported is the average annual incidence over the selected period per **100,000 population**. This allows regions with different age structures to be compared more appropriately. The ASR cannot be derived directly from the absolute case count and population size.
+
+The **standardised incidence ratio (SIR)** is based on indirect standardisation. It compares the observed number of cases with the number that would be expected for the respective age structure based on age-specific incidence rates in Lower Saxony. An SIR of **1.00** corresponds to the Lower Saxony reference level; values below 1.00 indicate fewer observed cases than expected, and values above 1.00 indicate more.
+
+The **95% confidence interval** must also be taken into account when interpreting the SIR. An SIR above or below 1.00 alone does not mean that there is a statistically clear deviation. If the 95% confidence interval includes 1.00, the observed deviation is not statistically clear on this basis.
+
+Small-area indicators can be more strongly affected by random variation, particularly where population and case counts are small. The regional differences shown therefore do not allow direct conclusions about individual disease risk or about possible causes of regional differences. Further epidemiological analyses would be required for causal inference.
+
+*Source of indicators and methodological definitions: Epidemiological Cancer Registry of Lower Saxony, Small-area Cancer Atlas.*

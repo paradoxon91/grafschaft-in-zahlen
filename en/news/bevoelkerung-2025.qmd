@@ -1,0 +1,21 @@
+---
+title: "Population of Grafschaft Bentheim 2025"
+date: 2026-09-25
+description: "A first look at the latest population figures for the district and its municipalities."
+categories:
+  - Population
+---
+
+Grafschaft Bentheim had a total population of **144,674** in 2025.
+
+Compared with 2022, this corresponds to population growth of around **1.5%**.
+
+The differing trends at municipal level are particularly interesting. While some municipalities have grown in recent years, others have recorded slight population declines.
+
+A detailed interactive presentation is available in the [**Population**](../bevoelkerung.qmd) section.
+
+*Data source: Lower Saxony State Office for Statistics (LSN), table Z100300G.*
+
+---
+title: "Population 2025"
+---

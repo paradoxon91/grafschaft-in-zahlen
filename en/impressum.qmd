@@ -1,0 +1,20 @@
+---
+title: "Legal Notice"
+toc: false
+---
+
+## Provider information
+
+**Grafschaft in Zahlen**  
+An independent, private statistics project about Grafschaft Bentheim.
+
+**Responsible for the content**
+
+Christian Wittke  
+Email: christian.wittke(at)posteo.de
+
+## Information about the content
+
+The content of **Grafschaft in Zahlen** is prepared with the greatest possible care. The data presented comes predominantly from official and publicly accessible data sources.
+
+Despite careful review, no guarantee can be given regarding the completeness, timeliness or accuracy of the information presented.

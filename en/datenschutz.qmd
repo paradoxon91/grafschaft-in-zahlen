@@ -1,0 +1,34 @@
+---
+title: ""
+toc: false
+---
+
+# Privacy Policy
+
+## Controller
+
+The person named in the [Legal Notice](impressum.qmd) is responsible for this website.
+
+## Hosting
+
+This website is provided via **Firebase Hosting**, a service offered by Google.
+
+When you access the website, technically necessary connection data may be processed in order to deliver the website and to ensure its security and stability.
+
+The processing is based on Art. 6(1)(f) GDPR. The legitimate interest lies in the secure and reliable provision of this website.
+
+## Google Analytics
+
+This website uses **Google Analytics 4** to statistically evaluate the use of the website.
+
+Google Analytics is activated only if you explicitly consent to analytics via the cookie notice. Without your consent, Google Analytics is not activated through this website.
+
+Google states that individual IP addresses of users from the European Union are not logged or stored in Google Analytics. However, approximate geographical information may be derived from the IP address.
+
+The legal basis for the use of Google Analytics is your consent pursuant to Art. 6(1)(a) GDPR and, insofar as information is stored on or accessed from your device, Section 25(1) TDDDG.
+
+You can change or withdraw your consent at any time with effect for the future via the **Cookie settings**.
+
+## External Links
+
+This website contains links to external services, such as Instagram. You leave this website only when you click on such a link. The respective provider is responsible for the data processing carried out there.

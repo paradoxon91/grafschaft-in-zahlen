@@ -3,8 +3,21 @@ title: ""
 page-layout: full
 toc: false
 lang: en
----
 
+listing:
+  id: aktuelle-news
+  contents: news
+  sort: "date desc"
+  type: grid
+  max-items: 1
+  grid-columns: 1
+  fields:
+    - date
+    - title
+    - description
+  sort-ui: false
+  filter-ui: false
+---
 
 ::: {.hero-giz}
 
@@ -19,7 +32,6 @@ lang: en
 ## Facts and figures from Grafschaft Bentheim
 
 **Grafschaft in Zahlen** presents statistical data on the Grafschaft Bentheim district and its municipalities in a clear, transparent and accessible way.
-
 The focus is on long-term trends, regional differences and interactive visualisations.
 
 :::
@@ -394,9 +406,9 @@ p_bev_start <- htmlwidgets::onRender(
 
 
     /*
-      Kein Plotly.restyle beim Mouseover:
-      Dadurch kann Plotly den Tooltip ohne zusätzliches
-      Neuzeichnen sofort und stabil anzeigen.
+      No Plotly.restyle on hover:
+      This allows Plotly to display the tooltip immediately
+      and reliably without an additional redraw.
     */
 
     el.on(
@@ -507,7 +519,12 @@ p_bev_start
 
 ## Latest
 
-English news articles will be added gradually.
+Here you can find the latest post.
+
+::: {#aktuelle-news}
+:::
+
+[**View all posts →**](news.qmd)
 
 
 ## Explore the data
@@ -566,7 +583,7 @@ English news articles will be added gradually.
     </div>
 
     <div class="themen-text">
-      Livestock farming, agricultural structures and comparisons between municipalities.
+      Livestock farming, agricultural structures and interesting comparisons between the municipalities.
     </div>
 
   </a>
@@ -616,6 +633,5 @@ English news articles will be added gradually.
 
 ## [About the project](about.qmd)
 
-**Grafschaft in Zahlen** is an independent statistics project. The data used comes mainly from official and publicly accessible sources.
-
-The aim is to present figures on Grafschaft Bentheim in an accessible way and to make developments at district and municipal level visible.
+**Grafschaft in Zahlen** is an independent statistics project.
+Its aim is to present figures on Grafschaft Bentheim in an accessible way and to make developments at district and municipal level visible.

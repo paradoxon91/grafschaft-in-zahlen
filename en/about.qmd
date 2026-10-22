@@ -1,0 +1,12 @@
+---
+title: "About the Project"
+format:
+  html:
+    toc: false
+---
+
+## About Grafschaft in Zahlen
+
+**Grafschaft in Zahlen** is an independent statistics project about the Grafschaft Bentheim district and its municipalities. Its aim is to present predominantly official and publicly available data in a clear, transparent and accessible way, and to make long-term and regional developments visible.
+
+The project is a private, independent initiative and is not an official website of the Grafschaft Bentheim district.

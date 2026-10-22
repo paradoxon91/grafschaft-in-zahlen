@@ -1,0 +1,99 @@
+---
+title: "Demographic frontrunner nationwide: How future-ready is Grafschaft Bentheim?"
+description: "In the 2026 BI Index, Grafschaft Bentheim ranks among Germany's ten best-performing regions for demographics. By contrast, there is room for improvement in the economy, education and social conditions."
+date: 2026-10-22
+categories:
+  - Population
+  - Study
+format:
+  html:
+    toc: false
+---
+
+```{=html}
+<style>
+.article-demografie h2 {
+  color: #073B70;
+  margin-top: 2.2rem;
+}
+
+.article-demografie figure {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.article-demografie figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-demografie figcaption {
+  color: #666666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.article-demografie .studien-link {
+  margin-top: 1.6rem;
+  padding: 1rem 1.15rem;
+  border-left: 4px solid #073B70;
+  background: #f5f8fb;
+}
+
+.article-demografie .quelle-artikel {
+  margin-top: 1.8rem;
+  color: #5f5f5f;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+</style>
+```
+
+::::: article-demografie
+Grafschaft Bentheim is one of Germany's ten best-performing regions in terms of demographic development. In other areas, however, there is still room for improvement. This is one of the findings of the study **"Die demografische Lage der Nation"** ("The Demographic State of the Nation"), published in October 2026.
+
+The Berlin Institute for Population and Development and the Wüstenrot Foundation assessed the future readiness of all 400 German districts and independent cities using 26 indicators covering demographics, the economy, education and social conditions. Grafschaft Bentheim achieved an **overall score of 3.33, placing it 146th nationwide**, slightly better than the median of all regions examined (3.49).
+
+![The BI Index combines 26 indicators from the four areas of demographics, the economy, education and social conditions into an overall assessment.](../../images/news/demografische-lage-2026/bi-index-zusammensetzung.png){fig-alt="Composition of the 2026 BI Index from demographics, the economy, education and social conditions" width="88%"}
+
+## Demographics: Grafschaft Bentheim among the national leaders
+
+With a **score of 2.33 and a rank of 10**, Grafschaft Bentheim is one of Germany's best-performing regions in the field of demographics. The district shares this rank with twelve other districts. Its comparatively young population structure contributes substantially to this strong performance: 37.0% of the population is younger than 35, while only 10.2% is older than 74. The average number of children per woman is 1.56 and life expectancy is 81.58 years. The district also benefits from net migration gains. The population forecast is particularly positive: by 2045, the population is expected to grow by around 3%, while Lower Saxony as a whole is projected to lose around 2.5% of its population.
+
+![Grafschaft Bentheim in a nationwide comparison: overall assessment and the four thematic areas with selected individual indicators.](../../images/news/demografische-lage-2026/grafschaft-bundesvergleich.png){fig-alt="Infographic showing Grafschaft Bentheim in the nationwide comparison of the 2026 BI Index" width="100%"}
+
+## Economy: Weaknesses despite comparatively positive recent trends
+
+Grafschaft Bentheim performs considerably less well in the economy category than in demographics. With a **score of 3.87 and a rank of 289 out of 400**, the district is in the lower third of the nationwide comparison. Several individual indicators are around the middle of the distribution: disposable household income amounts to **€26,856 per inhabitant**, gross domestic product to **€78,713 per employed person**, and municipal debt to **€651 per inhabitant**.
+
+The **labour-market integration of foreign nationals** performs particularly poorly. Their employment rate in Grafschaft Bentheim reaches only around **41% of the overall employment rate**. In the BI Index rating system, this corresponds to the lowest score category. The employment rates of **women at around 67%** and of **50- to 64-year-olds at around 60%** also fall only into the middle range of the assessment, despite appearing comparatively high at first glance.
+
+By contrast, developments in recent years have been positive: the **economic trend score of 2.7** is considerably better than the district's current economic assessment. This suggests that several economic indicators have developed relatively positively in recent years, even though Grafschaft Bentheim still trails many other regions in terms of its current level.
+
+## Education: Good training opportunities, but deficits in school qualifications
+
+In the education category, Grafschaft Bentheim achieves a **score of 3.75 and a rank of 235**. Particularly notable is the 11% share of school leavers without a first school-leaving qualification. The share of employees with academic qualifications is also comparatively low at 9%. The transition into the labour market is more positive: youth unemployment stands at just 1.9%. With 107 company-based apprenticeship places available for every 100 applicants, Grafschaft Bentheim also has a relatively balanced supply of vocational training places. Overall, the picture is mixed, with strengths in vocational education and room for improvement in school qualifications.
+
+## Social conditions: Particularly strong need for improvement in childcare
+
+With a **score of 3.83 and a rank of 276**, the area of social conditions and family-friendliness is also among the more weakly rated categories. The low rate of full-day childcare is particularly striking: only around 3% of children under the age of three attend a childcare facility on a full-day basis. Among recipients of parental allowance, there are around 2.9 mothers for every father. The child poverty rate is around 9%, while the naturalisation rate is 2%. With 71 square metres of recreational area per inhabitant and 6.1 associations per 1,000 inhabitants, the district shows a mixed picture on other social conditions as well. Overall, there is a particularly clear need for improvement in early childhood care.
+
+![The main strengths and challenges of Grafschaft Bentheim in the four areas of the 2026 BI Index.](../../images/news/demografische-lage-2026/staerken-und-aufgaben.png){fig-alt="Summary of Grafschaft Bentheim's strengths and challenges in demographics, the economy, education and social conditions" width="96%"}
+
+## Conclusion: Demographic advantage, but not equally future-ready in all areas
+
+Grafschaft Bentheim has exceptionally favourable demographic conditions and, contrary to the general trend in Lower Saxony, is expected to continue growing in the coming years. However, this advantage is not yet reflected to the same extent in the district's economic, educational and social conditions. Childcare, school qualifications and labour-market integration in particular are important areas for action if the district's long-term future readiness is to be strengthened.
+
+::: studien-link
+**Full study and interactive online tool:**\
+[demografischelage.de](https://demografischelage.de/){target="_blank" rel="noopener noreferrer"}
+:::
+
+::: quelle-artikel
+**Source:** Berlin Institute for Population and Development and Wüstenrot Foundation (2026): *Die demografische Lage der Nation – Wie zukunftsfähig Deutschlands Regionen in Zeiten des Strukturwandels sind.* In particular pp. 65–67 and 99–105, as well as the supplementary regional indicators at [demografischelage.de](https://demografischelage.de/).
+:::
+:::::
