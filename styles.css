@@ -2033,4 +2033,23 @@ body .anchorjs-link:hover {
     height: 24px;
   }
 }
+/* Startseite – ausgewählte Abschnittsüberschriften in Navbar-Blau */
+main.content h2[data-anchor-id="aktuelles"],
+main.content h2[data-anchor-id="daten-entdecken"],
+main.content h2[data-anchor-id="grafschaft-in-zahlen-auf-instagram"] {
+  color: #073B70 !important;
+}
+/* Startseite – Titel des neuesten Beitrags */
+#listing-aktuelle-news .listing-title,
+#listing-aktuelle-news .listing-title a,
+#listing-aktuelle-news .card-title,
+#listing-aktuelle-news .card-title a {
+  color: #073B70 !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
 
+#listing-aktuelle-news .listing-title a:hover,
+#listing-aktuelle-news .card-title a:hover {
+  color: #052D56 !important;
+}

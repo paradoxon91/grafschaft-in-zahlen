@@ -518,7 +518,7 @@ p_bev_start
 
 ## Aktuelles
 
-Hier findest du die neueste Analyse aus **Grafschaft in Zahlen**.
+Hier findest du die neuesten Beitrag.
 
 ::: {#aktuelle-news}
 :::
@@ -630,8 +630,7 @@ Hier findest du die neueste Analyse aus **Grafschaft in Zahlen**.
 ```
 
 
-## Über das Projekt
+## [Über das Projekt](about.qmd)
 
-**Grafschaft in Zahlen** ist ein unabhängiges Statistikprojekt. Die verwendeten Daten stammen überwiegend aus amtlichen und öffentlich zugänglichen Datenquellen.
-
+**Grafschaft in Zahlen** ist ein unabhängiges Statistikprojekt.
 Ziel ist es, Zahlen zur Grafschaft Bentheim verständlich aufzubereiten und Entwicklungen auf Ebene des Landkreises und seiner Gemeinden sichtbar zu machen.

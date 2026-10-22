@@ -614,7 +614,7 @@ English news articles will be added gradually.
 ```
 
 
-## About the project
+## [About the project](about.qmd)
 
 **Grafschaft in Zahlen** is an independent statistics project. The data used comes mainly from official and publicly accessible sources.
 
