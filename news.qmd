@@ -4,7 +4,10 @@ format:
   html:
     toc: false
 listing:
-  contents: news
+  id: news-de
+  contents:
+    - "news/bevoelkerung-2025.qmd"
+    - "news/demografische-lage-2026.qmd"
   sort: "date desc"
   type: default
   fields:

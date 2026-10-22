@@ -5,8 +5,10 @@ toc: false
 lang: en
 
 listing:
-  id: aktuelle-news
-  contents: news
+  id: aktuelle-news-en
+  contents:
+    - "news/bevoelkerung-2025.qmd"
+    - "news/demografische-lage-2026.qmd"
   sort: "date desc"
   type: grid
   max-items: 1
@@ -521,7 +523,7 @@ p_bev_start
 
 Here you can find the latest post.
 
-::: {#aktuelle-news}
+::: {#aktuelle-news-en}
 :::
 
 [**View all posts →**](news.qmd)

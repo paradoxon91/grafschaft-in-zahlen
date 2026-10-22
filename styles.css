@@ -2101,3 +2101,28 @@ main.content h2[data-anchor-id="grafschaft-in-zahlen-auf-instagram"] {
 .gesundheit-map-wrap .leaflet-tooltip-right::before {
   border-right-color: #000000 !important;
 }
+
+
+/* =================================================
+   SPRACHTRENNUNG – EINDEUTIGE LISTING-IDs
+   ================================================= */
+
+#listing-aktuelle-news-de .listing-title,
+#listing-aktuelle-news-de .listing-title a,
+#listing-aktuelle-news-de .card-title,
+#listing-aktuelle-news-de .card-title a,
+#listing-aktuelle-news-en .listing-title,
+#listing-aktuelle-news-en .listing-title a,
+#listing-aktuelle-news-en .card-title,
+#listing-aktuelle-news-en .card-title a {
+  color: #073B70 !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+#listing-aktuelle-news-de .listing-title a:hover,
+#listing-aktuelle-news-de .card-title a:hover,
+#listing-aktuelle-news-en .listing-title a:hover,
+#listing-aktuelle-news-en .card-title a:hover {
+  color: #052D56 !important;
+}
