@@ -518,7 +518,7 @@ p_bev_start
 
 ## Aktuelles
 
-Hier findest du die neuesten Beitrag.
+Hier findest du den neusten Beitrag.
 
 ::: {#aktuelle-news}
 :::
