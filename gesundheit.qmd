@@ -60,8 +60,8 @@ krebs <- krebs |>
 
 farben <- c(
   "Gesamt" = "#2E6B3E",
-  "Frauen" = "#C2185B",
-  "Männer" = "#4F6F8F"
+  "Frauen" = "#D70A53",
+  "Männer" = "#073B70"
 )
 
 
@@ -369,6 +369,12 @@ p_asr <- p |>
     ),
 
     hoverlabel = list(
+      bgcolor = "#000000",
+      bordercolor = "#000000",
+      font = list(
+        color = "#FFFFFF",
+        size = 13
+      ),
       align = "left"
     ),
 
@@ -1303,8 +1309,8 @@ sir_daten <- sir_daten |>
 
 farben_sir <- c(
   "Gesamt" = "#2E6B3E",
-  "Frauen" = "#C2185B",
-  "Männer" = "#4F6F8F"
+  "Frauen" = "#D70A53",
+  "Männer" = "#073B70"
 )
 
 
@@ -1862,6 +1868,12 @@ p_sir_plot <- p_sir |>
     ),
 
     hoverlabel = list(
+      bgcolor = "#000000",
+      bordercolor = "#000000",
+      font = list(
+        color = "#FFFFFF",
+        size = 13
+      ),
       align = "left"
     ),
 

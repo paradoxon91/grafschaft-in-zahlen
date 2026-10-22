@@ -2053,3 +2053,51 @@ main.content h2[data-anchor-id="grafschaft-in-zahlen-auf-instagram"] {
 #listing-aktuelle-news .card-title a:hover {
   color: #052D56 !important;
 }
+
+/* =================================================
+   AKTUELLES – ARTIKELÜBERSCHRIFTEN
+   ================================================= */
+
+/* Exakt das Blau der Navigationsleiste */
+.quarto-listing .listing-title,
+.quarto-listing .listing-title a,
+.quarto-listing .card-title,
+.quarto-listing .card-title a {
+  color: #073B70 !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+.quarto-listing .listing-title a:hover,
+.quarto-listing .card-title a:hover {
+  color: #052D56 !important;
+}
+
+
+/* =================================================
+   GESUNDHEIT – EINHEITLICHE MOUSEOVER-DARSTELLUNG
+   ================================================= */
+
+/* Leaflet-Mouseover wie die Plotly-Tooltips der Bevölkerungsgrafik */
+.gesundheit-map-wrap .leaflet-tooltip {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+  border-color: #000000 !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.30) !important;
+}
+
+.gesundheit-map-wrap .leaflet-tooltip-top::before {
+  border-top-color: #000000 !important;
+}
+
+.gesundheit-map-wrap .leaflet-tooltip-bottom::before {
+  border-bottom-color: #000000 !important;
+}
+
+.gesundheit-map-wrap .leaflet-tooltip-left::before {
+  border-left-color: #000000 !important;
+}
+
+.gesundheit-map-wrap .leaflet-tooltip-right::before {
+  border-right-color: #000000 !important;
+}
